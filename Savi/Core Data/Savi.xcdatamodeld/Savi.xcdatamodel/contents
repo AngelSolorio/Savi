@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Company" representedClassName="Company" syncable="YES">
+        <attribute name="id_company" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="products" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Product" inverseName="company" inverseEntity="Product" syncable="YES"/>
+        <compoundIndexes>
+            <compoundIndex>
+                <index value="id_company"/>
+            </compoundIndex>
+        </compoundIndexes>
+    </entity>
+    <entity name="KeyDetail" representedClassName="KeyDetail" syncable="YES">
+        <attribute name="clave" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="laboratory" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="productDetail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductDetail" inverseName="keys" inverseEntity="ProductDetail" syncable="YES"/>
+        <compoundIndexes>
+            <compoundIndex>
+                <index value="productDetail"/>
+            </compoundIndex>
+        </compoundIndexes>
+    </entity>
+    <entity name="Product" representedClassName="Product" syncable="YES">
+        <attribute name="id_product" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="manufacture_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" inverseName="products" inverseEntity="Company" syncable="YES"/>
+        <relationship name="detail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductDetail" inverseName="product" inverseEntity="ProductDetail" syncable="YES"/>
+        <relationship name="stages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Stage" inverseName="product" inverseEntity="Stage" syncable="YES"/>
+        <compoundIndexes>
+            <compoundIndex>
+                <index value="id_product"/>
+            </compoundIndex>
+        </compoundIndexes>
+    </entity>
+    <entity name="ProductDetail" representedClassName="ProductDetail" syncable="YES">
+        <attribute name="acond_pri" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="acond_sec" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fab_farmaco1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fab_farmaco2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fab_medic" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="juridica" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="last_modified_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="medica" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quimica" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="keys" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="KeyDetail" inverseName="productDetail" inverseEntity="KeyDetail" syncable="YES"/>
+        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="detail" inverseEntity="Product" syncable="YES"/>
+        <compoundIndexes>
+            <compoundIndex>
+                <index value="product"/>
+            </compoundIndex>
+        </compoundIndexes>
+    </entity>
+    <entity name="Review" representedClassName="Review" syncable="YES">
+        <attribute name="cofepris" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date_third" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="report" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="retro_first" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="retro_last" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="third" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="stage" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Stage" inverseName="review" inverseEntity="Stage" syncable="YES"/>
+        <compoundIndexes>
+            <compoundIndex>
+                <index value="stage"/>
+            </compoundIndex>
+        </compoundIndexes>
+    </entity>
+    <entity name="Stage" representedClassName="Stage" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="stages" inverseEntity="Product" syncable="YES"/>
+        <relationship name="review" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Review" inverseName="stage" inverseEntity="Review" syncable="YES"/>
+        <relationship name="submission" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Submission" inverseName="stage" inverseEntity="Submission" syncable="YES"/>
+        <compoundIndexes>
+            <compoundIndex>
+                <index value="product"/>
+            </compoundIndex>
+        </compoundIndexes>
+    </entity>
+    <entity name="Submission" representedClassName="Submission" syncable="YES">
+        <attribute name="cofepris" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="prevention_date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="registration" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="stage" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Stage" inverseName="submission" inverseEntity="Stage" syncable="YES"/>
+        <compoundIndexes>
+            <compoundIndex>
+                <index value="stage"/>
+            </compoundIndex>
+        </compoundIndexes>
+    </entity>
+    <elements>
+        <element name="Company" positionX="-297" positionY="-9" width="128" height="88"/>
+        <element name="KeyDetail" positionX="324" positionY="-9" width="128" height="133"/>
+        <element name="Product" positionX="-81" positionY="-9" width="128" height="133"/>
+        <element name="ProductDetail" positionX="124" positionY="-9" width="128" height="238"/>
+        <element name="Review" positionX="-216" positionY="-406" width="128" height="163"/>
+        <element name="Stage" positionX="-65" positionY="-162" width="128" height="103"/>
+        <element name="Submission" positionX="117" positionY="-360" width="128" height="118"/>
+    </elements>
+</model>
