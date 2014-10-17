@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Grupo Sellcom. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "InitialViewController.h"
 
-@interface ViewController ()
+@interface InitialViewController ()
 
 @end
 
-@implementation ViewController
+@implementation InitialViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

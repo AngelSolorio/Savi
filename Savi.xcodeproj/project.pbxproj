@@ -10,7 +10,7 @@
 		4F812B9E19F0AC380090B044 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F812B9D19F0AC380090B044 /* main.m */; };
 		4F812BA119F0AC380090B044 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F812BA019F0AC380090B044 /* AppDelegate.m */; };
 		4F812BA419F0AC380090B044 /* Savi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4F812BA219F0AC380090B044 /* Savi.xcdatamodeld */; };
-		4F812BA719F0AC380090B044 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F812BA619F0AC380090B044 /* ViewController.m */; };
+		4F812BA719F0AC380090B044 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F812BA619F0AC380090B044 /* InitialViewController.m */; };
 		4F812BAA19F0AC380090B044 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F812BA819F0AC380090B044 /* Main.storyboard */; };
 		4F812BAC19F0AC380090B044 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F812BAB19F0AC380090B044 /* Images.xcassets */; };
 		4F812BAF19F0AC380090B044 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F812BAD19F0AC380090B044 /* LaunchScreen.xib */; };
@@ -34,8 +34,8 @@
 		4F812B9F19F0AC380090B044 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4F812BA019F0AC380090B044 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4F812BA319F0AC380090B044 /* Savi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Savi.xcdatamodel; sourceTree = "<group>"; };
-		4F812BA519F0AC380090B044 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4F812BA619F0AC380090B044 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4F812BA519F0AC380090B044 /* InitialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
+		4F812BA619F0AC380090B044 /* InitialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
 		4F812BA919F0AC380090B044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4F812BAB19F0AC380090B044 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4F812BAE19F0AC380090B044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -85,8 +85,8 @@
 			children = (
 				4F812B9F19F0AC380090B044 /* AppDelegate.h */,
 				4F812BA019F0AC380090B044 /* AppDelegate.m */,
-				4F812BA519F0AC380090B044 /* ViewController.h */,
-				4F812BA619F0AC380090B044 /* ViewController.m */,
+				4F812BA519F0AC380090B044 /* InitialViewController.h */,
+				4F812BA619F0AC380090B044 /* InitialViewController.m */,
 				4F812BA819F0AC380090B044 /* Main.storyboard */,
 				4F812BAB19F0AC380090B044 /* Images.xcassets */,
 				4F812BAD19F0AC380090B044 /* LaunchScreen.xib */,
@@ -171,6 +171,7 @@
 				TargetAttributes = {
 					4F812B9719F0AC380090B044 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = H98479863S;
 					};
 					4F812BB319F0AC380090B044 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -224,7 +225,7 @@
 			files = (
 				4F812BA119F0AC380090B044 /* AppDelegate.m in Sources */,
 				4F812B9E19F0AC380090B044 /* main.m in Sources */,
-				4F812BA719F0AC380090B044 /* ViewController.m in Sources */,
+				4F812BA719F0AC380090B044 /* InitialViewController.m in Sources */,
 				4F812BA419F0AC380090B044 /* Savi.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,9 +350,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Angel Solorio (ARHG92EH4A)";
 				INFOPLIST_FILE = Savi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "de9469b4-1c75-4133-989f-05595c002873";
 			};
 			name = Debug;
 		};
@@ -359,9 +362,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Angel Solorio (ARHG92EH4A)";
 				INFOPLIST_FILE = Savi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "de9469b4-1c75-4133-989f-05595c002873";
 			};
 			name = Release;
 		};
