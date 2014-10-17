@@ -51,13 +51,13 @@ PODS:
   - RNFrostedSidebar (0.2.0)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.4)
+  - AFNetworking
   - MRProgress
-  - RNFrostedSidebar (~> 0.2)
+  - RNFrostedSidebar
 
 SPEC CHECKSUMS:
   AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
   MRProgress: a5a9f58939ac3e7458dd9a5d0c423c748788b046
   RNFrostedSidebar: f1d95d9b2627f13cc10e75d36e751a623eec079c
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.34.2
