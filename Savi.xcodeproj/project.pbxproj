@@ -32,6 +32,9 @@
 		8D7997E119F1A23D00BCF731 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997D119F1A23D00BCF731 /* Review.m */; };
 		8D7997E219F1A23D00BCF731 /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997D319F1A23D00BCF731 /* Stage.m */; };
 		8D7997E319F1A23D00BCF731 /* Submission.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997D519F1A23D00BCF731 /* Submission.m */; };
+		8D7997E619F46D8C00BCF731 /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997E519F46D8C00BCF731 /* ProductViewController.m */; };
+		8D7997F019F4783E00BCF731 /* WebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997EF19F4783E00BCF731 /* WebService.m */; };
+		8D7997F319F47FAC00BCF731 /* CompanyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997F219F47FAC00BCF731 /* CompanyCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +94,12 @@
 		8D7997D319F1A23D00BCF731 /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stage.m; sourceTree = "<group>"; };
 		8D7997D419F1A23D00BCF731 /* Submission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Submission.h; sourceTree = "<group>"; };
 		8D7997D519F1A23D00BCF731 /* Submission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Submission.m; sourceTree = "<group>"; };
+		8D7997E419F46D8C00BCF731 /* ProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewController.h; sourceTree = "<group>"; };
+		8D7997E519F46D8C00BCF731 /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewController.m; sourceTree = "<group>"; };
+		8D7997EE19F4783E00BCF731 /* WebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebService.h; sourceTree = "<group>"; };
+		8D7997EF19F4783E00BCF731 /* WebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebService.m; sourceTree = "<group>"; };
+		8D7997F119F47FAC00BCF731 /* CompanyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyCell.h; sourceTree = "<group>"; };
+		8D7997F219F47FAC00BCF731 /* CompanyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyCell.m; sourceTree = "<group>"; };
 		A8F2FD43F31B10B27B3F880A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CF8D2195DD3B4677ADDEB829 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -147,14 +156,19 @@
 		4F812B9A19F0AC380090B044 /* Savi */ = {
 			isa = PBXGroup;
 			children = (
-				8D7997B019F197E000BCF731 /* Core Data */,
 				4F812B9F19F0AC380090B044 /* AppDelegate.h */,
 				4F812BA019F0AC380090B044 /* AppDelegate.m */,
 				4F812BA519F0AC380090B044 /* InitialViewController.h */,
 				4F812BA619F0AC380090B044 /* InitialViewController.m */,
+				8D7997E419F46D8C00BCF731 /* ProductViewController.h */,
+				8D7997E519F46D8C00BCF731 /* ProductViewController.m */,
+				8D7997F119F47FAC00BCF731 /* CompanyCell.h */,
+				8D7997F219F47FAC00BCF731 /* CompanyCell.m */,
 				4F812BA819F0AC380090B044 /* Main.storyboard */,
-				4F812BAB19F0AC380090B044 /* Images.xcassets */,
 				4F812BAD19F0AC380090B044 /* LaunchScreen.xib */,
+				4F812BAB19F0AC380090B044 /* Images.xcassets */,
+				8D7997ED19F4782B00BCF731 /* Backend */,
+				8D7997B019F197E000BCF731 /* Core Data */,
 				4F812B9B19F0AC380090B044 /* Supporting Files */,
 			);
 			path = Savi;
@@ -239,6 +253,15 @@
 				8D7997D519F1A23D00BCF731 /* Submission.m */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		8D7997ED19F4782B00BCF731 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				8D7997EE19F4783E00BCF731 /* WebService.h */,
+				8D7997EF19F4783E00BCF731 /* WebService.m */,
+			);
+			path = Backend;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,18 +402,21 @@
 			files = (
 				8D7997D919F1A23D00BCF731 /* _ProductDetail.m in Sources */,
 				8D7997B319F1981600BCF731 /* Savi.xcdatamodeld in Sources */,
+				8D7997E619F46D8C00BCF731 /* ProductViewController.m in Sources */,
 				8D7997B619F1984700BCF731 /* SaviDataModel.m in Sources */,
 				8D7997DC19F1A23D00BCF731 /* _Submission.m in Sources */,
 				4F812BA119F0AC380090B044 /* AppDelegate.m in Sources */,
 				8D7997D619F1A23D00BCF731 /* _Company.m in Sources */,
 				8D7997E219F1A23D00BCF731 /* Stage.m in Sources */,
 				8D7997DF19F1A23D00BCF731 /* Product.m in Sources */,
+				8D7997F319F47FAC00BCF731 /* CompanyCell.m in Sources */,
 				8D7997DB19F1A23D00BCF731 /* _Stage.m in Sources */,
 				8D7997E319F1A23D00BCF731 /* Submission.m in Sources */,
 				4F812B9E19F0AC380090B044 /* main.m in Sources */,
 				8D7997DE19F1A23D00BCF731 /* KeyDetail.m in Sources */,
 				8D7997D819F1A23D00BCF731 /* _Product.m in Sources */,
 				8D7997DA19F1A23D00BCF731 /* _Review.m in Sources */,
+				8D7997F019F4783E00BCF731 /* WebService.m in Sources */,
 				8D7997DD19F1A23D00BCF731 /* Company.m in Sources */,
 				8D7997E119F1A23D00BCF731 /* Review.m in Sources */,
 				8D7997D719F1A23D00BCF731 /* _KeyDetail.m in Sources */,
