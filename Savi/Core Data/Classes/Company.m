@@ -15,12 +15,10 @@
 + (void)getAllCompanies_completion:(void (^)(NSArray *companiesArray, NSError *error))completion {
     [[WebService sharedClient] getAllCompanies_completion:^(NSDictionary *results, NSError *error) {
         NSArray *companies;
-        if (!error) { // Invalid User Token
-            if (![[results objectForKey:@"companies"] isKindOfClass:[NSNull class]]) {
-                companies = [results objectForKey:@"companies"];
-            } else {
-                companies = [self getAllCompanies_usingManagedObjectContext:[[SaviDataModel sharedDataModel] mainContext]];
-            }
+        if (!error &&  [[results objectForKey:@"companies"] count] > 0) {
+            companies = [results objectForKey:@"companies"];
+        } else {
+            companies = [self getAllCompanies];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             completion(companies, error);
@@ -28,13 +26,13 @@
     }];
 }
 
-+ (NSArray *)getAllCompanies_usingManagedObjectContext:(NSManagedObjectContext *)moc {
++ (NSArray *)getAllCompanies {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[Company entityName]];
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"id_company" ascending:YES];
     fetchRequest.sortDescriptors = [[NSArray alloc] initWithObjects: descriptor, nil];
     
     NSError *error = nil;
-    NSArray *results = [moc executeFetchRequest:fetchRequest error:&error];
+    NSArray *results = [[[SaviDataModel sharedDataModel] mainContext] executeFetchRequest:fetchRequest error:&error];
     
     if (error) {
         NSLog(@"ERROR: %@ %@", [error localizedDescription], [error userInfo]);
@@ -48,13 +46,13 @@
     return results;
 }
 
-+ (Company *)companyWithId:(NSInteger)companyId usingManagedObjectContext:(NSManagedObjectContext *)moc {
++ (Company *)companyWithId:(NSInteger)companyId {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[Company entityName]];
     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"id_company = %d", companyId]];
     [fetchRequest setFetchLimit:1];
     
     NSError *error = nil;
-    NSArray *results = [moc executeFetchRequest:fetchRequest error:&error];
+    NSArray *results = [[[SaviDataModel sharedDataModel] mainContext] executeFetchRequest:fetchRequest error:&error];
     
     if (error) {
         NSLog(@"ERROR: %@ %@", [error localizedDescription], [error userInfo]);

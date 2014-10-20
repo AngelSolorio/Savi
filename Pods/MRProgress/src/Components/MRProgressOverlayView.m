@@ -298,12 +298,12 @@ static void *MRProgressOverlayViewObservationContext = &MRProgressOverlayViewObs
             [self addSubview:effectView];
             
             // Setup mask view
-            UIView *maskView = [UIView new];
+            /*UIView *maskView = [UIView new];
             maskView.backgroundColor = UIColor.whiteColor;
             maskView.layer.cornerRadius = cornerRadius;
             self.blurMaskView = maskView; // Memorize for layout changes
             
-            effectView.maskView = maskView;
+            effectView.maskView = maskView;*/
             
             return effectView;
         #endif

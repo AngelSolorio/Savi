@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="kI5-gJ-h8g">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -46,7 +45,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="SAVI" id="s6q-b1-aXM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="I5J-Vu-bVL"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="I5J-Vu-bVL">
+                            <connections>
+                                <action selector="syncing:" destination="BYZ-38-t0r" id="Uln-ia-m26"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -74,6 +77,9 @@
                                 <rect key="frame" x="295" y="101" width="729" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="iEE-rq-qRU" id="iGJ-Vx-MK3"/>
+                                </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMPRESA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SGd-Xa-aMc">
                                 <rect key="frame" x="0.0" y="61" width="295" height="51"/>
@@ -86,6 +92,9 @@
                                 <rect key="frame" x="-1" y="101" width="295" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="iEE-rq-qRU" id="5g4-Us-9gM"/>
+                                </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="40" sectionFooterHeight="1" id="spJ-Pk-zg6">
                                 <rect key="frame" x="294" y="181" width="730" height="587"/>
@@ -175,6 +184,8 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="searchBarCompany" destination="zJ6-iw-tHa" id="kgc-CQ-0EI"/>
+                        <outlet property="searchBarProduct" destination="igm-Fu-EuF" id="oWw-jk-AWq"/>
                         <outlet property="tableCompanies" destination="puI-Fm-w0a" id="Jxc-Et-Vd3"/>
                         <outlet property="tableProducts" destination="spJ-Pk-zg6" id="HBm-vV-Zuv"/>
                     </connections>

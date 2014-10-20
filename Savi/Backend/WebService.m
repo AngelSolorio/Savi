@@ -152,7 +152,7 @@
         
         for (NSDictionary *item in [response objectForKey:@"empresas"]) {
             NSInteger companyId = [[item objectForKey:@"id_empresa"] intValue];
-            Company *company = [Company companyWithId:companyId usingManagedObjectContext:context];
+            Company *company = [Company companyWithId:companyId];
             
             if (company == nil) {
                 company = [Company insertInManagedObjectContext:context];
@@ -190,11 +190,10 @@
         
         for (NSDictionary *item in [response objectForKey:@"productos"]) {
             Product *product = [Product getProductCompanyId:[[item objectForKey:@"id_empresa"] intValue]
-                                               andProductId:[[item objectForKey:@"id_producto"] intValue]
-                                  usingManagedObjectContext:context];
+                                               andProductId:[[item objectForKey:@"id_producto"] intValue]];
             if (product == nil) {
                 NSInteger companyId = [[item objectForKey:@"id_empresa"] intValue];
-                Company *company = [Company companyWithId:companyId usingManagedObjectContext:context];
+                Company *company = [Company companyWithId:companyId];
                 product = [Product insertInManagedObjectContext:context];
                 [product setCompany:company];
             }

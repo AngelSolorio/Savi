@@ -13,13 +13,12 @@
 + (void)getAllProducts_completion:(void (^)(NSArray *productsArray, NSError *error))completion {
     [[WebService sharedClient] getAllProducts_completion:^(NSDictionary *results, NSError *error) {
         NSArray *companies;
-        if (!error) { // Invalid User Token
-            if (![[results objectForKey:@"products"] isKindOfClass:[NSNull class]]) {
+        if (!error && [[results objectForKey:@"products"] count] > 0) {
                 companies = [results objectForKey:@"products"];
-            } else {
-                companies = [self getAllProducts_usingManagedObjectContext:[[SaviDataModel sharedDataModel] mainContext]];
-            }
+        } else {
+            companies = [self getAllProducts];
         }
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             completion(companies, error);
         });
@@ -34,7 +33,7 @@
             if (![[results objectForKey:@"products"] isKindOfClass:[NSNull class]]) {
                 products = [results objectForKey:@"products"];
             } else {
-                products = [self getAllProductsWithCompany:companyId usingManagedObjectContext:[[SaviDataModel sharedDataModel] mainContext]];
+                products = [self getAllProductsWithCompany:companyId];
             }
         }
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -44,14 +43,13 @@
 }
 
 + (Product *)getProductCompanyId:(NSInteger)companyId
-                    andProductId:(NSInteger)productId
-       usingManagedObjectContext:(NSManagedObjectContext *)moc {
+                    andProductId:(NSInteger)productId{
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[Product entityName]];
     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"company.id_company = %d AND id_product = %d", companyId, productId]];
     [fetchRequest setFetchLimit:1];
     
     NSError *error = nil;
-    NSArray *results = [moc executeFetchRequest:fetchRequest error:&error];
+    NSArray *results = [[[SaviDataModel sharedDataModel] mainContext] executeFetchRequest:fetchRequest error:&error];
     
     if (error) {
         NSLog(@"ERROR: %@ %@", [error localizedDescription], [error userInfo]);
@@ -65,15 +63,14 @@
     return [results firstObject];
 }
 
-+ (NSArray *)getAllProductsWithCompany:(NSInteger)companyId
-             usingManagedObjectContext:(NSManagedObjectContext *)moc {
++ (NSArray *)getAllProductsWithCompany:(NSInteger)companyId {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[Product entityName]];
     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"company.id_company = %d", companyId]];
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"id_product" ascending:YES];
     fetchRequest.sortDescriptors = [[NSArray alloc] initWithObjects: descriptor, nil];
     
     NSError *error = nil;
-    NSArray *results = [moc executeFetchRequest:fetchRequest error:&error];
+    NSArray *results = [[[SaviDataModel sharedDataModel] mainContext] executeFetchRequest:fetchRequest error:&error];
     
     if (error) {
         NSLog(@"ERROR: %@ %@", [error localizedDescription], [error userInfo]);
@@ -87,13 +84,13 @@
     return results;
 }
 
-+ (NSArray *)getAllProducts_usingManagedObjectContext:(NSManagedObjectContext *)moc {
++ (NSArray *)getAllProducts {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[Product entityName]];
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"id_product" ascending:YES];
     fetchRequest.sortDescriptors = [[NSArray alloc] initWithObjects: descriptor, nil];
     
     NSError *error = nil;
-    NSArray *results = [moc executeFetchRequest:fetchRequest error:&error];
+    NSArray *results = [[[SaviDataModel sharedDataModel] mainContext] executeFetchRequest:fetchRequest error:&error];
     
     if (error) {
         NSLog(@"ERROR: %@ %@", [error localizedDescription], [error userInfo]);

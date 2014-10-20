@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MRProgress/MRProgress.h>
 
-@interface InitialViewController : UIViewController
+@interface InitialViewController : UIViewController {
+     MRProgressOverlayView *progressView;
+}
 
+- (IBAction)syncing:(id)sender;
 
 @end
 

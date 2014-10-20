@@ -8,6 +8,9 @@
                       completion:(void (^)(NSArray *productsArray, NSError *error))completion;
 
 + (Product *)getProductCompanyId:(NSInteger)companyId
-                    andProductId:(NSInteger)productId
-       usingManagedObjectContext:(NSManagedObjectContext *)moc;
+                    andProductId:(NSInteger)productId;
+
++ (NSArray *)getAllProductsWithCompany:(NSInteger)companyId;
+
++ (NSArray *)getAllProducts;
 @end
