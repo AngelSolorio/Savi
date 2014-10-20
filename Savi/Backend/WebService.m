@@ -36,9 +36,11 @@
     return _sharedClient;
 }
 
+
 - (NSURLSessionDataTask *)getAllCompanies_completion:(void (^)(NSDictionary *results, NSError *error))completion {
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     [parameters setValue:@"get_empresas" forKey:@"request"];
+
     NSURLSessionDataTask *task = [self POST:kBASE_URL
                                  parameters:parameters
                                     success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -48,7 +50,7 @@
                                                 if ([[responseObject valueForKey:@"success"] boolValue]) {
                                                     completion([self parseCompany:responseObject], nil);
                                                 } else {
-                                                    NSError *error = [NSError errorWithDomain:@"Invalid User Token" code:99 userInfo:nil];
+                                                    NSError *error = [NSError errorWithDomain:@"Conexion error to the Server" code:1 userInfo:nil];
                                                     if ([[responseObject valueForKey:@"error"] isEqualToString:error.domain]) {
                                                         completion(responseObject, error);
                                                     } else {
@@ -69,46 +71,50 @@
                                     }];
     return task;
 }
+
+
+- (NSURLSessionDataTask *)getProductsByCompanyId:(NSInteger)companyId
+                                      completion:(void (^)(NSDictionary *results, NSError *error))completion {
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setValue:@"get_empresa_products" forKey:@"request"];
+    [parameters setValue:[NSNumber numberWithInteger:companyId] forKey:@"id_empresa"];
+
+    NSURLSessionDataTask *task = [self POST:kBASE_URL
+                                 parameters:parameters
+                                    success:^(NSURLSessionDataTask *task, id responseObject) {
+                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
+                                        if (httpResponse.statusCode == 200) {
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                if ([[responseObject valueForKey:@"success"] boolValue]) {
+                                                    completion([self parseProduct:responseObject], nil);
+                                                } else {
+                                                    NSError *error = [NSError errorWithDomain:@"Conexion error tot he Server" code:1 userInfo:nil];
+                                                    if ([[responseObject valueForKey:@"error"] isEqualToString:error.domain]) {
+                                                        completion(responseObject, error);
+                                                    } else {
+                                                        completion(responseObject, nil);
+                                                    }
+                                                }
+                                            });
+                                        } else {
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                NSLog(@"Received HTTP %ld", (long)httpResponse.statusCode);
+                                                completion(nil, nil);
+                                            });
+                                        }
+                                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                            completion(nil, error);
+                                        });
+                                    }];
+    return task;
+}
+
 
 - (NSURLSessionDataTask *)getAllProducts_completion:(void (^)(NSDictionary *results, NSError *error))completion {
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     [parameters setValue:@"get_products" forKey:@"request"];
-    NSURLSessionDataTask *task = [self POST:kBASE_URL
-                                 parameters:parameters
-                                    success:^(NSURLSessionDataTask *task, id responseObject) {
-                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
-                                        if (httpResponse.statusCode == 200) {
-                                            dispatch_async(dispatch_get_main_queue(), ^{
-                                                if ([[responseObject valueForKey:@"success"] boolValue]) {
-                                                    completion([self parseProduct:responseObject], nil);
-                                                } else {
-                                                    NSError *error = [NSError errorWithDomain:@"Invalid User Token" code:99 userInfo:nil];
-                                                    if ([[responseObject valueForKey:@"error"] isEqualToString:error.domain]) {
-                                                        completion(responseObject, error);
-                                                    } else {
-                                                        completion(responseObject, nil);
-                                                    }
-                                                }
-                                            });
-                                        } else {
-                                            dispatch_async(dispatch_get_main_queue(), ^{
-                                                NSLog(@"Received HTTP %ld", (long)httpResponse.statusCode);
-                                                completion(nil, nil);
-                                            });
-                                        }
-                                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                        dispatch_async(dispatch_get_main_queue(), ^{
-                                            completion(nil, error);
-                                        });
-                                    }];
-    return task;
-}
 
-- (NSURLSessionDataTask *)getProductsCompanyId:(NSInteger)companyId
-                                    completion:(void (^)(NSDictionary *results, NSError *error))completion {
-    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
-    [parameters setValue:@"get_empresa_products" forKey:@"request"];
-    [parameters setValue:[NSNumber numberWithInteger:companyId] forKey:@"id_empresa"];
     NSURLSessionDataTask *task = [self POST:kBASE_URL
                                  parameters:parameters
                                     success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -118,7 +124,7 @@
                                                 if ([[responseObject valueForKey:@"success"] boolValue]) {
                                                     completion([self parseProduct:responseObject], nil);
                                                 } else {
-                                                    NSError *error = [NSError errorWithDomain:@"Invalid User Token" code:99 userInfo:nil];
+                                                    NSError *error = [NSError errorWithDomain:@"Conexion error tot he Server" code:1 userInfo:nil];
                                                     if ([[responseObject valueForKey:@"error"] isEqualToString:error.domain]) {
                                                         completion(responseObject, error);
                                                     } else {
@@ -145,6 +151,7 @@
 
 - (NSDictionary *)parseCompany:(id)response {
     NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
+
     // Gets all the companies
     if (![[response objectForKey:@"empresas"] isKindOfClass:[NSNull class]]) {
         NSManagedObjectContext *context = [[SaviDataModel sharedDataModel] mainContext];
@@ -173,7 +180,6 @@
         [results setValue:@"true" forKey:@"success"];
         [results setValue:companiesArray forKey:@"companies"];
         [results setValue:errorFecth forKey:@"error"];
-        
     } else {
         [results setValue:@"false" forKey:@"success"];
     }
@@ -181,8 +187,10 @@
     return results;
 }
 
+
 - (NSDictionary *)parseProduct:(id)response {
     NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
+
     // Gets all the products
     if (![[response objectForKey:@"productos"] isKindOfClass:[NSNull class]]) {
         NSManagedObjectContext *context = [[SaviDataModel sharedDataModel] mainContext];
@@ -222,10 +230,10 @@
         [results setValue:@"true" forKey:@"success"];
         [results setValue:productsArray forKey:@"products"];
         [results setValue:errorFecth forKey:@"error"];
-        
     } else {
         [results setValue:@"false" forKey:@"success"];
     }
+
     return results;
 }
 

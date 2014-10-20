@@ -10,5 +10,4 @@
 
 - (void)updateAttributes:(NSDictionary *)attributes;
 
-
 @end

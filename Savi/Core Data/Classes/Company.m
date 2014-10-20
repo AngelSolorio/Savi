@@ -26,6 +26,7 @@
     }];
 }
 
+
 + (NSArray *)getAllCompanies {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[Company entityName]];
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"id_company" ascending:YES];
@@ -45,6 +46,7 @@
     
     return results;
 }
+
 
 + (Company *)companyWithId:(NSInteger)companyId {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[Company entityName]];
@@ -66,9 +68,11 @@
     return [results firstObject];
 }
 
+
 - (void)updateAttributes:(NSDictionary *)attributes {
     self.id_company = [NSNumber numberWithInteger:[[attributes objectForKey:@"id_empresa"] intValue]];
     self.name = [attributes objectForKey:@"empresa"];
 }
+
 
 @end

@@ -161,19 +161,12 @@
 			children = (
 				4F812B9F19F0AC380090B044 /* AppDelegate.h */,
 				4F812BA019F0AC380090B044 /* AppDelegate.m */,
-				4F812BA519F0AC380090B044 /* InitialViewController.h */,
-				4F812BA619F0AC380090B044 /* InitialViewController.m */,
-				8D7997E419F46D8C00BCF731 /* ProductViewController.h */,
-				8D7997E519F46D8C00BCF731 /* ProductViewController.m */,
-				8D7997F119F47FAC00BCF731 /* CompanyCell.h */,
-				8D7997F219F47FAC00BCF731 /* CompanyCell.m */,
-				8D7997F419F4A00A00BCF731 /* ProductCell.h */,
-				8D7997F519F4A00A00BCF731 /* ProductCell.m */,
+				8D7997ED19F4782B00BCF731 /* Backend */,
+				8D7997B019F197E000BCF731 /* Core Data */,
+				4FD48F4819F58F9000FDA657 /* View Controllers */,
 				4F812BA819F0AC380090B044 /* Main.storyboard */,
 				4F812BAD19F0AC380090B044 /* LaunchScreen.xib */,
 				4F812BAB19F0AC380090B044 /* Images.xcassets */,
-				8D7997ED19F4782B00BCF731 /* Backend */,
-				8D7997B019F197E000BCF731 /* Core Data */,
 				4F812B9B19F0AC380090B044 /* Supporting Files */,
 			);
 			path = Savi;
@@ -203,6 +196,21 @@
 				4F812BB919F0AC380090B044 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4FD48F4819F58F9000FDA657 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4F812BA519F0AC380090B044 /* InitialViewController.h */,
+				4F812BA619F0AC380090B044 /* InitialViewController.m */,
+				8D7997E419F46D8C00BCF731 /* ProductViewController.h */,
+				8D7997E519F46D8C00BCF731 /* ProductViewController.m */,
+				8D7997F119F47FAC00BCF731 /* CompanyCell.h */,
+				8D7997F219F47FAC00BCF731 /* CompanyCell.m */,
+				8D7997F419F4A00A00BCF731 /* ProductCell.h */,
+				8D7997F519F4A00A00BCF731 /* ProductCell.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		6BAE8120D64B12EC3EF8E246 /* Pods */ = {

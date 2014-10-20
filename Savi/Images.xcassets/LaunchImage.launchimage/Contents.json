@@ -5,6 +5,7 @@
       "idiom" : "ipad",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
+      "filename" : "Savi-LaunchScreen-1024x768.png",
       "scale" : "1x"
     },
     {
@@ -12,6 +13,7 @@
       "idiom" : "ipad",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
+      "filename" : "Savi-LaunchScreen-2048x1536.png",
       "scale" : "2x"
     }
   ],
