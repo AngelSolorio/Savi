@@ -12,5 +12,8 @@
 
 + (WebService *)sharedClient;
 - (NSURLSessionDataTask *)getAllCompanies_completion:(void (^)(NSDictionary *results, NSError *error))completion;
+- (NSURLSessionDataTask *)getProductsCompanyId:(NSInteger)companyId
+                                    completion:(void (^)(NSDictionary *results, NSError *error))completion;
+- (NSURLSessionDataTask *)getAllProducts_completion:(void (^)(NSDictionary *results, NSError *error))completion;
 
 @end

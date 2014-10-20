@@ -1,5 +1,5 @@
 //
-//  CompanyCell.h
+//  ProductCell.h
 //  Savi
 //
 //  Created by Sandra Guzman on 19/10/14.
@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CompanyCell : UITableViewCell
+@interface ProductCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *labelName;
+@property (weak, nonatomic) IBOutlet UILabel *labelDetails;
 
 @end

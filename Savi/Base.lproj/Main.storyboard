@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Initial View Controller-->
+        <!--SAVI-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="InitialViewController" sceneMemberID="viewController">
@@ -92,7 +92,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="60" id="D0G-KC-UQS">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="productCell" rowHeight="60" id="D0G-KC-UQS" customClass="ProductCell">
                                         <rect key="frame" x="0.0" y="0.0" width="730" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D0G-KC-UQS" id="dM3-uh-mmt">
@@ -114,8 +114,16 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelDetails" destination="VEA-2q-UYe" id="AH8-ym-wme"/>
+                                            <outlet property="labelName" destination="vIe-hb-Ht3" id="cbD-EA-1bD"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="iEE-rq-qRU" id="otu-5U-HS9"/>
+                                    <outlet property="delegate" destination="iEE-rq-qRU" id="gS2-hZ-MiT"/>
+                                </connections>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="tqK-W3-fRn">
                                 <rect key="frame" x="302" y="145" width="722" height="29"/>
@@ -168,6 +176,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="tableCompanies" destination="puI-Fm-w0a" id="Jxc-Et-Vd3"/>
+                        <outlet property="tableProducts" destination="spJ-Pk-zg6" id="HBm-vV-Zuv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nvo-fx-YVp" userLabel="First Responder" sceneMemberID="firstResponder"/>

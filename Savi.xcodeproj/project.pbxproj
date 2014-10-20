@@ -35,6 +35,7 @@
 		8D7997E619F46D8C00BCF731 /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997E519F46D8C00BCF731 /* ProductViewController.m */; };
 		8D7997F019F4783E00BCF731 /* WebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997EF19F4783E00BCF731 /* WebService.m */; };
 		8D7997F319F47FAC00BCF731 /* CompanyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997F219F47FAC00BCF731 /* CompanyCell.m */; };
+		8D7997F619F4A00A00BCF731 /* ProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997F519F4A00A00BCF731 /* ProductCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,8 @@
 		8D7997EF19F4783E00BCF731 /* WebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebService.m; sourceTree = "<group>"; };
 		8D7997F119F47FAC00BCF731 /* CompanyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyCell.h; sourceTree = "<group>"; };
 		8D7997F219F47FAC00BCF731 /* CompanyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyCell.m; sourceTree = "<group>"; };
+		8D7997F419F4A00A00BCF731 /* ProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCell.h; sourceTree = "<group>"; };
+		8D7997F519F4A00A00BCF731 /* ProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCell.m; sourceTree = "<group>"; };
 		A8F2FD43F31B10B27B3F880A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CF8D2195DD3B4677ADDEB829 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -164,6 +167,8 @@
 				8D7997E519F46D8C00BCF731 /* ProductViewController.m */,
 				8D7997F119F47FAC00BCF731 /* CompanyCell.h */,
 				8D7997F219F47FAC00BCF731 /* CompanyCell.m */,
+				8D7997F419F4A00A00BCF731 /* ProductCell.h */,
+				8D7997F519F4A00A00BCF731 /* ProductCell.m */,
 				4F812BA819F0AC380090B044 /* Main.storyboard */,
 				4F812BAD19F0AC380090B044 /* LaunchScreen.xib */,
 				4F812BAB19F0AC380090B044 /* Images.xcassets */,
@@ -405,6 +410,7 @@
 				8D7997E619F46D8C00BCF731 /* ProductViewController.m in Sources */,
 				8D7997B619F1984700BCF731 /* SaviDataModel.m in Sources */,
 				8D7997DC19F1A23D00BCF731 /* _Submission.m in Sources */,
+				8D7997F619F4A00A00BCF731 /* ProductCell.m in Sources */,
 				4F812BA119F0AC380090B044 /* AppDelegate.m in Sources */,
 				8D7997D619F1A23D00BCF731 /* _Company.m in Sources */,
 				8D7997E219F1A23D00BCF731 /* Stage.m in Sources */,

@@ -10,7 +10,9 @@
 
 @interface ProductViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     __weak IBOutlet UITableView *tableCompanies;
+    __weak IBOutlet UITableView *tableProducts;
     NSArray *companyData;
+    NSArray *productData;
 }
 
 @end
