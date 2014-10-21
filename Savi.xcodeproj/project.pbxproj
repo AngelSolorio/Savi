@@ -15,6 +15,7 @@
 		4F812BAC19F0AC380090B044 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F812BAB19F0AC380090B044 /* Images.xcassets */; };
 		4F812BAF19F0AC380090B044 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F812BAD19F0AC380090B044 /* LaunchScreen.xib */; };
 		4F812BBB19F0AC380090B044 /* SaviTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F812BBA19F0AC380090B044 /* SaviTests.m */; };
+		8D60407A19F6FD7500D1CC41 /* DTCustomColoredAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D60407919F6FD7500D1CC41 /* DTCustomColoredAccessory.m */; };
 		8D620D2E19F631AD000112CD /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D620D2D19F631AD000112CD /* MenuViewController.m */; };
 		8D620D3219F63348000112CD /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D620D3119F63348000112CD /* ReviewViewController.m */; };
 		8D620D3519F64198000112CD /* SubmissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D620D3419F64198000112CD /* SubmissionViewController.m */; };
@@ -67,6 +68,8 @@
 		4F812BB419F0AC380090B044 /* SaviTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaviTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F812BB919F0AC380090B044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F812BBA19F0AC380090B044 /* SaviTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SaviTests.m; sourceTree = "<group>"; };
+		8D60407819F6FD7500D1CC41 /* DTCustomColoredAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTCustomColoredAccessory.h; sourceTree = "<group>"; };
+		8D60407919F6FD7500D1CC41 /* DTCustomColoredAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCustomColoredAccessory.m; sourceTree = "<group>"; };
 		8D620D2C19F631AD000112CD /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		8D620D2D19F631AD000112CD /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		8D620D3019F63348000112CD /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
@@ -173,12 +176,13 @@
 			children = (
 				4F812B9F19F0AC380090B044 /* AppDelegate.h */,
 				4F812BA019F0AC380090B044 /* AppDelegate.m */,
-				8D7997ED19F4782B00BCF731 /* Backend */,
-				8D7997B019F197E000BCF731 /* Core Data */,
-				4FD48F4819F58F9000FDA657 /* View Controllers */,
 				4F812BA819F0AC380090B044 /* Main.storyboard */,
 				4F812BAD19F0AC380090B044 /* LaunchScreen.xib */,
 				4F812BAB19F0AC380090B044 /* Images.xcassets */,
+				8D60407619F6FD7500D1CC41 /* Vendor */,
+				8D7997ED19F4782B00BCF731 /* Backend */,
+				8D7997B019F197E000BCF731 /* Core Data */,
+				4FD48F4819F58F9000FDA657 /* View Controllers */,
 				4F812B9B19F0AC380090B044 /* Supporting Files */,
 			);
 			path = Savi;
@@ -234,6 +238,23 @@
 				3578BB49B361EEB43DBF2819 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8D60407619F6FD7500D1CC41 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				8D60407719F6FD7500D1CC41 /* DTCustomColoredAccessory */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		8D60407719F6FD7500D1CC41 /* DTCustomColoredAccessory */ = {
+			isa = PBXGroup;
+			children = (
+				8D60407819F6FD7500D1CC41 /* DTCustomColoredAccessory.h */,
+				8D60407919F6FD7500D1CC41 /* DTCustomColoredAccessory.m */,
+			);
+			path = DTCustomColoredAccessory;
 			sourceTree = "<group>";
 		};
 		8D620D2B19F63141000112CD /* Menu */ = {
@@ -465,6 +486,7 @@
 				8D7997E319F1A23D00BCF731 /* Submission.m in Sources */,
 				4F812B9E19F0AC380090B044 /* main.m in Sources */,
 				8D620D3519F64198000112CD /* SubmissionViewController.m in Sources */,
+				8D60407A19F6FD7500D1CC41 /* DTCustomColoredAccessory.m in Sources */,
 				8D7997DE19F1A23D00BCF731 /* KeyDetail.m in Sources */,
 				8D620D3219F63348000112CD /* ReviewViewController.m in Sources */,
 				8D7997D819F1A23D00BCF731 /* _Product.m in Sources */,

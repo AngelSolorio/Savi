@@ -24,6 +24,12 @@
     companyData = [[NSArray alloc] initWithArray:[Company getAllCompanies]];
     // Loads the all products
     productData = [[NSArray alloc] initWithArray:[Product getAllProducts]];
+    
+    // Sets the TableViewFooter
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 1.0, 1.0, 1.0)];
+    footerView.backgroundColor = [UIColor clearColor];
+    tableCompanies.tableFooterView = footerView;
+    tableProducts.tableFooterView = footerView;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -111,6 +117,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([tableView isEqual:tableCompanies]) {
         CompanyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"companyCell"];
+        cell.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2];
+        
         Company *company;
         
         if (searchingCompany) {
@@ -123,6 +131,8 @@
         return cell;
     } else {
         ProductCell *cell = [tableView dequeueReusableCellWithIdentifier:@"productCell"];
+        cell.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2];
+        
         Product *product;
         
         if (searchingProduct) {
