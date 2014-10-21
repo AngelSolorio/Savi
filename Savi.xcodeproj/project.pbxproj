@@ -165,13 +165,12 @@
 			children = (
 				4F812B9F19F0AC380090B044 /* AppDelegate.h */,
 				4F812BA019F0AC380090B044 /* AppDelegate.m */,
-				4FDC4D5519F700F7005717A4 /* Utilities */,
 				8D7997ED19F4782B00BCF731 /* Backend */,
 				8D7997B019F197E000BCF731 /* Core Data */,
 				4FD48F4819F58F9000FDA657 /* View Controllers */,
 				4F812BA819F0AC380090B044 /* Main.storyboard */,
-				4FDC4D5A19F71179005717A4 /* Launch Screen.xib */,
-				4FDC4D5D19F711DB005717A4 /* Images.xcassets */,
+				4F812BAD19F0AC380090B044 /* LaunchScreen.xib */,
+				4F812BAB19F0AC380090B044 /* Images.xcassets */,
 				4F812B9B19F0AC380090B044 /* Supporting Files */,
 			);
 			path = Savi;
@@ -208,12 +207,14 @@
 			children = (
 				4F812BA519F0AC380090B044 /* InitialViewController.h */,
 				4F812BA619F0AC380090B044 /* InitialViewController.m */,
-				8D7997E419F46D8C00BCF731 /* ProductViewController.h */,
-				8D7997E519F46D8C00BCF731 /* ProductViewController.m */,
-				8D7997F119F47FAC00BCF731 /* CompanyCell.h */,
-				8D7997F219F47FAC00BCF731 /* CompanyCell.m */,
-				8D7997F419F4A00A00BCF731 /* ProductCell.h */,
-				8D7997F519F4A00A00BCF731 /* ProductCell.m */,
+				8D620D3019F63348000112CD /* ReviewViewController.h */,
+				8D620D3119F63348000112CD /* ReviewViewController.m */,
+				8D620D3319F64198000112CD /* SubmissionViewController.h */,
+				8D620D3419F64198000112CD /* SubmissionViewController.m */,
+				8D620D3619F648B5000112CD /* DetailViewController.h */,
+				8D620D3719F648B5000112CD /* DetailViewController.m */,
+				8D620D2F19F63311000112CD /* Product */,
+				8D620D2B19F63141000112CD /* Menu */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -235,6 +236,45 @@
 				3578BB49B361EEB43DBF2819 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8D60407619F6FD7500D1CC41 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				8D60407719F6FD7500D1CC41 /* DTCustomColoredAccessory */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		8D60407719F6FD7500D1CC41 /* DTCustomColoredAccessory */ = {
+			isa = PBXGroup;
+			children = (
+				8D60407819F6FD7500D1CC41 /* DTCustomColoredAccessory.h */,
+				8D60407919F6FD7500D1CC41 /* DTCustomColoredAccessory.m */,
+			);
+			path = DTCustomColoredAccessory;
+			sourceTree = "<group>";
+		};
+		8D620D2B19F63141000112CD /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				8D620D2C19F631AD000112CD /* MenuViewController.h */,
+				8D620D2D19F631AD000112CD /* MenuViewController.m */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		8D620D2F19F63311000112CD /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				8D7997E419F46D8C00BCF731 /* ProductViewController.h */,
+				8D7997E519F46D8C00BCF731 /* ProductViewController.m */,
+				8D7997F419F4A00A00BCF731 /* ProductCell.h */,
+				8D7997F519F4A00A00BCF731 /* ProductCell.m */,
+				8D7997F119F47FAC00BCF731 /* CompanyCell.h */,
+				8D7997F219F47FAC00BCF731 /* CompanyCell.m */,
+			);
+			name = Product;
 			sourceTree = "<group>";
 		};
 		8D7997B019F197E000BCF731 /* Core Data */ = {
@@ -430,6 +470,7 @@
 			files = (
 				8D7997D919F1A23D00BCF731 /* _ProductDetail.m in Sources */,
 				8D7997B319F1981600BCF731 /* Savi.xcdatamodeld in Sources */,
+				8D620D3819F648B5000112CD /* DetailViewController.m in Sources */,
 				8D7997E619F46D8C00BCF731 /* ProductViewController.m in Sources */,
 				8D7997B619F1984700BCF731 /* SaviDataModel.m in Sources */,
 				8D7997DC19F1A23D00BCF731 /* _Submission.m in Sources */,
@@ -442,12 +483,16 @@
 				8D7997DB19F1A23D00BCF731 /* _Stage.m in Sources */,
 				8D7997E319F1A23D00BCF731 /* Submission.m in Sources */,
 				4F812B9E19F0AC380090B044 /* main.m in Sources */,
+				8D620D3519F64198000112CD /* SubmissionViewController.m in Sources */,
+				8D60407A19F6FD7500D1CC41 /* DTCustomColoredAccessory.m in Sources */,
 				8D7997DE19F1A23D00BCF731 /* KeyDetail.m in Sources */,
+				8D620D3219F63348000112CD /* ReviewViewController.m in Sources */,
 				8D7997D819F1A23D00BCF731 /* _Product.m in Sources */,
 				4FDC4D5919F7011F005717A4 /* Utility.m in Sources */,
 				8D7997DA19F1A23D00BCF731 /* _Review.m in Sources */,
 				8D7997F019F4783E00BCF731 /* WebService.m in Sources */,
 				8D7997DD19F1A23D00BCF731 /* Company.m in Sources */,
+				8D620D2E19F631AD000112CD /* MenuViewController.m in Sources */,
 				8D7997E119F1A23D00BCF731 /* Review.m in Sources */,
 				8D7997D719F1A23D00BCF731 /* _KeyDetail.m in Sources */,
 				8D7997E019F1A23D00BCF731 /* ProductDetail.m in Sources */,

@@ -92,7 +92,7 @@
 
 + (void)getProductsWithCompanyId:(NSInteger)companyId
                       completion:(void (^)(NSArray *productsArray, NSError *error))completion {
-    [[WebService sharedClient] getProductsByCompanyId:companyId completion:^(NSDictionary *results, NSError *error) {
+    [[WebService sharedClient]getProductsCompanyId:companyId completion:^(NSDictionary *results, NSError *error) {
         NSArray *products;
         if (!error) { // Invalid User Token
             if (![[results objectForKey:@"products"] isKindOfClass:[NSNull class]]) {
@@ -104,7 +104,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             completion(products, error);
         });
-    }];
+    }];*/
 }
 
 + (Product *)getProductCompanyId:(NSInteger)companyId
