@@ -8,49 +8,51 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>Pods-MRProgress.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Pods-RNFrostedSidebar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
+		</dict>
+		<key>Pods-TTTAttributedLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4B64304EB9D93D816E83EA0E</key>
+		<key>1F67D963ABC8F7B7AE532C82</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AE19B6B9A4A680F3E5DACDB0</key>
+		<key>204D7A1F663B26B6990ACEF0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B81C1E9ABA17AC6A01F3687A</key>
+		<key>5FA279FAABDC8DA6FCC08EC6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FD9DA2815EFCCC890FD0B6AE</key>
+		<key>B0F6F67DDCC05FAA84EA259E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF1B1527290FDC28013E8D85</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -49,15 +49,18 @@ PODS:
   - MRProgress/Stopable (0.8.0-alpha1):
     - MRProgress/Helper
   - RNFrostedSidebar (0.2.0)
+  - TTTAttributedLabel (1.10.1)
 
 DEPENDENCIES:
   - AFNetworking
   - MRProgress
   - RNFrostedSidebar
+  - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
   MRProgress: a5a9f58939ac3e7458dd9a5d0c423c748788b046
   RNFrostedSidebar: f1d95d9b2627f13cc10e75d36e751a623eec079c
+  TTTAttributedLabel: 94bb04f1e005616002dd2cee0262a0082e533627
 
-COCOAPODS: 0.34.2
+COCOAPODS: 0.34.4

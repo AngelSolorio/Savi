@@ -12,9 +12,10 @@
 		4F812BA119F0AC380090B044 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F812BA019F0AC380090B044 /* AppDelegate.m */; };
 		4F812BA719F0AC380090B044 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F812BA619F0AC380090B044 /* InitialViewController.m */; };
 		4F812BAA19F0AC380090B044 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F812BA819F0AC380090B044 /* Main.storyboard */; };
-		4F812BAC19F0AC380090B044 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F812BAB19F0AC380090B044 /* Images.xcassets */; };
-		4F812BAF19F0AC380090B044 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F812BAD19F0AC380090B044 /* LaunchScreen.xib */; };
 		4F812BBB19F0AC380090B044 /* SaviTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F812BBA19F0AC380090B044 /* SaviTests.m */; };
+		4FDC4D5919F7011F005717A4 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDC4D5819F7011F005717A4 /* Utility.m */; };
+		4FDC4D5C19F71179005717A4 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FDC4D5A19F71179005717A4 /* Launch Screen.xib */; };
+		4FDC4D5E19F711DB005717A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDC4D5D19F711DB005717A4 /* Images.xcassets */; };
 		8D7997B319F1981600BCF731 /* Savi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997B119F1981600BCF731 /* Savi.xcdatamodeld */; };
 		8D7997B619F1984700BCF731 /* SaviDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997B519F1984700BCF731 /* SaviDataModel.m */; };
 		8D7997B819F1987F00BCF731 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D7997B719F1987F00BCF731 /* CoreData.framework */; };
@@ -58,11 +59,14 @@
 		4F812BA519F0AC380090B044 /* InitialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
 		4F812BA619F0AC380090B044 /* InitialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
 		4F812BA919F0AC380090B044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4F812BAB19F0AC380090B044 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4F812BAE19F0AC380090B044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4F812BB419F0AC380090B044 /* SaviTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaviTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F812BB919F0AC380090B044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F812BBA19F0AC380090B044 /* SaviTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SaviTests.m; sourceTree = "<group>"; };
+		4FDC4D5619F7011F005717A4 /* TypeDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeDefs.h; sourceTree = "<group>"; };
+		4FDC4D5719F7011F005717A4 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		4FDC4D5819F7011F005717A4 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		4FDC4D5B19F71179005717A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/Launch Screen.xib"; sourceTree = "<group>"; };
+		4FDC4D5D19F711DB005717A4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8D7997B219F1981600BCF731 /* Savi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Savi.xcdatamodel; sourceTree = "<group>"; };
 		8D7997B419F1984700BCF731 /* SaviDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaviDataModel.h; sourceTree = "<group>"; };
 		8D7997B519F1984700BCF731 /* SaviDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaviDataModel.m; sourceTree = "<group>"; };
@@ -161,12 +165,13 @@
 			children = (
 				4F812B9F19F0AC380090B044 /* AppDelegate.h */,
 				4F812BA019F0AC380090B044 /* AppDelegate.m */,
+				4FDC4D5519F700F7005717A4 /* Utilities */,
 				8D7997ED19F4782B00BCF731 /* Backend */,
 				8D7997B019F197E000BCF731 /* Core Data */,
 				4FD48F4819F58F9000FDA657 /* View Controllers */,
 				4F812BA819F0AC380090B044 /* Main.storyboard */,
-				4F812BAD19F0AC380090B044 /* LaunchScreen.xib */,
-				4F812BAB19F0AC380090B044 /* Images.xcassets */,
+				4FDC4D5A19F71179005717A4 /* Launch Screen.xib */,
+				4FDC4D5D19F711DB005717A4 /* Images.xcassets */,
 				4F812B9B19F0AC380090B044 /* Supporting Files */,
 			);
 			path = Savi;
@@ -211,6 +216,16 @@
 				8D7997F519F4A00A00BCF731 /* ProductCell.m */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		4FDC4D5519F700F7005717A4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4FDC4D5619F7011F005717A4 /* TypeDefs.h */,
+				4FDC4D5719F7011F005717A4 /* Utility.h */,
+				4FDC4D5819F7011F005717A4 /* Utility.m */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		6BAE8120D64B12EC3EF8E246 /* Pods */ = {
@@ -360,9 +375,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FDC4D5E19F711DB005717A4 /* Images.xcassets in Resources */,
 				4F812BAA19F0AC380090B044 /* Main.storyboard in Resources */,
-				4F812BAF19F0AC380090B044 /* LaunchScreen.xib in Resources */,
-				4F812BAC19F0AC380090B044 /* Images.xcassets in Resources */,
+				4FDC4D5C19F71179005717A4 /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +444,7 @@
 				4F812B9E19F0AC380090B044 /* main.m in Sources */,
 				8D7997DE19F1A23D00BCF731 /* KeyDetail.m in Sources */,
 				8D7997D819F1A23D00BCF731 /* _Product.m in Sources */,
+				4FDC4D5919F7011F005717A4 /* Utility.m in Sources */,
 				8D7997DA19F1A23D00BCF731 /* _Review.m in Sources */,
 				8D7997F019F4783E00BCF731 /* WebService.m in Sources */,
 				8D7997DD19F1A23D00BCF731 /* Company.m in Sources */,
@@ -466,12 +482,12 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		4F812BAD19F0AC380090B044 /* LaunchScreen.xib */ = {
+		4FDC4D5A19F71179005717A4 /* Launch Screen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4F812BAE19F0AC380090B044 /* Base */,
+				4FDC4D5B19F71179005717A4 /* Base */,
 			);
-			name = LaunchScreen.xib;
+			name = "Launch Screen.xib";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -560,11 +576,14 @@
 			baseConfigurationReference = A8F2FD43F31B10B27B3F880A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Angel Solorio (ARHG92EH4A)";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Savi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "de9469b4-1c75-4133-989f-05595c002873";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -573,11 +592,14 @@
 			baseConfigurationReference = 3578BB49B361EEB43DBF2819 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Angel Solorio (ARHG92EH4A)";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Savi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "de9469b4-1c75-4133-989f-05595c002873";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

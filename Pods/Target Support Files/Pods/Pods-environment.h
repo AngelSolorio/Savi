@@ -114,3 +114,9 @@
 #define COCOAPODS_VERSION_MINOR_RNFrostedSidebar 2
 #define COCOAPODS_VERSION_PATCH_RNFrostedSidebar 0
 
+// TTTAttributedLabel
+#define COCOAPODS_POD_AVAILABLE_TTTAttributedLabel
+#define COCOAPODS_VERSION_MAJOR_TTTAttributedLabel 1
+#define COCOAPODS_VERSION_MINOR_TTTAttributedLabel 10
+#define COCOAPODS_VERSION_PATCH_TTTAttributedLabel 1
+
