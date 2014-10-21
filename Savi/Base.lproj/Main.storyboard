@@ -698,6 +698,11 @@ Terminado</string>
                                 </connections>
                             </button>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Revisión" style="done" id="FMU-mO-dHi">
+                            <connections>
+                                <segue destination="HLR-DI-Q5M" kind="push" id="jli-Ux-2aU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
@@ -1020,6 +1025,11 @@ Terminado</string>
                                     <action selector="showMenu" destination="HLR-DI-Q5M" eventType="touchUpInside" id="h8L-7Q-fYD"/>
                                 </connections>
                             </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Sometidos" style="done" id="B51-g6-4Qx">
+                            <connections>
+                                <segue destination="hRs-YM-5J4" kind="push" id="Mxy-4t-QBR"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
