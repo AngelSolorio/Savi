@@ -19,6 +19,7 @@
     
     // Loads the company options
     companyData = [[NSArray alloc] initWithArray:[Company getAllCompanies]];
+
     // Loads the all products
     productData = [[NSArray alloc] initWithArray:[Product getAllProducts]];
 }

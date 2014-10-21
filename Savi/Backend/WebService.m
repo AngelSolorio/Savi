@@ -73,6 +73,43 @@
 }
 
 
+- (NSURLSessionDataTask *)fetchAllProducts_completion:(void (^)(NSDictionary *results, NSError *error))completion {
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setValue:@"fetch_product_data" forKey:@"request"];
+
+    NSURLSessionDataTask *task = [self POST:kBASE_URL
+                                 parameters:parameters
+                                    success:^(NSURLSessionDataTask *task, id responseObject) {
+                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
+                                        if (httpResponse.statusCode == 200) {
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                if ([[responseObject valueForKey:@"success"] boolValue]) {
+                                                    completion([self parseProductData:responseObject], nil);
+                                                } else {
+                                                    NSError *error = [NSError errorWithDomain:@"Conexion error to the Server" code:1 userInfo:nil];
+                                                    if ([[responseObject valueForKey:@"error"] isEqualToString:error.domain]) {
+                                                        completion(responseObject, error);
+                                                    } else {
+                                                        completion(responseObject, nil);
+                                                    }
+                                                }
+                                            });
+                                        } else {
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                NSLog(@"Received HTTP %ld", (long)httpResponse.statusCode);
+                                                completion(nil, nil);
+                                            });
+                                        }
+                                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                            completion(nil, error);
+                                        });
+                                    }];
+
+    return task;
+}
+
+
 - (NSURLSessionDataTask *)getProductsByCompanyId:(NSInteger)companyId
                                       completion:(void (^)(NSDictionary *results, NSError *error))completion {
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
@@ -179,6 +216,45 @@
         
         [results setValue:@"true" forKey:@"success"];
         [results setValue:companiesArray forKey:@"companies"];
+        [results setValue:errorFecth forKey:@"error"];
+    } else {
+        [results setValue:@"false" forKey:@"success"];
+    }
+    
+    return results;
+}
+
+
+- (NSDictionary *)parseProductData:(id)response {
+    NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
+
+    // Gets all the companies
+    if (![[response objectForKey:@"productos"] isKindOfClass:[NSNull class]]) {
+        NSManagedObjectContext *context = [[SaviDataModel sharedDataModel] mainContext];
+        NSMutableArray *productsArray = [[NSMutableArray alloc] init];
+
+        for (NSDictionary *productDic in [response objectForKey:@"productos"]) {
+            NSInteger productId = [[productDic objectForKey:@"id_producto"] intValue];
+            Product *product = [Product productWithId:productId];
+
+            if (product == nil) {
+                product = [Product insertInManagedObjectContext:context];
+            }
+
+            [product updateAttributes:productDic];
+            [productsArray addObject:product];
+        }
+
+        NSError *errorFecth = nil;
+        if ([context save:&errorFecth]) {
+            NSLog(@"COMPANY: Core Data saved successfuly");
+        } else {
+            NSLog(@"ERROR: %@ %@", [errorFecth localizedDescription], [errorFecth userInfo]);
+            exit(1);
+        }
+
+        [results setValue:@"true" forKey:@"success"];
+        [results setValue:productsArray forKey:@"products"];
         [results setValue:errorFecth forKey:@"error"];
     } else {
         [results setValue:@"false" forKey:@"success"];

@@ -40,10 +40,10 @@
                                                         mode:MRProgressOverlayViewModeIndeterminate
                                                     animated:YES];
     // Loads the company options
-    [Company getAllCompanies_completion:^(NSArray *companiesArray, NSError *error){
+    [Company getAllCompanies_completion:^(NSArray *companiesArray, NSError *error) {
         if (!error) {
             // Loads the all products
-            [Product getAllProducts_completion:^(NSArray *productsArray, NSError *error){
+            [Product getAllProducts_completion:^(NSArray *productsArray, NSError *error) {
                 [self checkingSyncStatus:SUCCESS];
             }];
         } else {
