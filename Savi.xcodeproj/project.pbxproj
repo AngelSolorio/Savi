@@ -215,8 +215,6 @@
 			children = (
 				4F812BA519F0AC380090B044 /* InitialViewController.h */,
 				4F812BA619F0AC380090B044 /* InitialViewController.m */,
-				8D7997F119F47FAC00BCF731 /* CompanyCell.h */,
-				8D7997F219F47FAC00BCF731 /* CompanyCell.m */,
 				8D620D3019F63348000112CD /* ReviewViewController.h */,
 				8D620D3119F63348000112CD /* ReviewViewController.m */,
 				8D620D3319F64198000112CD /* SubmissionViewController.h */,
@@ -254,6 +252,8 @@
 				8D7997E519F46D8C00BCF731 /* ProductViewController.m */,
 				8D7997F419F4A00A00BCF731 /* ProductCell.h */,
 				8D7997F519F4A00A00BCF731 /* ProductCell.m */,
+				8D7997F119F47FAC00BCF731 /* CompanyCell.h */,
+				8D7997F219F47FAC00BCF731 /* CompanyCell.m */,
 			);
 			name = Product;
 			sourceTree = "<group>";

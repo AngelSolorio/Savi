@@ -11,6 +11,12 @@
 
 @interface SubmissionViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *labelSubmissionDate;
+@property (weak, nonatomic) IBOutlet UILabel *labelPreventionDate;
+@property (weak, nonatomic) IBOutlet UILabel *labelRegistrationDate;
+@property (weak, nonatomic) IBOutlet UILabel *labelDuration;
+@property (weak, nonatomic) IBOutlet UILabel *labelNumberPending;
+
 - (IBAction)showMenu;
 
 @end
