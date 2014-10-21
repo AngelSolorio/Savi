@@ -117,8 +117,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([tableView isEqual:tableCompanies]) {
         CompanyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"companyCell"];
-        cell.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2];
-        
         Company *company;
         
         if (searchingCompany) {
@@ -131,8 +129,6 @@
         return cell;
     } else {
         ProductCell *cell = [tableView dequeueReusableCellWithIdentifier:@"productCell"];
-        cell.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2];
-        
         Product *product;
         
         if (searchingProduct) {
@@ -146,6 +142,10 @@
         
         return cell;
     }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [cell setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.2]];
 }
 
 
