@@ -15,6 +15,10 @@
 		4F812BAC19F0AC380090B044 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F812BAB19F0AC380090B044 /* Images.xcassets */; };
 		4F812BAF19F0AC380090B044 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F812BAD19F0AC380090B044 /* LaunchScreen.xib */; };
 		4F812BBB19F0AC380090B044 /* SaviTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F812BBA19F0AC380090B044 /* SaviTests.m */; };
+		8D620D2E19F631AD000112CD /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D620D2D19F631AD000112CD /* MenuViewController.m */; };
+		8D620D3219F63348000112CD /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D620D3119F63348000112CD /* ReviewViewController.m */; };
+		8D620D3519F64198000112CD /* SubmissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D620D3419F64198000112CD /* SubmissionViewController.m */; };
+		8D620D3819F648B5000112CD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D620D3719F648B5000112CD /* DetailViewController.m */; };
 		8D7997B319F1981600BCF731 /* Savi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997B119F1981600BCF731 /* Savi.xcdatamodeld */; };
 		8D7997B619F1984700BCF731 /* SaviDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997B519F1984700BCF731 /* SaviDataModel.m */; };
 		8D7997B819F1987F00BCF731 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D7997B719F1987F00BCF731 /* CoreData.framework */; };
@@ -63,6 +67,14 @@
 		4F812BB419F0AC380090B044 /* SaviTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaviTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F812BB919F0AC380090B044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F812BBA19F0AC380090B044 /* SaviTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SaviTests.m; sourceTree = "<group>"; };
+		8D620D2C19F631AD000112CD /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		8D620D2D19F631AD000112CD /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		8D620D3019F63348000112CD /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
+		8D620D3119F63348000112CD /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
+		8D620D3319F64198000112CD /* SubmissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmissionViewController.h; sourceTree = "<group>"; };
+		8D620D3419F64198000112CD /* SubmissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmissionViewController.m; sourceTree = "<group>"; };
+		8D620D3619F648B5000112CD /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		8D620D3719F648B5000112CD /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		8D7997B219F1981600BCF731 /* Savi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Savi.xcdatamodel; sourceTree = "<group>"; };
 		8D7997B419F1984700BCF731 /* SaviDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaviDataModel.h; sourceTree = "<group>"; };
 		8D7997B519F1984700BCF731 /* SaviDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaviDataModel.m; sourceTree = "<group>"; };
@@ -203,12 +215,16 @@
 			children = (
 				4F812BA519F0AC380090B044 /* InitialViewController.h */,
 				4F812BA619F0AC380090B044 /* InitialViewController.m */,
-				8D7997E419F46D8C00BCF731 /* ProductViewController.h */,
-				8D7997E519F46D8C00BCF731 /* ProductViewController.m */,
 				8D7997F119F47FAC00BCF731 /* CompanyCell.h */,
 				8D7997F219F47FAC00BCF731 /* CompanyCell.m */,
-				8D7997F419F4A00A00BCF731 /* ProductCell.h */,
-				8D7997F519F4A00A00BCF731 /* ProductCell.m */,
+				8D620D3019F63348000112CD /* ReviewViewController.h */,
+				8D620D3119F63348000112CD /* ReviewViewController.m */,
+				8D620D3319F64198000112CD /* SubmissionViewController.h */,
+				8D620D3419F64198000112CD /* SubmissionViewController.m */,
+				8D620D3619F648B5000112CD /* DetailViewController.h */,
+				8D620D3719F648B5000112CD /* DetailViewController.m */,
+				8D620D2F19F63311000112CD /* Product */,
+				8D620D2B19F63141000112CD /* Menu */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -220,6 +236,26 @@
 				3578BB49B361EEB43DBF2819 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8D620D2B19F63141000112CD /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				8D620D2C19F631AD000112CD /* MenuViewController.h */,
+				8D620D2D19F631AD000112CD /* MenuViewController.m */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		8D620D2F19F63311000112CD /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				8D7997E419F46D8C00BCF731 /* ProductViewController.h */,
+				8D7997E519F46D8C00BCF731 /* ProductViewController.m */,
+				8D7997F419F4A00A00BCF731 /* ProductCell.h */,
+				8D7997F519F4A00A00BCF731 /* ProductCell.m */,
+			);
+			name = Product;
 			sourceTree = "<group>";
 		};
 		8D7997B019F197E000BCF731 /* Core Data */ = {
@@ -415,6 +451,7 @@
 			files = (
 				8D7997D919F1A23D00BCF731 /* _ProductDetail.m in Sources */,
 				8D7997B319F1981600BCF731 /* Savi.xcdatamodeld in Sources */,
+				8D620D3819F648B5000112CD /* DetailViewController.m in Sources */,
 				8D7997E619F46D8C00BCF731 /* ProductViewController.m in Sources */,
 				8D7997B619F1984700BCF731 /* SaviDataModel.m in Sources */,
 				8D7997DC19F1A23D00BCF731 /* _Submission.m in Sources */,
@@ -427,11 +464,14 @@
 				8D7997DB19F1A23D00BCF731 /* _Stage.m in Sources */,
 				8D7997E319F1A23D00BCF731 /* Submission.m in Sources */,
 				4F812B9E19F0AC380090B044 /* main.m in Sources */,
+				8D620D3519F64198000112CD /* SubmissionViewController.m in Sources */,
 				8D7997DE19F1A23D00BCF731 /* KeyDetail.m in Sources */,
+				8D620D3219F63348000112CD /* ReviewViewController.m in Sources */,
 				8D7997D819F1A23D00BCF731 /* _Product.m in Sources */,
 				8D7997DA19F1A23D00BCF731 /* _Review.m in Sources */,
 				8D7997F019F4783E00BCF731 /* WebService.m in Sources */,
 				8D7997DD19F1A23D00BCF731 /* Company.m in Sources */,
+				8D620D2E19F631AD000112CD /* MenuViewController.m in Sources */,
 				8D7997E119F1A23D00BCF731 /* Review.m in Sources */,
 				8D7997D719F1A23D00BCF731 /* _KeyDetail.m in Sources */,
 				8D7997E019F1A23D00BCF731 /* ProductDetail.m in Sources */,

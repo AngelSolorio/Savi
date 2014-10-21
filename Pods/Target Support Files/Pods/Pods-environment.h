@@ -108,6 +108,12 @@
 #define COCOAPODS_VERSION_MINOR_MRProgress_Stopable 8
 #define COCOAPODS_VERSION_PATCH_MRProgress_Stopable 0
 
+// REFrostedViewController
+#define COCOAPODS_POD_AVAILABLE_REFrostedViewController
+#define COCOAPODS_VERSION_MAJOR_REFrostedViewController 2
+#define COCOAPODS_VERSION_MINOR_REFrostedViewController 4
+#define COCOAPODS_VERSION_PATCH_REFrostedViewController 7
+
 // RNFrostedSidebar
 #define COCOAPODS_POD_AVAILABLE_RNFrostedSidebar
 #define COCOAPODS_VERSION_MAJOR_RNFrostedSidebar 0

@@ -7,6 +7,9 @@
 //
 
 #import "ProductViewController.h"
+#import "ReviewViewController.h"
+#import "SubmissionViewController.h"
+#import "DetailViewController.h"
 #import "Company.h"
 #import "CompanyCell.h"
 #import "Product.h"
@@ -21,6 +24,11 @@
     companyData = [[NSArray alloc] initWithArray:[Company getAllCompanies]];
     // Loads the all products
     productData = [[NSArray alloc] initWithArray:[Product getAllProducts]];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    segmentFilters.selectedSegmentIndex = self.index;
 }
 
 
@@ -40,7 +48,43 @@
         productData = [[NSArray alloc] initWithArray:[Product getAllProductsWithCompany:companyId]];
         [tableProducts reloadData];
     } else {
+        Product *product;
         
+        if (searchingProduct) {
+            product = [copyProductData objectAtIndex:indexPath.row];
+        } else {
+            product = [productData objectAtIndex:indexPath.row];
+        }
+        
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UINavigationController *navigationController;
+        switch (segmentFilters.selectedSegmentIndex) {
+            case 2: {
+                ReviewViewController *reviewVC = (ReviewViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"reviewView"];
+                reviewVC.title = product.name;
+                navigationController = [[UINavigationController alloc] initWithRootViewController:reviewVC];
+                break;
+            }
+            case 3: {
+                SubmissionViewController *submissionwVC = (SubmissionViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"submissionView"];
+                submissionwVC.title = product.name;
+                navigationController = [[UINavigationController alloc] initWithRootViewController:submissionwVC];
+                break;
+            }
+            default: {
+                DetailViewController *detailVC = (DetailViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"detailView"];
+                detailVC.title = product.name;
+                navigationController = [[UINavigationController alloc] initWithRootViewController:detailVC];
+                break;
+            }
+        }
+        
+        REFrostedViewController *root = [[REFrostedViewController alloc]
+                                         initWithContentViewController:navigationController
+                                         menuViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"menuController"]];
+        // Hides the Navigation Bar
+        [self.navigationController setNavigationBarHidden:YES];
+        [self.navigationController pushViewController:root animated:YES];
     }
 }
 
