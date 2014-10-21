@@ -25,7 +25,7 @@
         UINavigationController *nav = self.parentViewController.parentViewController.navigationController;
         ProductViewController *viewController = [nav.viewControllers objectAtIndex:1];
         [viewController setIndex:indexPath.row + 1];
-        [nav popViewControllerAnimated:NO];
+        [nav popViewControllerAnimated:YES];
     }
 }
 
