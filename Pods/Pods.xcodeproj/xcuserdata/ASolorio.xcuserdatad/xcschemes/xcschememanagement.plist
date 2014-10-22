@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-REFrostedViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-RNFrostedSidebar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1F67D963ABC8F7B7AE532C82</key>
+		<key>0905CB0AEDAA72EFC54B5F3F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>204D7A1F663B26B6990ACEF0</key>
+		<key>15C23020727513189864C138</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5FA279FAABDC8DA6FCC08EC6</key>
+		<key>515B37826E96A1CCB392DFFF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B0F6F67DDCC05FAA84EA259E</key>
+		<key>8EF26CDCBC1ECEF5E611A00A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EF1B1527290FDC28013E8D85</key>
+		<key>AC82468E1CC52D54510AE796</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E20E5E77CC191C9ACB5F7BFF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
