@@ -242,7 +242,7 @@
                         <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.29019607843137252" green="0.53333333333333333" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
-                            <tableViewSection headerTitle="ETAPA" id="X6R-0S-g3Q">
+                            <tableViewSection id="X6R-0S-g3Q">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="90" id="TOC-jg-e3b" customClass="CompanyCell">
                                         <autoresizingMask key="autoresizingMask"/>
