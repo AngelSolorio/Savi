@@ -239,6 +239,7 @@
 
             if (product == nil) {
                 product = [Product insertInManagedObjectContext:context];
+                product.id_product = [NSNumber numberWithInteger:productId];
             }
 
             [product updateAttributes:productDic];
@@ -247,7 +248,7 @@
 
         NSError *errorFecth = nil;
         if ([context save:&errorFecth]) {
-            NSLog(@"COMPANY: Core Data saved successfuly");
+            NSLog(@"PRODUCT: Core Data saved successfuly");
         } else {
             NSLog(@"ERROR: %@ %@", [errorFecth localizedDescription], [errorFecth userInfo]);
             exit(1);

@@ -1,5 +1,6 @@
 #import "Product.h"
 #import "ProductDetail.h"
+#import "KeyDetail.h"
 #import "WebService.h"
 #import "SaviDataModel.h"
 #import "TypeDefs.h"
@@ -71,8 +72,29 @@
     productDetail.medica = ([[attributes objectForKey:@"medica"] isKindOfClass:[NSNull class]]) ? nil : [attributes objectForKey:@"medica"];
     productDetail.quimica = ([[attributes objectForKey:@"quimica"] isKindOfClass:[NSNull class]]) ? nil : [attributes objectForKey:@"quimica"];
     productDetail.status = ([[attributes objectForKey:@"ult_status"] isKindOfClass:[NSNull class]]) ? nil : [attributes objectForKey:@"ult_status"];
+    productDetail.keys = [self fetchKeys:[attributes objectForKey:@"dclave"]];
 
     return productDetail;
+}
+
+- (NSSet *)fetchKeys:(NSDictionary *)attributes {
+    NSMutableSet *keysSet = [NSMutableSet new];
+    NSManagedObjectContext *context = [[SaviDataModel sharedDataModel] mainContext];
+    for (NSDictionary *keyDic in attributes) {
+        KeyDetail *key = [KeyDetail keyWithClave:[[keyDic objectForKey:@"clave"] integerValue]];
+        if (key == nil) {
+            key = [KeyDetail insertInManagedObjectContext:context];
+            key.clave = [NSNumber numberWithInt:[[keyDic objectForKey:@"clave"] intValue]];
+        }
+        key.detail = ([[keyDic objectForKey:@"descripcion"] isKindOfClass:[NSNull class]]) ? nil : [keyDic objectForKey:@"descripcion"];
+        key.laboratory = ([[keyDic objectForKey:@"laboratorios"] isKindOfClass:[NSNull class]]) ? nil : [keyDic objectForKey:@"laboratorios"];
+        //key.unity = [keyDic objectForKey:@"unidades"];
+        key.value = ([[keyDic objectForKey:@"valores"] isKindOfClass:[NSNull class]]) ? nil : [keyDic objectForKey:@"valores"];
+
+        [keysSet addObject:key];
+    }
+
+    return keysSet;
 }
 
 + (void)getAllProducts_completion:(void (^)(NSArray *productsArray, NSError *error))completion {
@@ -92,7 +114,7 @@
 
 + (void)getProductsWithCompanyId:(NSInteger)companyId
                       completion:(void (^)(NSArray *productsArray, NSError *error))completion {
-    [[WebService sharedClient]getProductsCompanyId:companyId completion:^(NSDictionary *results, NSError *error) {
+    [[WebService sharedClient] getProductsByCompanyId:companyId completion:^(NSDictionary *results, NSError *error) {
         NSArray *products;
         if (!error) { // Invalid User Token
             if (![[results objectForKey:@"products"] isKindOfClass:[NSNull class]]) {
@@ -104,7 +126,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             completion(products, error);
         });
-    }];*/
+    }];
 }
 
 + (Product *)getProductCompanyId:(NSInteger)companyId

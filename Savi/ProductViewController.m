@@ -140,7 +140,6 @@
         }
         
         cell.labelName.text = product.name;
-        NSLog(@"Product Details:%@", product.detail);
         NSString *stringDate = [Utility getStringFromDate:product.manufacture_date withFormat:TYPEDEFS_FULLDATEANDTIME];
         cell.labelDetails.text = [NSString stringWithFormat:@"Fecha estimada de presentación a tercero: %@", stringDate];
         
