@@ -4,20 +4,23 @@
 #import <CoreData/CoreData.h>
 
 extern const struct ProductAttributes {
-	 __unsafe_unretained NSString *id_product;
-	 __unsafe_unretained NSString *manufacture_date;
-	 __unsafe_unretained NSString *name;
+	__unsafe_unretained NSString *id_product;
+	__unsafe_unretained NSString *manufacture_date;
+	__unsafe_unretained NSString *name;
+	__unsafe_unretained NSString *stage;
 } ProductAttributes;
 
 extern const struct ProductRelationships {
-	 __unsafe_unretained NSString *company;
-	 __unsafe_unretained NSString *detail;
-	 __unsafe_unretained NSString *stages;
+	__unsafe_unretained NSString *company;
+	__unsafe_unretained NSString *detail;
+	__unsafe_unretained NSString *review;
+	__unsafe_unretained NSString *submission;
 } ProductRelationships;
 
 @class Company;
 @class ProductDetail;
-@class Stage;
+@class Review;
+@class Submission;
 
 @interface ProductID : NSManagedObjectID {}
 @end
@@ -28,7 +31,7 @@ extern const struct ProductRelationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) ProductID* objectID;
 
-@property (nonatomic, retain) NSNumber* id_product;
+@property (nonatomic, strong) NSNumber* id_product;
 
 @property (atomic) int16_t id_productValue;
 - (int16_t)id_productValue;
@@ -36,33 +39,33 @@ extern const struct ProductRelationships {
 
 //- (BOOL)validateId_product:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, retain) NSDate* manufacture_date;
+@property (nonatomic, strong) NSDate* manufacture_date;
 
 //- (BOOL)validateManufacture_date:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, retain) NSString* name;
+@property (nonatomic, strong) NSString* name;
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, retain) Company *company;
+@property (nonatomic, strong) NSString* stage;
+
+//- (BOOL)validateStage:(id*)value_ error:(NSError**)error_;
+
+@property (nonatomic, strong) Company *company;
 
 //- (BOOL)validateCompany:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, retain) ProductDetail *detail;
+@property (nonatomic, strong) ProductDetail *detail;
 
 //- (BOOL)validateDetail:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, retain) NSSet *stages;
+@property (nonatomic, strong) Review *review;
 
-- (NSMutableSet*)stagesSet;
+//- (BOOL)validateReview:(id*)value_ error:(NSError**)error_;
 
-@end
+@property (nonatomic, strong) Submission *submission;
 
-@interface _Product (StagesCoreDataGeneratedAccessors)
-- (void)addStages:(NSSet*)value_;
-- (void)removeStages:(NSSet*)value_;
-- (void)addStagesObject:(Stage*)value_;
-- (void)removeStagesObject:(Stage*)value_;
+//- (BOOL)validateSubmission:(id*)value_ error:(NSError**)error_;
 
 @end
 
@@ -80,13 +83,19 @@ extern const struct ProductRelationships {
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
 
+- (NSString*)primitiveStage;
+- (void)setPrimitiveStage:(NSString*)value;
+
 - (Company*)primitiveCompany;
 - (void)setPrimitiveCompany:(Company*)value;
 
 - (ProductDetail*)primitiveDetail;
 - (void)setPrimitiveDetail:(ProductDetail*)value;
 
-- (NSMutableSet*)primitiveStages;
-- (void)setPrimitiveStages:(NSMutableSet*)value;
+- (Review*)primitiveReview;
+- (void)setPrimitiveReview:(Review*)value;
+
+- (Submission*)primitiveSubmission;
+- (void)setPrimitiveSubmission:(Submission*)value;
 
 @end

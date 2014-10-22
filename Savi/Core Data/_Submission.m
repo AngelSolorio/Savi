@@ -11,7 +11,7 @@ const struct SubmissionAttributes SubmissionAttributes = {
 };
 
 const struct SubmissionRelationships SubmissionRelationships = {
-	.stage = @"stage",
+	.product = @"product",
 };
 
 @implementation SubmissionID
@@ -51,7 +51,7 @@ const struct SubmissionRelationships SubmissionRelationships = {
 
 @dynamic registration;
 
-@dynamic stage;
+@dynamic product;
 
 @end
 

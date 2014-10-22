@@ -4,20 +4,20 @@
 #import <CoreData/CoreData.h>
 
 extern const struct ReviewAttributes {
-	 __unsafe_unretained NSString *cofepris;
-	 __unsafe_unretained NSString *date_third;
-	 __unsafe_unretained NSString *duration;
-	 __unsafe_unretained NSString *report;
-	 __unsafe_unretained NSString *retro_first;
-	 __unsafe_unretained NSString *retro_last;
-	 __unsafe_unretained NSString *third;
+	__unsafe_unretained NSString *cofepris;
+	__unsafe_unretained NSString *date_third;
+	__unsafe_unretained NSString *duration;
+	__unsafe_unretained NSString *report;
+	__unsafe_unretained NSString *retro_first;
+	__unsafe_unretained NSString *retro_last;
+	__unsafe_unretained NSString *third;
 } ReviewAttributes;
 
 extern const struct ReviewRelationships {
-	 __unsafe_unretained NSString *stage;
+	__unsafe_unretained NSString *product;
 } ReviewRelationships;
 
-@class Stage;
+@class Product;
 
 @interface ReviewID : NSManagedObjectID {}
 @end
@@ -28,37 +28,37 @@ extern const struct ReviewRelationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) ReviewID* objectID;
 
-@property (nonatomic, retain) NSString* cofepris;
+@property (nonatomic, strong) NSString* cofepris;
 
 //- (BOOL)validateCofepris:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, retain) NSDate* date_third;
+@property (nonatomic, strong) NSDate* date_third;
 
 //- (BOOL)validateDate_third:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, retain) NSString* duration;
+@property (nonatomic, strong) NSString* duration;
 
 //- (BOOL)validateDuration:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, retain) NSString* report;
+@property (nonatomic, strong) NSString* report;
 
 //- (BOOL)validateReport:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, retain) NSDate* retro_first;
+@property (nonatomic, strong) NSDate* retro_first;
 
 //- (BOOL)validateRetro_first:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, retain) NSDate* retro_last;
+@property (nonatomic, strong) NSDate* retro_last;
 
 //- (BOOL)validateRetro_last:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, retain) NSString* third;
+@property (nonatomic, strong) NSString* third;
 
 //- (BOOL)validateThird:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, retain) Stage *stage;
+@property (nonatomic, strong) Product *product;
 
-//- (BOOL)validateStage:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateProduct:(id*)value_ error:(NSError**)error_;
 
 @end
 
@@ -85,7 +85,7 @@ extern const struct ReviewRelationships {
 - (NSString*)primitiveThird;
 - (void)setPrimitiveThird:(NSString*)value;
 
-- (Stage*)primitiveStage;
-- (void)setPrimitiveStage:(Stage*)value;
+- (Product*)primitiveProduct;
+- (void)setPrimitiveProduct:(Product*)value;
 
 @end

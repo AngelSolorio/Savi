@@ -4,15 +4,15 @@
 #import <CoreData/CoreData.h>
 
 extern const struct KeyDetailAttributes {
-	 __unsafe_unretained NSString *clave;
-	 __unsafe_unretained NSString *detail;
-	 __unsafe_unretained NSString *laboratory;
-	 __unsafe_unretained NSString *unity;
-	 __unsafe_unretained NSString *value;
+	__unsafe_unretained NSString *clave;
+	__unsafe_unretained NSString *detail;
+	__unsafe_unretained NSString *laboratory;
+	__unsafe_unretained NSString *unity;
+	__unsafe_unretained NSString *value;
 } KeyDetailAttributes;
 
 extern const struct KeyDetailRelationships {
-	 __unsafe_unretained NSString *productDetail;
+	__unsafe_unretained NSString *productDetail;
 } KeyDetailRelationships;
 
 @class ProductDetail;
@@ -26,7 +26,7 @@ extern const struct KeyDetailRelationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) KeyDetailID* objectID;
 
-@property (nonatomic, retain) NSNumber* clave;
+@property (nonatomic, strong) NSNumber* clave;
 
 @property (atomic) int16_t claveValue;
 - (int16_t)claveValue;
@@ -34,15 +34,15 @@ extern const struct KeyDetailRelationships {
 
 //- (BOOL)validateClave:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, retain) NSString* detail;
+@property (nonatomic, strong) NSString* detail;
 
 //- (BOOL)validateDetail:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, retain) NSString* laboratory;
+@property (nonatomic, strong) NSString* laboratory;
 
 //- (BOOL)validateLaboratory:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, retain) NSNumber* unity;
+@property (nonatomic, strong) NSNumber* unity;
 
 @property (atomic) int16_t unityValue;
 - (int16_t)unityValue;
@@ -50,11 +50,11 @@ extern const struct KeyDetailRelationships {
 
 //- (BOOL)validateUnity:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, retain) NSString* value;
+@property (nonatomic, strong) NSString* value;
 
 //- (BOOL)validateValue:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, retain) ProductDetail *productDetail;
+@property (nonatomic, strong) ProductDetail *productDetail;
 
 //- (BOOL)validateProductDetail:(id*)value_ error:(NSError**)error_;
 

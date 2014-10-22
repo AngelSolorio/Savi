@@ -7,12 +7,14 @@ const struct ProductAttributes ProductAttributes = {
 	.id_product = @"id_product",
 	.manufacture_date = @"manufacture_date",
 	.name = @"name",
+	.stage = @"stage",
 };
 
 const struct ProductRelationships ProductRelationships = {
 	.company = @"company",
 	.detail = @"detail",
-	.stages = @"stages",
+	.review = @"review",
+	.submission = @"submission",
 };
 
 @implementation ProductID
@@ -74,20 +76,15 @@ const struct ProductRelationships ProductRelationships = {
 
 @dynamic name;
 
+@dynamic stage;
+
 @dynamic company;
 
 @dynamic detail;
 
-@dynamic stages;
+@dynamic review;
 
-- (NSMutableSet*)stagesSet {
-	[self willAccessValueForKey:@"stages"];
-
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"stages"];
-
-	[self didAccessValueForKey:@"stages"];
-	return result;
-}
+@dynamic submission;
 
 @end
 

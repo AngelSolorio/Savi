@@ -14,7 +14,7 @@ const struct ReviewAttributes ReviewAttributes = {
 };
 
 const struct ReviewRelationships ReviewRelationships = {
-	.stage = @"stage",
+	.product = @"product",
 };
 
 @implementation ReviewID
@@ -60,7 +60,7 @@ const struct ReviewRelationships ReviewRelationships = {
 
 @dynamic third;
 
-@dynamic stage;
+@dynamic product;
 
 @end
 

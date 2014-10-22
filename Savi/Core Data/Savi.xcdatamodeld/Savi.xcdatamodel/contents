@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="14A388a" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Company" representedClassName="Company" syncable="YES">
         <attribute name="id_company" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -7,6 +7,9 @@
         <compoundIndexes>
             <compoundIndex>
                 <index value="id_company"/>
+            </compoundIndex>
+            <compoundIndex>
+                <index value="products"/>
             </compoundIndex>
         </compoundIndexes>
     </entity>
@@ -27,9 +30,11 @@
         <attribute name="id_product" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="manufacture_date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stage" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" inverseName="products" inverseEntity="Company" syncable="YES"/>
         <relationship name="detail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProductDetail" inverseName="product" inverseEntity="ProductDetail" syncable="YES"/>
-        <relationship name="stages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Stage" inverseName="product" inverseEntity="Stage" syncable="YES"/>
+        <relationship name="review" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Review" inverseName="product" inverseEntity="Review" syncable="YES"/>
+        <relationship name="submission" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Submission" inverseName="product" inverseEntity="Submission" syncable="YES"/>
         <compoundIndexes>
             <compoundIndex>
                 <index value="id_product"/>
@@ -54,6 +59,9 @@
             <compoundIndex>
                 <index value="product"/>
             </compoundIndex>
+            <compoundIndex>
+                <index value="keys"/>
+            </compoundIndex>
         </compoundIndexes>
     </entity>
     <entity name="Review" representedClassName="Review" syncable="YES">
@@ -64,18 +72,7 @@
         <attribute name="retro_first" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="retro_last" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="third" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="stage" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Stage" inverseName="review" inverseEntity="Stage" syncable="YES"/>
-        <compoundIndexes>
-            <compoundIndex>
-                <index value="stage"/>
-            </compoundIndex>
-        </compoundIndexes>
-    </entity>
-    <entity name="Stage" representedClassName="Stage" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="stages" inverseEntity="Product" syncable="YES"/>
-        <relationship name="review" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Review" inverseName="stage" inverseEntity="Review" syncable="YES"/>
-        <relationship name="submission" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Submission" inverseName="stage" inverseEntity="Submission" syncable="YES"/>
+        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="review" inverseEntity="Product" syncable="YES"/>
         <compoundIndexes>
             <compoundIndex>
                 <index value="product"/>
@@ -87,20 +84,19 @@
         <attribute name="duration" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="prevention_date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="registration" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="stage" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Stage" inverseName="submission" inverseEntity="Stage" syncable="YES"/>
+        <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="submission" inverseEntity="Product" syncable="YES"/>
         <compoundIndexes>
             <compoundIndex>
-                <index value="stage"/>
+                <index value="product"/>
             </compoundIndex>
         </compoundIndexes>
     </entity>
     <elements>
-        <element name="Company" positionX="-297" positionY="-9" width="128" height="88"/>
-        <element name="KeyDetail" positionX="324" positionY="-9" width="128" height="133"/>
-        <element name="Product" positionX="-81" positionY="-9" width="128" height="133"/>
-        <element name="ProductDetail" positionX="124" positionY="-9" width="128" height="238"/>
-        <element name="Review" positionX="-216" positionY="-406" width="128" height="163"/>
-        <element name="Stage" positionX="-65" positionY="-162" width="128" height="103"/>
-        <element name="Submission" positionX="117" positionY="-360" width="128" height="118"/>
+        <element name="Company" positionX="-297" positionY="18" width="128" height="88"/>
+        <element name="KeyDetail" positionX="108" positionY="189" width="128" height="133"/>
+        <element name="Product" positionX="-72" positionY="0" width="128" height="163"/>
+        <element name="ProductDetail" positionX="-92" positionY="189" width="128" height="238"/>
+        <element name="Review" positionX="-180" positionY="-225" width="128" height="163"/>
+        <element name="Submission" positionX="-11" positionY="-180" width="128" height="118"/>
     </elements>
 </model>
