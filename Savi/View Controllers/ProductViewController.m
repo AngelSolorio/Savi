@@ -15,7 +15,6 @@
 #import "Product.h"
 #import "ProductCell.h"
 #import "TypeDefs.h"
-#import "Stage.h"
 
 @implementation ProductViewController
 

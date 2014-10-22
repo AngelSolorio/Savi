@@ -8,6 +8,9 @@
             <compoundIndex>
                 <index value="id_company"/>
             </compoundIndex>
+            <compoundIndex>
+                <index value="products"/>
+            </compoundIndex>
         </compoundIndexes>
     </entity>
     <entity name="KeyDetail" representedClassName="KeyDetail" syncable="YES">
@@ -56,6 +59,9 @@
             <compoundIndex>
                 <index value="product"/>
             </compoundIndex>
+            <compoundIndex>
+                <index value="keys"/>
+            </compoundIndex>
         </compoundIndexes>
     </entity>
     <entity name="Review" representedClassName="Review" syncable="YES">
@@ -69,7 +75,7 @@
         <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="review" inverseEntity="Product" syncable="YES"/>
         <compoundIndexes>
             <compoundIndex>
-                <index value="stage"/>
+                <index value="product"/>
             </compoundIndex>
         </compoundIndexes>
     </entity>
@@ -81,7 +87,7 @@
         <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="submission" inverseEntity="Product" syncable="YES"/>
         <compoundIndexes>
             <compoundIndex>
-                <index value="stage"/>
+                <index value="product"/>
             </compoundIndex>
         </compoundIndexes>
     </entity>
@@ -91,6 +97,6 @@
         <element name="Product" positionX="-72" positionY="0" width="128" height="163"/>
         <element name="ProductDetail" positionX="-92" positionY="189" width="128" height="238"/>
         <element name="Review" positionX="-180" positionY="-225" width="128" height="163"/>
-        <element name="Submission" positionX="-2" positionY="-180" width="128" height="118"/>
+        <element name="Submission" positionX="-11" positionY="-180" width="128" height="118"/>
     </elements>
 </model>
