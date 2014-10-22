@@ -63,18 +63,16 @@
         } else {
             product = [productData objectAtIndex:indexPath.row];
         }
-        
-        Stage *stage = [[product.stages allObjects] firstObject];
-        
+
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UINavigationController *navigationController;
-        
-        if (stage.review) {
+
+        if ([product.stage isEqualToString:@"REVISION"]) {
             ReviewViewController *reviewVC = (ReviewViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"reviewView"];
             reviewVC.title = product.name;
             navigationController = [[UINavigationController alloc] initWithRootViewController:reviewVC];
             
-        } else if (stage.submission) {
+        } else if ([product.stage isEqualToString:@"SOMETIMIENTO"]) {
             SubmissionViewController *submissionwVC = (SubmissionViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"submissionView"];
             submissionwVC.title = product.name;
             navigationController = [[UINavigationController alloc] initWithRootViewController:submissionwVC];
@@ -83,9 +81,8 @@
             DetailViewController *detailVC = (DetailViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"detailView"];
             detailVC.title = product.name;
             navigationController = [[UINavigationController alloc] initWithRootViewController:detailVC];
-    
         }
-        
+
         REFrostedViewController *root = [[REFrostedViewController alloc]
                                          initWithContentViewController:navigationController
                                          menuViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"menuController"]];
