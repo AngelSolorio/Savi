@@ -54,11 +54,13 @@
 
 - (void)checkingSyncStatus:(int)status {
     [progressView dismiss:YES];
+
     // Creates a progress control
     progressView = [MRProgressOverlayView showOverlayAddedTo:self.view
-                                                       title:@"Terminal \n Registrada"
+                                                       title:@"Actualizado"
                                                         mode:status
                                                     animated:YES];
+
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [progressView dismiss:YES];
     });

@@ -14,6 +14,7 @@
 #import "CompanyCell.h"
 #import "Product.h"
 #import "ProductCell.h"
+#import "TypeDefs.h"
 
 @implementation ProductViewController
 
@@ -139,7 +140,9 @@
         }
         
         cell.labelName.text = product.name;
-        cell.labelDetails.text = [NSString stringWithFormat:@"Fecha de Desarrollo: %@", product.manufacture_date];
+        NSLog(@"Product Details:%@", product.detail);
+        NSString *stringDate = [Utility getStringFromDate:product.manufacture_date withFormat:TYPEDEFS_FULLDATEANDTIME];
+        cell.labelDetails.text = [NSString stringWithFormat:@"Fecha estimada de presentación a tercero: %@", stringDate];
         
         return cell;
     }
