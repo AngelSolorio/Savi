@@ -18,7 +18,7 @@
 		4F952ED319F729E800ED4D8F /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F952ED219F729E800ED4D8F /* Utility.m */; };
 		8D60407A19F6FD7500D1CC41 /* DTCustomColoredAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D60407919F6FD7500D1CC41 /* DTCustomColoredAccessory.m */; };
 		8D620D2E19F631AD000112CD /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D620D2D19F631AD000112CD /* MenuViewController.m */; };
-		8D620D3219F63348000112CD /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D620D3119F63348000112CD /* ReviewViewController.m */; };
+		8D620D3219F63348000112CD /* ReviewViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 8D620D3119F63348000112CD /* ReviewViewController.h */; };
 		8D620D3519F64198000112CD /* SubmissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D620D3419F64198000112CD /* SubmissionViewController.m */; };
 		8D620D3819F648B5000112CD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D620D3719F648B5000112CD /* DetailViewController.m */; };
 		8D7997B319F1981600BCF731 /* Savi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997B119F1981600BCF731 /* Savi.xcdatamodeld */; };
@@ -26,18 +26,11 @@
 		8D7997B819F1987F00BCF731 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D7997B719F1987F00BCF731 /* CoreData.framework */; };
 		8D7997D619F1A23D00BCF731 /* _Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997BB19F1A23D00BCF731 /* _Company.m */; };
 		8D7997D719F1A23D00BCF731 /* _KeyDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997BD19F1A23D00BCF731 /* _KeyDetail.m */; };
-		8D7997D819F1A23D00BCF731 /* _Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997BF19F1A23D00BCF731 /* _Product.m */; };
 		8D7997D919F1A23D00BCF731 /* _ProductDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997C119F1A23D00BCF731 /* _ProductDetail.m */; };
-		8D7997DA19F1A23D00BCF731 /* _Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997C319F1A23D00BCF731 /* _Review.m */; };
-		8D7997DB19F1A23D00BCF731 /* _Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997C519F1A23D00BCF731 /* _Stage.m */; };
-		8D7997DC19F1A23D00BCF731 /* _Submission.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997C719F1A23D00BCF731 /* _Submission.m */; };
 		8D7997DD19F1A23D00BCF731 /* Company.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997C919F1A23D00BCF731 /* Company.m */; };
 		8D7997DE19F1A23D00BCF731 /* KeyDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997CB19F1A23D00BCF731 /* KeyDetail.m */; };
 		8D7997DF19F1A23D00BCF731 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997CD19F1A23D00BCF731 /* Product.m */; };
 		8D7997E019F1A23D00BCF731 /* ProductDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997CF19F1A23D00BCF731 /* ProductDetail.m */; };
-		8D7997E119F1A23D00BCF731 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997D119F1A23D00BCF731 /* Review.m */; };
-		8D7997E219F1A23D00BCF731 /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997D319F1A23D00BCF731 /* Stage.m */; };
-		8D7997E319F1A23D00BCF731 /* Submission.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997D519F1A23D00BCF731 /* Submission.m */; };
 		8D7997E619F46D8C00BCF731 /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997E519F46D8C00BCF731 /* ProductViewController.m */; };
 		8D7997F019F4783E00BCF731 /* WebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997EF19F4783E00BCF731 /* WebService.m */; };
 		8D7997F319F47FAC00BCF731 /* CompanyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997F219F47FAC00BCF731 /* CompanyCell.m */; };
@@ -61,8 +54,8 @@
 		4F812B9D19F0AC380090B044 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4F812B9F19F0AC380090B044 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4F812BA019F0AC380090B044 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4F812BA519F0AC380090B044 /* InitialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
-		4F812BA619F0AC380090B044 /* InitialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
+		4F812BA519F0AC380090B044 /* InitialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = InitialViewController.h; path = "View Controllers/InitialViewController.h"; sourceTree = "<group>"; };
+		4F812BA619F0AC380090B044 /* InitialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = InitialViewController.m; path = "View Controllers/InitialViewController.m"; sourceTree = "<group>"; };
 		4F812BA919F0AC380090B044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4F812BAB19F0AC380090B044 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4F812BAE19F0AC380090B044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -74,54 +67,40 @@
 		4F952ED219F729E800ED4D8F /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		8D60407819F6FD7500D1CC41 /* DTCustomColoredAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTCustomColoredAccessory.h; sourceTree = "<group>"; };
 		8D60407919F6FD7500D1CC41 /* DTCustomColoredAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCustomColoredAccessory.m; sourceTree = "<group>"; };
-		8D620D2C19F631AD000112CD /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
-		8D620D2D19F631AD000112CD /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
-		8D620D3019F63348000112CD /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewViewController.h; sourceTree = "<group>"; };
-		8D620D3119F63348000112CD /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewViewController.m; sourceTree = "<group>"; };
-		8D620D3319F64198000112CD /* SubmissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmissionViewController.h; sourceTree = "<group>"; };
-		8D620D3419F64198000112CD /* SubmissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmissionViewController.m; sourceTree = "<group>"; };
-		8D620D3619F648B5000112CD /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		8D620D3719F648B5000112CD /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		8D620D2C19F631AD000112CD /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = "View Controllers/MenuViewController.h"; sourceTree = "<group>"; };
+		8D620D2D19F631AD000112CD /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = "View Controllers/MenuViewController.m"; sourceTree = "<group>"; };
+		8D620D3019F63348000112CD /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewViewController.h; path = "View Controllers/ReviewViewController.h"; sourceTree = "<group>"; };
+		8D620D3119F63348000112CD /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewViewController.h; path = "View Controllers/ReviewViewController.h"; sourceTree = "<group>"; };
+		8D620D3319F64198000112CD /* SubmissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubmissionViewController.h; path = "View Controllers/SubmissionViewController.h"; sourceTree = "<group>"; };
+		8D620D3419F64198000112CD /* SubmissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubmissionViewController.m; path = "View Controllers/SubmissionViewController.m"; sourceTree = "<group>"; };
+		8D620D3619F648B5000112CD /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = "View Controllers/DetailViewController.h"; sourceTree = "<group>"; };
+		8D620D3719F648B5000112CD /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailViewController.m; path = "View Controllers/DetailViewController.m"; sourceTree = "<group>"; };
 		8D7997B219F1981600BCF731 /* Savi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Savi.xcdatamodel; sourceTree = "<group>"; };
 		8D7997B419F1984700BCF731 /* SaviDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaviDataModel.h; sourceTree = "<group>"; };
 		8D7997B519F1984700BCF731 /* SaviDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaviDataModel.m; sourceTree = "<group>"; };
 		8D7997B719F1987F00BCF731 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		8D7997BA19F1A23D00BCF731 /* _Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Company.h; sourceTree = "<group>"; };
-		8D7997BB19F1A23D00BCF731 /* _Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Company.m; sourceTree = "<group>"; };
-		8D7997BC19F1A23D00BCF731 /* _KeyDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _KeyDetail.h; sourceTree = "<group>"; };
-		8D7997BD19F1A23D00BCF731 /* _KeyDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _KeyDetail.m; sourceTree = "<group>"; };
-		8D7997BE19F1A23D00BCF731 /* _Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Product.h; sourceTree = "<group>"; };
-		8D7997BF19F1A23D00BCF731 /* _Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Product.m; sourceTree = "<group>"; };
-		8D7997C019F1A23D00BCF731 /* _ProductDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ProductDetail.h; sourceTree = "<group>"; };
-		8D7997C119F1A23D00BCF731 /* _ProductDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ProductDetail.m; sourceTree = "<group>"; };
-		8D7997C219F1A23D00BCF731 /* _Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Review.h; sourceTree = "<group>"; };
-		8D7997C319F1A23D00BCF731 /* _Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Review.m; sourceTree = "<group>"; };
-		8D7997C419F1A23D00BCF731 /* _Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Stage.h; sourceTree = "<group>"; };
-		8D7997C519F1A23D00BCF731 /* _Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Stage.m; sourceTree = "<group>"; };
-		8D7997C619F1A23D00BCF731 /* _Submission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Submission.h; sourceTree = "<group>"; };
-		8D7997C719F1A23D00BCF731 /* _Submission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Submission.m; sourceTree = "<group>"; };
-		8D7997C819F1A23D00BCF731 /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Company.h; sourceTree = "<group>"; };
-		8D7997C919F1A23D00BCF731 /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Company.m; sourceTree = "<group>"; };
-		8D7997CA19F1A23D00BCF731 /* KeyDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyDetail.h; sourceTree = "<group>"; };
-		8D7997CB19F1A23D00BCF731 /* KeyDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyDetail.m; sourceTree = "<group>"; };
-		8D7997CC19F1A23D00BCF731 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
-		8D7997CD19F1A23D00BCF731 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
-		8D7997CE19F1A23D00BCF731 /* ProductDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetail.h; sourceTree = "<group>"; };
-		8D7997CF19F1A23D00BCF731 /* ProductDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetail.m; sourceTree = "<group>"; };
-		8D7997D019F1A23D00BCF731 /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Review.h; sourceTree = "<group>"; };
-		8D7997D119F1A23D00BCF731 /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = "<group>"; };
-		8D7997D219F1A23D00BCF731 /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stage.h; sourceTree = "<group>"; };
-		8D7997D319F1A23D00BCF731 /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stage.m; sourceTree = "<group>"; };
-		8D7997D419F1A23D00BCF731 /* Submission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Submission.h; sourceTree = "<group>"; };
-		8D7997D519F1A23D00BCF731 /* Submission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Submission.m; sourceTree = "<group>"; };
-		8D7997E419F46D8C00BCF731 /* ProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewController.h; sourceTree = "<group>"; };
-		8D7997E519F46D8C00BCF731 /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewController.m; sourceTree = "<group>"; };
+		8D7997BA19F1A23D00BCF731 /* _Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Company.h; path = ../_Company.h; sourceTree = "<group>"; };
+		8D7997BB19F1A23D00BCF731 /* _Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Company.m; path = ../_Company.m; sourceTree = "<group>"; };
+		8D7997BC19F1A23D00BCF731 /* _KeyDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _KeyDetail.h; path = ../_KeyDetail.h; sourceTree = "<group>"; };
+		8D7997BD19F1A23D00BCF731 /* _KeyDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _KeyDetail.m; path = ../_KeyDetail.m; sourceTree = "<group>"; };
+		8D7997C019F1A23D00BCF731 /* _ProductDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _ProductDetail.h; path = ../_ProductDetail.h; sourceTree = "<group>"; };
+		8D7997C119F1A23D00BCF731 /* _ProductDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _ProductDetail.m; path = ../_ProductDetail.m; sourceTree = "<group>"; };
+		8D7997C819F1A23D00BCF731 /* Company.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Company.h; path = ../Company.h; sourceTree = "<group>"; };
+		8D7997C919F1A23D00BCF731 /* Company.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Company.m; path = ../Company.m; sourceTree = "<group>"; };
+		8D7997CA19F1A23D00BCF731 /* KeyDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyDetail.h; path = ../KeyDetail.h; sourceTree = "<group>"; };
+		8D7997CB19F1A23D00BCF731 /* KeyDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyDetail.m; path = ../KeyDetail.m; sourceTree = "<group>"; };
+		8D7997CC19F1A23D00BCF731 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Product.h; path = ../Product.h; sourceTree = "<group>"; };
+		8D7997CD19F1A23D00BCF731 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Product.m; path = ../Product.m; sourceTree = "<group>"; };
+		8D7997CE19F1A23D00BCF731 /* ProductDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductDetail.h; path = ../ProductDetail.h; sourceTree = "<group>"; };
+		8D7997CF19F1A23D00BCF731 /* ProductDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductDetail.m; path = ../ProductDetail.m; sourceTree = "<group>"; };
+		8D7997E419F46D8C00BCF731 /* ProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductViewController.h; path = "View Controllers/ProductViewController.h"; sourceTree = "<group>"; };
+		8D7997E519F46D8C00BCF731 /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductViewController.m; path = "View Controllers/ProductViewController.m"; sourceTree = "<group>"; };
 		8D7997EE19F4783E00BCF731 /* WebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebService.h; sourceTree = "<group>"; };
 		8D7997EF19F4783E00BCF731 /* WebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebService.m; sourceTree = "<group>"; };
-		8D7997F119F47FAC00BCF731 /* CompanyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyCell.h; sourceTree = "<group>"; };
-		8D7997F219F47FAC00BCF731 /* CompanyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyCell.m; sourceTree = "<group>"; };
-		8D7997F419F4A00A00BCF731 /* ProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCell.h; sourceTree = "<group>"; };
-		8D7997F519F4A00A00BCF731 /* ProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCell.m; sourceTree = "<group>"; };
+		8D7997F119F47FAC00BCF731 /* CompanyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CompanyCell.h; path = "View Controllers/CompanyCell.h"; sourceTree = "<group>"; };
+		8D7997F219F47FAC00BCF731 /* CompanyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CompanyCell.m; path = "View Controllers/CompanyCell.m"; sourceTree = "<group>"; };
+		8D7997F419F4A00A00BCF731 /* ProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCell.h; path = "View Controllers/ProductCell.h"; sourceTree = "<group>"; };
+		8D7997F519F4A00A00BCF731 /* ProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductCell.m; path = "View Controllers/ProductCell.m"; sourceTree = "<group>"; };
 		A8F2FD43F31B10B27B3F880A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CF8D2195DD3B4677ADDEB829 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -235,7 +214,7 @@
 				4F812BA519F0AC380090B044 /* InitialViewController.h */,
 				4F812BA619F0AC380090B044 /* InitialViewController.m */,
 				8D620D3019F63348000112CD /* ReviewViewController.h */,
-				8D620D3119F63348000112CD /* ReviewViewController.m */,
+				8D620D3119F63348000112CD /* ReviewViewController.h */,
 				8D620D3319F64198000112CD /* SubmissionViewController.h */,
 				8D620D3419F64198000112CD /* SubmissionViewController.m */,
 				8D620D3619F648B5000112CD /* DetailViewController.h */,
@@ -312,16 +291,8 @@
 				8D7997BB19F1A23D00BCF731 /* _Company.m */,
 				8D7997BC19F1A23D00BCF731 /* _KeyDetail.h */,
 				8D7997BD19F1A23D00BCF731 /* _KeyDetail.m */,
-				8D7997BE19F1A23D00BCF731 /* _Product.h */,
-				8D7997BF19F1A23D00BCF731 /* _Product.m */,
 				8D7997C019F1A23D00BCF731 /* _ProductDetail.h */,
 				8D7997C119F1A23D00BCF731 /* _ProductDetail.m */,
-				8D7997C219F1A23D00BCF731 /* _Review.h */,
-				8D7997C319F1A23D00BCF731 /* _Review.m */,
-				8D7997C419F1A23D00BCF731 /* _Stage.h */,
-				8D7997C519F1A23D00BCF731 /* _Stage.m */,
-				8D7997C619F1A23D00BCF731 /* _Submission.h */,
-				8D7997C719F1A23D00BCF731 /* _Submission.m */,
 				8D7997C819F1A23D00BCF731 /* Company.h */,
 				8D7997C919F1A23D00BCF731 /* Company.m */,
 				8D7997CA19F1A23D00BCF731 /* KeyDetail.h */,
@@ -330,12 +301,6 @@
 				8D7997CD19F1A23D00BCF731 /* Product.m */,
 				8D7997CE19F1A23D00BCF731 /* ProductDetail.h */,
 				8D7997CF19F1A23D00BCF731 /* ProductDetail.m */,
-				8D7997D019F1A23D00BCF731 /* Review.h */,
-				8D7997D119F1A23D00BCF731 /* Review.m */,
-				8D7997D219F1A23D00BCF731 /* Stage.h */,
-				8D7997D319F1A23D00BCF731 /* Stage.m */,
-				8D7997D419F1A23D00BCF731 /* Submission.h */,
-				8D7997D519F1A23D00BCF731 /* Submission.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -491,26 +456,19 @@
 				8D7997E619F46D8C00BCF731 /* ProductViewController.m in Sources */,
 				4F952ED319F729E800ED4D8F /* Utility.m in Sources */,
 				8D7997B619F1984700BCF731 /* SaviDataModel.m in Sources */,
-				8D7997DC19F1A23D00BCF731 /* _Submission.m in Sources */,
 				8D7997F619F4A00A00BCF731 /* ProductCell.m in Sources */,
 				4F812BA119F0AC380090B044 /* AppDelegate.m in Sources */,
 				8D7997D619F1A23D00BCF731 /* _Company.m in Sources */,
-				8D7997E219F1A23D00BCF731 /* Stage.m in Sources */,
 				8D7997DF19F1A23D00BCF731 /* Product.m in Sources */,
 				8D7997F319F47FAC00BCF731 /* CompanyCell.m in Sources */,
-				8D7997DB19F1A23D00BCF731 /* _Stage.m in Sources */,
-				8D7997E319F1A23D00BCF731 /* Submission.m in Sources */,
 				4F812B9E19F0AC380090B044 /* main.m in Sources */,
 				8D620D3519F64198000112CD /* SubmissionViewController.m in Sources */,
 				8D60407A19F6FD7500D1CC41 /* DTCustomColoredAccessory.m in Sources */,
 				8D7997DE19F1A23D00BCF731 /* KeyDetail.m in Sources */,
-				8D620D3219F63348000112CD /* ReviewViewController.m in Sources */,
-				8D7997D819F1A23D00BCF731 /* _Product.m in Sources */,
-				8D7997DA19F1A23D00BCF731 /* _Review.m in Sources */,
+				8D620D3219F63348000112CD /* ReviewViewController.h in Sources */,
 				8D7997F019F4783E00BCF731 /* WebService.m in Sources */,
 				8D7997DD19F1A23D00BCF731 /* Company.m in Sources */,
 				8D620D2E19F631AD000112CD /* MenuViewController.m in Sources */,
-				8D7997E119F1A23D00BCF731 /* Review.m in Sources */,
 				8D7997D719F1A23D00BCF731 /* _KeyDetail.m in Sources */,
 				8D7997E019F1A23D00BCF731 /* ProductDetail.m in Sources */,
 				4F812BA719F0AC380090B044 /* InitialViewController.m in Sources */,
