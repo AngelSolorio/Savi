@@ -38,6 +38,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     segmentFilters.selectedSegmentIndex = self.index;
+    filterProductData = productData;
+    //[self valueChangedSegment:nil];
 }
 
 
@@ -62,7 +64,7 @@
         if (searchingProduct) {
             product = [copyProductData objectAtIndex:indexPath.row];
         } else {
-            product = [productData objectAtIndex:indexPath.row];
+            product = [filterProductData objectAtIndex:indexPath.row];
         }
         
         Stage *stage = [[product.stages allObjects] firstObject];
@@ -112,7 +114,7 @@
         if (searchingProduct) {
             return copyProductData.count;
         } else {
-            return productData.count;
+            return filterProductData.count;
         }
     }
 }
@@ -137,12 +139,14 @@
         if (searchingProduct) {
             product = [copyProductData objectAtIndex:indexPath.row];
         } else {
-            product = [productData objectAtIndex:indexPath.row];
+            product = [filterProductData objectAtIndex:indexPath.row];
         }
         
         cell.labelName.text = product.name;
         NSString *stringDate = [Utility getStringFromDate:product.manufacture_date withFormat:TYPEDEFS_FULLDATEANDTIME];
-        cell.labelDetails.text = [NSString stringWithFormat:@"Fecha estimada de presentación a tercero: %@", stringDate];
+        
+        if (segmentFilters.selectedSegmentIndex == 1)
+            cell.labelDetails.text = [NSString stringWithFormat:@"Fecha estimada de presentación a tercero: %@", stringDate];
         
         return cell;
     }
@@ -231,7 +235,7 @@
             }
         }
     } else {
-        searchArray = [[NSMutableArray alloc] initWithArray:productData];
+        searchArray = [[NSMutableArray alloc] initWithArray:filterProductData];
         
         for (int x = 0; x < [searchArray count]; x++) {
             if ([[searchArray objectAtIndex:x] isKindOfClass:[Product class]]) {
@@ -248,4 +252,26 @@
     searchArray = nil;
 }
 
+- (IBAction)valueChangedSegment:(id)sender {
+    NSIndexPath *selectedIndexPath = [tableCompanies indexPathForSelectedRow];
+    
+    /*NSString *currentStage;
+    switch (segmentFilters.selectedSegmentIndex) {
+        case 1:// Desarrollo
+            currentStage = @"Desarrollo";
+            break;
+        case 2:// Revision
+            currentStage = @"Revision";
+            break;
+        case 3:// Sometimiento
+            currentStage = @"Sometimiento";
+            break;
+        default:
+            break;
+    }
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"stage == %@",currentStage]];
+    filterProductData = [[NSArray alloc] initWithArray:[productData filteredArrayUsingPredicate:predicate]];
+    [tableProducts reloadData];*/
+}
 @end

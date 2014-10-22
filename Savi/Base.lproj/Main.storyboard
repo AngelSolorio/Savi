@@ -95,6 +95,9 @@
                                     <segment title="Sometidos"/>
                                 </segments>
                                 <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="0.85999999999999999" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="valueChangedSegment:" destination="iEE-rq-qRU" eventType="valueChanged" id="Rgw-Ho-Nfw"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMPRESA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SGd-Xa-aMc">
                                 <rect key="frame" x="0.0" y="61" width="295" height="40"/>
@@ -166,7 +169,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D0G-KC-UQS" id="dM3-uh-mmt">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VEA-2q-UYe">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VEA-2q-UYe">
                                                     <rect key="frame" x="8" y="30" width="635" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>

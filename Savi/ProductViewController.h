@@ -14,6 +14,7 @@
     __weak IBOutlet UISegmentedControl *segmentFilters;
     NSArray *companyData;
     NSArray *productData;
+    NSArray *filterProductData;
     NSMutableArray *copyCompanyData;
     NSMutableArray *copyProductData;
     BOOL searchingCompany;
@@ -23,5 +24,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBarCompany;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBarProduct;
 @property (nonatomic, assign) NSInteger index;
+
+- (IBAction)valueChangedSegment:(id)sender;
 
 @end

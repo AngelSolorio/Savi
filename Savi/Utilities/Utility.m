@@ -119,7 +119,7 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:format];
 
-    NSString *strinDate = [dateFormat stringFromDate:date];
+    NSString *strinDate = (date == NULL || date == nil) ? @"" : [dateFormat stringFromDate:date];
 
     return strinDate;
 }
