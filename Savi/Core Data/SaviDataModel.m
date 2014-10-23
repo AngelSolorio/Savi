@@ -79,9 +79,9 @@
         NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc]
                                              initWithManagedObjectModel:[self managedObjectModel]];
         NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
-                                 [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
-        NSError *e = nil;
+                                 [NSNumber numberWithBool:NO], NSMigratePersistentStoresAutomaticallyOption,
+                                 [NSNumber numberWithBool:NO], NSInferMappingModelAutomaticallyOption, nil];
+        NSError *e;
         if (![psc addPersistentStoreWithType:NSSQLiteStoreType
                                configuration:nil
                                          URL:storeURL
