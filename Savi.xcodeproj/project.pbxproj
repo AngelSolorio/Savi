@@ -41,6 +41,7 @@
 		8D7997F319F47FAC00BCF731 /* CompanyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997F219F47FAC00BCF731 /* CompanyCell.m */; };
 		8D7997F619F4A00A00BCF731 /* ProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997F519F4A00A00BCF731 /* ProductCell.m */; };
 		8DBD215019F94D4F001C403E /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD214F19F94D4F001C403E /* ReviewViewController.m */; };
+		8DDC481619F9C69D00EA202E /* ProductNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDC481519F9C69D00EA202E /* ProductNameCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,8 @@
 		8D7997F419F4A00A00BCF731 /* ProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCell.h; path = "View Controllers/ProductCell.h"; sourceTree = "<group>"; };
 		8D7997F519F4A00A00BCF731 /* ProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductCell.m; path = "View Controllers/ProductCell.m"; sourceTree = "<group>"; };
 		8DBD214F19F94D4F001C403E /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewViewController.m; path = "View Controllers/ReviewViewController.m"; sourceTree = "<group>"; };
+		8DDC481419F9C69D00EA202E /* ProductNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductNameCell.h; path = "View Controllers/ProductNameCell.h"; sourceTree = "<group>"; };
+		8DDC481519F9C69D00EA202E /* ProductNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductNameCell.m; path = "View Controllers/ProductNameCell.m"; sourceTree = "<group>"; };
 		A8F2FD43F31B10B27B3F880A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CF8D2195DD3B4677ADDEB829 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -287,6 +290,8 @@
 				8D7997E519F46D8C00BCF731 /* ProductViewController.m */,
 				8D7997F419F4A00A00BCF731 /* ProductCell.h */,
 				8D7997F519F4A00A00BCF731 /* ProductCell.m */,
+				8DDC481419F9C69D00EA202E /* ProductNameCell.h */,
+				8DDC481519F9C69D00EA202E /* ProductNameCell.m */,
 				8D7997F119F47FAC00BCF731 /* CompanyCell.h */,
 				8D7997F219F47FAC00BCF731 /* CompanyCell.m */,
 			);
@@ -485,6 +490,7 @@
 				4F5E157A19F8718A000D1567 /* _Product.m in Sources */,
 				8D7997F319F47FAC00BCF731 /* CompanyCell.m in Sources */,
 				4F812B9E19F0AC380090B044 /* main.m in Sources */,
+				8DDC481619F9C69D00EA202E /* ProductNameCell.m in Sources */,
 				8D620D3519F64198000112CD /* SubmissionViewController.m in Sources */,
 				8D60407A19F6FD7500D1CC41 /* DTCustomColoredAccessory.m in Sources */,
 				4F5E157819F8718A000D1567 /* _Company.m in Sources */,

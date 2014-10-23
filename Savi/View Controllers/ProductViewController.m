@@ -14,6 +14,7 @@
 #import "CompanyCell.h"
 #import "Product.h"
 #import "ProductCell.h"
+#import "ProductNameCell.h"
 #import "TypeDefs.h"
 
 @implementation ProductViewController
@@ -127,7 +128,6 @@
         
         return cell;
     } else {
-        ProductCell *cell = [tableView dequeueReusableCellWithIdentifier:@"productCell"];
         Product *product;
         
         if (searchingProduct) {
@@ -136,16 +136,17 @@
             product = [filterProductData objectAtIndex:indexPath.row];
         }
         
-        cell.labelName.text = product.name;
-        
         if (segmentFilters.selectedSegmentIndex == 1) {
+            ProductCell *cell = [tableView dequeueReusableCellWithIdentifier:@"productCell"];
             NSString *stringDate = [Utility getStringFromDate:product.manufacture_date withFormat:TYPEDEFS_FULLDATEANDTIME];
             cell.labelDetails.text = [NSString stringWithFormat:@"Fecha estimada de presentación a tercero: %@", stringDate];
+            cell.labelName.text = product.name;
+            return cell;
         } else {
-            cell.labelDetails.text = @"";
+            ProductNameCell *cell =[tableView dequeueReusableCellWithIdentifier:@"productNameCell"];
+            cell.labelName.text = product.name;
+            return cell;
         }
-        
-        return cell;
     }
 }
 
