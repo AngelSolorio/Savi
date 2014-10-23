@@ -10,6 +10,17 @@
 
 @implementation SubmissionViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    Submission *submission = self.product.submission;
+    self.labelSubmissionDate.text = submission.cofepris;
+    self.labelPreventionDate.text = [NSString stringWithFormat:@"%@",submission.prevention_date];
+    self.labelRegistrationDate.text = submission.registration;
+    self.labelDuration.text = submission.duration;
+    self.labelNumberPending.text = @"";
+}
+
 - (IBAction)showMenu {
     // Dismiss keyboard (optional)
     //
