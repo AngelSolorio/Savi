@@ -9,6 +9,9 @@
 #import "InitialViewController.h"
 #import "Company.h"
 #import "Product.h"
+#import "FeedUserDefaults.h"
+#import "Utility.h"
+#import "TypeDefs.h"
 
 #define SUCCESS ((int) 5)
 #define FAIL ((int) 6)
@@ -44,6 +47,7 @@
         if (!error) {
             // Loads the all products
             [Product getAllProducts_completion:^(NSArray *productsArray, NSError *error) {
+                [FeedUserDefaults setLastUpdate:[NSDate date]];
                 [self checkingSyncStatus:SUCCESS];
             }];
         } else {
@@ -63,6 +67,8 @@
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [progressView dismiss:YES];
+        NSString *stringDate = [Utility getStringFromDate:[FeedUserDefaults lastUpdate] withFormat:TYPEDEFS_FULLDATEANDTIME];
+        _updateLabel.text = [NSString stringWithFormat:@"Última actualización: %@", stringDate];
     });
 }
 

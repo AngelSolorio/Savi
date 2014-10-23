@@ -13,6 +13,8 @@
      MRProgressOverlayView *progressView;
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *updateLabel;
+
 - (IBAction)syncing:(id)sender;
 
 @end
