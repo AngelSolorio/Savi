@@ -17,7 +17,6 @@
     NSArray *filterProductData;
     NSMutableArray *copyCompanyData;
     NSMutableArray *copyProductData;
-    NSArray *filterProductData;
     BOOL searchingCompany;
     BOOL searchingProduct;
 }

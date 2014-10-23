@@ -7,6 +7,9 @@
 //
 
 #import "SubmissionViewController.h"
+#import "Utility.h"
+#import "TypeDefs.h"
+#import "DetailViewController.h"
 
 @implementation SubmissionViewController
 
@@ -15,10 +18,9 @@
     
     Submission *submission = self.product.submission;
     self.labelSubmissionDate.text = submission.cofepris;
-    self.labelPreventionDate.text = [NSString stringWithFormat:@"%@",submission.prevention_date];
+    self.labelPreventionDate.text = [Utility getStringFromDate:submission.prevention_date withFormat:TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR];
     self.labelRegistrationDate.text = submission.registration;
     self.labelDuration.text = submission.duration;
-    self.labelNumberPending.text = @"";
 }
 
 - (IBAction)showMenu {
@@ -30,6 +32,11 @@
     // Present the view controller
     //
     [self.frostedViewController presentMenuViewController];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    DetailViewController *detail = [segue destinationViewController];
+    detail.productDetails = self.product.detail;
 }
 
 @end

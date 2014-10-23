@@ -18,7 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelPreventionDate;
 @property (weak, nonatomic) IBOutlet UILabel *labelRegistrationDate;
 @property (weak, nonatomic) IBOutlet UILabel *labelDuration;
-@property (weak, nonatomic) IBOutlet UILabel *labelNumberPending;
 
 - (IBAction)showMenu;
 

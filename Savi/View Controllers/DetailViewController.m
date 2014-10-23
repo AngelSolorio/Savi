@@ -8,16 +8,25 @@
 
 #import "DetailViewController.h"
 #import "CompanyCell.h"
+#import "Utility.h"
+#import "TypeDefs.h"
 
 @implementation DetailViewController
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    // Sets the TableViewFooter
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 1.0, 1.0, 1.0)];
+    footerView.backgroundColor = [UIColor clearColor];
+    self.tableKey.tableFooterView = footerView;
     
-    keyData = [[NSArray alloc] init];
+    if ([self.tableKey respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self.tableKey setLayoutMargins:UIEdgeInsetsZero];
+    }
+    
     self.labelComment.text = self.productDetails.comment;
     self.labelStatus.text = self.productDetails.status;
-    self.labelStatusUpdate.text = [NSString stringWithFormat:@"%@", self.productDetails.last_modified_date ];
+    self.labelStatusUpdate.text = [Utility getStringFromDate:self.productDetails.last_modified_date  withFormat:TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR];
     self.labelMedical.text = self.productDetails.medica;
     self.labelChemical.text = self.productDetails.quimica;
     self.labelLegal.text = self.productDetails.juridica;
@@ -27,7 +36,15 @@
     self.labelAcPrimary.text = self.productDetails.acond_pri;
     self.labelAcSecondary.text = self.productDetails.acond_sec;
     
-    keyData = [self.productDetails.keys allObjects];
+    keyData = [[NSArray alloc] initWithArray:[self.productDetails.keys allObjects]];
+    
+    if ([keyData count] > 0) {
+        NSIndexPath *indexSelected = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.tableKey selectRowAtIndexPath:indexSelected
+                                   animated:NO
+                             scrollPosition:UITableViewScrollPositionTop];
+        [self refreshKeyDetails:indexSelected];
+    }
 }
 
 - (IBAction)showMenu {
@@ -44,12 +61,7 @@
 #pragma mark - UITableViewDatasource & UITableViewDelegate Methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    KeyDetail *detail = [keyData objectAtIndex:indexPath.row];
-    self.labelKey.text = [NSString stringWithFormat:@"%d", [detail.clave intValue]];
-    self.labelKeyDescription.text = detail.detail;
-    self.labelLab.text = detail.laboratory;
-    self.labelUnits.text = [NSString stringWithFormat:@"%d",[detail.unity intValue]];
-    self.labelValues.text = detail.value;
+    [self refreshKeyDetails:indexPath];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -62,9 +74,24 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CompanyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"companyCell"];
-    cell.labelName.text = [[keyData objectAtIndex:indexPath.row] name];
+    cell.labelName.text = [NSString stringWithFormat:@"%@",[[keyData objectAtIndex:indexPath.row] clave] ];
 
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [cell setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.2]];
+}
+
+#pragma mark - Others Methods
+
+- (void)refreshKeyDetails:(NSIndexPath *)indexPath {
+    KeyDetail *detail = [keyData objectAtIndex:indexPath.row];
+    self.labelKey.text = [NSString stringWithFormat:@"%d", [detail.clave intValue]];
+    self.labelKeyDescription.text = detail.detail;
+    self.labelLab.text = detail.laboratory;
+    self.labelUnits.text = [NSString stringWithFormat:@"%d",[detail.unity intValue]];
+    self.labelValues.text = detail.value;
 }
 
 @end

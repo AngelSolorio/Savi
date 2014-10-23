@@ -43,8 +43,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     segmentFilters.selectedSegmentIndex = self.index;
-    filterProductData = productData;
-    //[self valueChangedSegment:nil];
+    [self valueChangedSegment:nil];
 }
 
 
@@ -138,10 +137,13 @@
         }
         
         cell.labelName.text = product.name;
-        NSString *stringDate = [Utility getStringFromDate:product.manufacture_date withFormat:TYPEDEFS_FULLDATEANDTIME];
         
-        if (segmentFilters.selectedSegmentIndex == 1)
+        if (segmentFilters.selectedSegmentIndex == 1) {
+            NSString *stringDate = [Utility getStringFromDate:product.manufacture_date withFormat:TYPEDEFS_FULLDATEANDTIME];
             cell.labelDetails.text = [NSString stringWithFormat:@"Fecha estimada de presentación a tercero: %@", stringDate];
+        } else {
+            cell.labelDetails.text = @"";
+        }
         
         return cell;
     }
@@ -250,23 +252,47 @@
 - (IBAction)valueChangedSegment:(id)sender {
     NSIndexPath *selectedIndexPath = [tableCompanies indexPathForSelectedRow];
     
-    /*NSString *currentStage;
+    int companyId;
+    if (searchingCompany) {
+        companyId = [[[copyCompanyData objectAtIndex:selectedIndexPath.row] id_company] intValue];
+    } else {
+        companyId = [[[companyData objectAtIndex:selectedIndexPath.row] id_company] intValue];
+    }
+    
+    NSString *currentStage;
     switch (segmentFilters.selectedSegmentIndex) {
         case 1:// Desarrollo
-            currentStage = @"Desarrollo";
+            currentStage = @"DESARROLLO";
             break;
         case 2:// Revision
-            currentStage = @"Revision";
+            currentStage = @"REVISION";
             break;
         case 3:// Sometimiento
-            currentStage = @"Sometimiento";
+            currentStage = @"SOMETIMIENTO";
             break;
         default:
             break;
     }
+
+    if (currentStage) {
+        NSPredicate *predicate;
+        if (selectedIndexPath != nil) {
+            predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"stage == '%@' AND company.id_company = %d", currentStage, companyId]];
+        } else {
+            predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"stage == '%@'", currentStage]];
+        }
+
+        filterProductData = [[NSArray alloc] initWithArray:[productData filteredArrayUsingPredicate:predicate]];
+    } else {
+        if (selectedIndexPath != nil) {
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"company.id_company = %d", companyId]];
+            filterProductData = [[NSArray alloc] initWithArray:[productData filteredArrayUsingPredicate:predicate]];
+        } else {
+            filterProductData = productData;
+        }
+    }
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"stage == %@",currentStage]];
-    filterProductData = [[NSArray alloc] initWithArray:[productData filteredArrayUsingPredicate:predicate]];
-    [tableProducts reloadData];*/
+    [tableProducts reloadData];
 }
+
 @end
