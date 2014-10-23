@@ -10,6 +10,7 @@
 #import "SaviDataModel.h"
 #import "Company.h"
 #import "Product.h"
+#import "Review.h"
 
 #define kBASE_URL @"http://187.237.42.162:8880/savi/api.php"
 
@@ -184,6 +185,43 @@
 }
 
 
+- (NSURLSessionDataTask *)getRevisionDataForProduct:(NSInteger)productID completion:(void (^)(NSDictionary *results, NSError *error))completion {
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setValue:@"get_revision" forKey:@"request"];
+    [parameters setValue:[NSNumber numberWithInteger:productID] forKey:@"id_producto"];
+
+    NSURLSessionDataTask *task = [self POST:kBASE_URL
+                                 parameters:parameters
+                                    success:^(NSURLSessionDataTask *task, id responseObject) {
+                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
+                                        if (httpResponse.statusCode == 200) {
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                if ([[responseObject valueForKey:@"success"] boolValue]) {
+                                                    completion([self parseRevisionData:responseObject], nil);
+                                                } else {
+                                                    NSError *error = [NSError errorWithDomain:@"Conexion error tot he Server" code:1 userInfo:nil];
+                                                    if ([[responseObject valueForKey:@"error"] isEqualToString:error.domain]) {
+                                                        completion(responseObject, error);
+                                                    } else {
+                                                        completion(responseObject, nil);
+                                                    }
+                                                }
+                                            });
+                                        } else {
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                NSLog(@"Received HTTP %ld", (long)httpResponse.statusCode);
+                                                completion(nil, nil);
+                                            });
+                                        }
+                                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                            completion(nil, error);
+                                        });
+                                    }];
+    return task;
+}
+
+
 #pragma mark - Parsing Methods
 
 - (NSDictionary *)parseCompany:(id)response {
@@ -311,6 +349,48 @@
         [results setValue:@"false" forKey:@"success"];
     }
 
+    return results;
+}
+
+
+- (NSDictionary *)parseRevisionData:(id)response {
+    NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
+
+    // Gets all the companies
+    NSDictionary *revisionDic = [response objectForKey:@"revision"];
+    if (![revisionDic isKindOfClass:[NSNull class]]) {
+        NSManagedObjectContext *context = [[SaviDataModel sharedDataModel] mainContext];
+
+        NSInteger productId = [[revisionDic objectForKey:@"id_producto"] intValue];
+        Product *product = [Product productWithId:productId];
+
+        if (product == nil) {
+            product = [Product insertInManagedObjectContext:context];
+            product.id_product = [NSNumber numberWithInteger:productId];
+            product.name = ([[revisionDic objectForKey:@"producto"] isKindOfClass:[NSNull class]]) ? nil : [revisionDic objectForKey:@"producto"];
+        }
+
+        Review *review = [Review reviewForProductId:productId];
+        if (review == nil) {
+            review = [Review insertInManagedObjectContext:context];
+        }
+        [review updateAttributes:revisionDic forProduct:product];
+
+        NSError *errorFecth = nil;
+        if ([context save:&errorFecth]) {
+            NSLog(@"REVIEW: Core Data saved successfuly");
+        } else {
+            NSLog(@"ERROR: %@ %@", [errorFecth localizedDescription], [errorFecth userInfo]);
+            exit(1);
+        }
+
+        [results setValue:@"true" forKey:@"success"];
+        [results setValue:review forKey:@"review"];
+        [results setValue:errorFecth forKey:@"error"];
+    } else {
+        [results setValue:@"false" forKey:@"success"];
+    }
+    
     return results;
 }
 

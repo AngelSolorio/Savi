@@ -16,4 +16,6 @@
 - (NSURLSessionDataTask *)getProductsByCompanyId:(NSInteger)companyId completion:(void (^)(NSDictionary *results, NSError *error))completion;
 - (NSURLSessionDataTask *)getAllProducts_completion:(void (^)(NSDictionary *results, NSError *error))completion;
 
+- (NSURLSessionDataTask *)getRevisionDataForProduct:(NSInteger)productID completion:(void (^)(NSDictionary *results, NSError *error))completion;
+
 @end
