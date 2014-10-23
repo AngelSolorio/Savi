@@ -30,7 +30,6 @@
 		4F952ED319F729E800ED4D8F /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F952ED219F729E800ED4D8F /* Utility.m */; };
 		8D60407A19F6FD7500D1CC41 /* DTCustomColoredAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D60407919F6FD7500D1CC41 /* DTCustomColoredAccessory.m */; };
 		8D620D2E19F631AD000112CD /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D620D2D19F631AD000112CD /* MenuViewController.m */; };
-		8D620D3219F63348000112CD /* ReviewViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 8D620D3119F63348000112CD /* ReviewViewController.h */; };
 		8D620D3519F64198000112CD /* SubmissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D620D3419F64198000112CD /* SubmissionViewController.m */; };
 		8D620D3819F648B5000112CD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D620D3719F648B5000112CD /* DetailViewController.m */; };
 		8D7997B319F1981600BCF731 /* Savi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997B119F1981600BCF731 /* Savi.xcdatamodeld */; };
@@ -40,6 +39,7 @@
 		8D7997F019F4783E00BCF731 /* WebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997EF19F4783E00BCF731 /* WebService.m */; };
 		8D7997F319F47FAC00BCF731 /* CompanyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997F219F47FAC00BCF731 /* CompanyCell.m */; };
 		8D7997F619F4A00A00BCF731 /* ProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7997F519F4A00A00BCF731 /* ProductCell.m */; };
+		8DBD215019F94D4F001C403E /* ReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD214F19F94D4F001C403E /* ReviewViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,7 +99,6 @@
 		8D620D2C19F631AD000112CD /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = "View Controllers/MenuViewController.h"; sourceTree = "<group>"; };
 		8D620D2D19F631AD000112CD /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = "View Controllers/MenuViewController.m"; sourceTree = "<group>"; };
 		8D620D3019F63348000112CD /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewViewController.h; path = "View Controllers/ReviewViewController.h"; sourceTree = "<group>"; };
-		8D620D3119F63348000112CD /* ReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewViewController.h; path = "View Controllers/ReviewViewController.h"; sourceTree = "<group>"; };
 		8D620D3319F64198000112CD /* SubmissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubmissionViewController.h; path = "View Controllers/SubmissionViewController.h"; sourceTree = "<group>"; };
 		8D620D3419F64198000112CD /* SubmissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubmissionViewController.m; path = "View Controllers/SubmissionViewController.m"; sourceTree = "<group>"; };
 		8D620D3619F648B5000112CD /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailViewController.h; path = "View Controllers/DetailViewController.h"; sourceTree = "<group>"; };
@@ -116,6 +115,7 @@
 		8D7997F219F47FAC00BCF731 /* CompanyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CompanyCell.m; path = "View Controllers/CompanyCell.m"; sourceTree = "<group>"; };
 		8D7997F419F4A00A00BCF731 /* ProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductCell.h; path = "View Controllers/ProductCell.h"; sourceTree = "<group>"; };
 		8D7997F519F4A00A00BCF731 /* ProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductCell.m; path = "View Controllers/ProductCell.m"; sourceTree = "<group>"; };
+		8DBD214F19F94D4F001C403E /* ReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewViewController.m; path = "View Controllers/ReviewViewController.m"; sourceTree = "<group>"; };
 		A8F2FD43F31B10B27B3F880A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CF8D2195DD3B4677ADDEB829 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -229,7 +229,7 @@
 				4F812BA519F0AC380090B044 /* InitialViewController.h */,
 				4F812BA619F0AC380090B044 /* InitialViewController.m */,
 				8D620D3019F63348000112CD /* ReviewViewController.h */,
-				8D620D3119F63348000112CD /* ReviewViewController.h */,
+				8DBD214F19F94D4F001C403E /* ReviewViewController.m */,
 				8D620D3319F64198000112CD /* SubmissionViewController.h */,
 				8D620D3419F64198000112CD /* SubmissionViewController.m */,
 				8D620D3619F648B5000112CD /* DetailViewController.h */,
@@ -483,7 +483,6 @@
 				8D60407A19F6FD7500D1CC41 /* DTCustomColoredAccessory.m in Sources */,
 				4F5E157819F8718A000D1567 /* _Company.m in Sources */,
 				4F5E157919F8718A000D1567 /* _KeyDetail.m in Sources */,
-				8D620D3219F63348000112CD /* ReviewViewController.h in Sources */,
 				8D7997F019F4783E00BCF731 /* WebService.m in Sources */,
 				8D620D2E19F631AD000112CD /* MenuViewController.m in Sources */,
 				4F5E158419F8718A000D1567 /* Submission.m in Sources */,
@@ -494,6 +493,7 @@
 				4F5E158119F8718A000D1567 /* Product.m in Sources */,
 				4F5E157F19F8718A000D1567 /* Company.m in Sources */,
 				4F5E158019F8718A000D1567 /* KeyDetail.m in Sources */,
+				8DBD215019F94D4F001C403E /* ReviewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,11 +618,11 @@
 			baseConfigurationReference = A8F2FD43F31B10B27B3F880A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Angel Solorio (ARHG92EH4A)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sellcom Solutions México, S.A. de C.V.";
 				INFOPLIST_FILE = Savi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "de9469b4-1c75-4133-989f-05595c002873";
+				PROVISIONING_PROFILE = "0c2ad31a-ea69-4f70-8b98-1e6872787f4d";
 			};
 			name = Debug;
 		};
@@ -631,11 +631,11 @@
 			baseConfigurationReference = 3578BB49B361EEB43DBF2819 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Angel Solorio (ARHG92EH4A)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sellcom Solutions México, S.A. de C.V.";
 				INFOPLIST_FILE = Savi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "de9469b4-1c75-4133-989f-05595c002873";
+				PROVISIONING_PROFILE = "0c2ad31a-ea69-4f70-8b98-1e6872787f4d";
 			};
 			name = Release;
 		};

@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "REFrostedViewController.h"
+#import "ProductDetail.h"
+#import "KeyDetail.h"
 
 @interface DetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     NSArray *keyData;
 }
 
+@property (nonatomic, strong) ProductDetail *productDetails;
 @property (weak, nonatomic) IBOutlet UILabel *labelComment;
 @property (weak, nonatomic) IBOutlet UILabel *labelStatus;
 @property (weak, nonatomic) IBOutlet UILabel *labelStatusUpdate;

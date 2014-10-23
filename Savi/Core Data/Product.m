@@ -28,18 +28,29 @@
         exit(1);
     }
 
-    if ([results count] == 0) {
-        return nil;
-    }
-
-    return [results firstObject];
+    return (results.count > 0) ? results.firstObject : nil;
 }
 
 - (void)updateAttributes:(NSDictionary *)attributes {
-    self.id_product = [NSNumber numberWithInteger:[[attributes objectForKey:@"id_producto"] intValue]];
+    self.id_product = [NSNumber numberWithInteger:[[attributes objectForKey:@"id_producto"] integerValue]];
     self.name = [attributes objectForKey:@"producto"];
+    self.stage = [attributes objectForKey:@"etapa"];
+    if (![[attributes objectForKey:@"pres_tercero"] isKindOfClass:[NSNull class]]) {
+        self.manufacture_date = [Utility getDateFromString:[attributes objectForKey:@"pres_tercero"] withFormat:TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR];
+    }
     self.company = [self fetchCompany:attributes];
     self.detail = [self fetchProductDetails:attributes];
+
+//    if ([self.stage isEqualToString:@"REVISION"]) {
+//        [[WebService sharedClient] getRevisionDataForProduct:[self.id_product integerValue]
+//                                                  completion:^(NSDictionary *results, NSError *error) {
+//                                                      if ([results objectForKey:@"success"]) {
+//                                                          self.review = [results objectForKey:@"review"];
+//                                                      }
+//                                                  }];
+//    } else if ([self.stage isEqualToString:@"SOMETIMIENTO"]) {
+//        //[[WebService sharedClient] getSubmissionDataForProduct:[self.id_product integerValue]];
+//    }
 }
 
 - (Company *)fetchCompany:(NSDictionary *)attributes {

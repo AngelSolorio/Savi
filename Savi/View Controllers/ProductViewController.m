@@ -32,6 +32,12 @@
     footerView.backgroundColor = [UIColor clearColor];
     tableCompanies.tableFooterView = footerView;
     tableProducts.tableFooterView = footerView;
+    
+    if ([tableCompanies respondsToSelector:@selector(setLayoutMargins:)]
+        && [tableProducts respondsToSelector:@selector(setLayoutMargins:)]) {
+        [tableCompanies setLayoutMargins:UIEdgeInsetsZero];
+        [tableProducts setLayoutMargins:UIEdgeInsetsZero];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -46,17 +52,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([tableView isEqual:tableCompanies]) {
-        // Loads the company options
-        NSInteger companyId;
-        
-        if (searchingCompany) {
-            companyId = [[[copyCompanyData objectAtIndex:indexPath.row] id_company] intValue];
-        } else {
-            companyId = [[[companyData objectAtIndex:indexPath.row] id_company] intValue];
-        }
-        
-        productData = [[NSArray alloc] initWithArray:[Product getAllProductsWithCompany:companyId]];
-        [tableProducts reloadData];
+        [self valueChangedSegment:nil];
     } else {
         Product *product;
         
@@ -72,16 +68,19 @@
         if ([product.stage isEqualToString:@"REVISION"]) {
             ReviewViewController *reviewVC = (ReviewViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"reviewView"];
             reviewVC.title = product.name;
+            reviewVC.product = product;
             navigationController = [[UINavigationController alloc] initWithRootViewController:reviewVC];
             
         } else if ([product.stage isEqualToString:@"SOMETIMIENTO"]) {
             SubmissionViewController *submissionwVC = (SubmissionViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"submissionView"];
             submissionwVC.title = product.name;
+            submissionwVC.product = product;
             navigationController = [[UINavigationController alloc] initWithRootViewController:submissionwVC];
             
         } else {
             DetailViewController *detailVC = (DetailViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"detailView"];
             detailVC.title = product.name;
+            detailVC.productDetails = product.detail;
             navigationController = [[UINavigationController alloc] initWithRootViewController:detailVC];
         }
 

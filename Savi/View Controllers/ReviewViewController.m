@@ -12,6 +12,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    Review *review = self.product.review;
+    self.labelThird.text = review.third;
+    self.labelSubmissionDate.text = [NSString stringWithFormat:@"%@", review.date_third];
+    self.labelStartfeedbackDate.text = [NSString stringWithFormat:@"%@", review.retro_first];
+    self.labelEndFeedbackDate.text = [NSString stringWithFormat:@"%@", review.retro_last];
+    self.labelDeliveryDate.text = review.report;
+    self.labelEstimatedDate.text = review.cofepris;
+    self.labelDuration.text = review.duration;
 }
 
 - (IBAction)showMenu {
