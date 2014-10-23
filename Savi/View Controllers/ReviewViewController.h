@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "REFrostedViewController.h"
+#import "Product.h"
+#import "Review.h"
 
 @interface ReviewViewController : UIViewController
 
+@property (nonatomic, strong) Product *product;
 @property (weak, nonatomic) IBOutlet UILabel *labelThird;
 @property (weak, nonatomic) IBOutlet UILabel *labelSubmissionDate;
 @property (weak, nonatomic) IBOutlet UILabel *labelStartfeedbackDate;
