@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="14A388a" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="ModelVersion0.5" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="14A388a" minimumToolsVersion="Automatic" iOSVersion="Automatic">
     <entity name="Company" representedClassName="Company" syncable="YES">
         <attribute name="id_company" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -7,9 +7,6 @@
         <compoundIndexes>
             <compoundIndex>
                 <index value="id_company"/>
-            </compoundIndex>
-            <compoundIndex>
-                <index value="products"/>
             </compoundIndex>
         </compoundIndexes>
     </entity>
@@ -59,9 +56,6 @@
             <compoundIndex>
                 <index value="product"/>
             </compoundIndex>
-            <compoundIndex>
-                <index value="keys"/>
-            </compoundIndex>
         </compoundIndexes>
     </entity>
     <entity name="Review" representedClassName="Review" syncable="YES">
@@ -73,11 +67,6 @@
         <attribute name="retro_last" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="third" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="review" inverseEntity="Product" syncable="YES"/>
-        <compoundIndexes>
-            <compoundIndex>
-                <index value="product"/>
-            </compoundIndex>
-        </compoundIndexes>
     </entity>
     <entity name="Submission" representedClassName="Submission" syncable="YES">
         <attribute name="cofepris" optional="YES" attributeType="String" syncable="YES"/>
@@ -85,18 +74,13 @@
         <attribute name="prevention_date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="registration" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="submission" inverseEntity="Product" syncable="YES"/>
-        <compoundIndexes>
-            <compoundIndex>
-                <index value="product"/>
-            </compoundIndex>
-        </compoundIndexes>
     </entity>
     <elements>
         <element name="Company" positionX="-297" positionY="18" width="128" height="88"/>
         <element name="KeyDetail" positionX="108" positionY="189" width="128" height="133"/>
         <element name="Product" positionX="-72" positionY="0" width="128" height="163"/>
         <element name="ProductDetail" positionX="-92" positionY="189" width="128" height="238"/>
-        <element name="Review" positionX="-180" positionY="-225" width="128" height="163"/>
-        <element name="Submission" positionX="-11" positionY="-180" width="128" height="118"/>
+        <element name="Review" positionX="-270" positionY="-225" width="128" height="163"/>
+        <element name="Submission" positionX="97" positionY="-172" width="128" height="118"/>
     </elements>
 </model>
