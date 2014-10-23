@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="kI5-gJ-h8g">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="kI5-gJ-h8g">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
@@ -26,7 +26,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Última actualización: " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jOs-Yl-FNe">
-                                        <rect key="frame" x="369" y="13" width="294" height="21"/>
+                                        <rect key="frame" x="125" y="13" width="538" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -55,6 +55,9 @@
                     </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="updateLabel" destination="jOs-Yl-FNe" id="qUI-G2-89l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -95,6 +98,9 @@
                                     <segment title="Sometidos"/>
                                 </segments>
                                 <color key="tintColor" red="0.0" green="0.40000000000000002" blue="0.80000000000000004" alpha="0.85999999999999999" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="valueChangedSegment:" destination="iEE-rq-qRU" eventType="valueChanged" id="0MJ-eO-qwG"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMPRESA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SGd-Xa-aMc">
                                 <rect key="frame" x="0.0" y="61" width="295" height="40"/>
@@ -888,7 +894,7 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Detalle del Producto >" id="hhg-t9-upN">
+                        <barButtonItem key="rightBarButtonItem" title="Detalle del Producto &gt;" id="hhg-t9-upN">
                             <connections>
                                 <segue destination="nUX-Af-ofb" kind="push" id="n3Q-yS-eHy"/>
                             </connections>
@@ -1088,7 +1094,7 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Detalle del Producto >" id="B51-g6-4Qx">
+                        <barButtonItem key="rightBarButtonItem" title="Detalle del Producto &gt;" id="B51-g6-4Qx">
                             <connections>
                                 <segue destination="nUX-Af-ofb" kind="push" id="2ir-FP-eXv"/>
                             </connections>
