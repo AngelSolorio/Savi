@@ -260,7 +260,6 @@
     }
     
     NSString *currentStage;
-    NSLog(@"Selected Index:%d", segmentFilters.selectedSegmentIndex);
     switch (segmentFilters.selectedSegmentIndex) {
         case 1:// Desarrollo
             currentStage = @"DESARROLLO";
@@ -278,16 +277,16 @@
     if (currentStage) {
         NSPredicate *predicate;
         if (selectedIndexPath != nil) {
-            predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"stage == %@ AND company.id_company = %d", currentStage, companyId]];
+            predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"stage == '%@' AND company.id_company = %d", currentStage, companyId]];
         } else {
-            predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"stage == %@", currentStage]];
+            predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"stage == '%@'", currentStage]];
         }
 
         filterProductData = [[NSArray alloc] initWithArray:[productData filteredArrayUsingPredicate:predicate]];
-        [tableProducts reloadData];
     } else {
-        NSLog(@"Stage == nil");
+        filterProductData = productData;
     }
+    [tableProducts reloadData];
 }
 
 @end
