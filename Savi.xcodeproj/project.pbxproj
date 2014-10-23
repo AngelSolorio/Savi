@@ -618,11 +618,11 @@
 			baseConfigurationReference = A8F2FD43F31B10B27B3F880A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Angel Solorio (ARHG92EH4A)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sellcom Solutions México, S.A. de C.V.";
 				INFOPLIST_FILE = Savi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "de9469b4-1c75-4133-989f-05595c002873";
+				PROVISIONING_PROFILE = "0c2ad31a-ea69-4f70-8b98-1e6872787f4d";
 			};
 			name = Debug;
 		};
@@ -631,11 +631,11 @@
 			baseConfigurationReference = 3578BB49B361EEB43DBF2819 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Angel Solorio (ARHG92EH4A)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sellcom Solutions México, S.A. de C.V.";
 				INFOPLIST_FILE = Savi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "de9469b4-1c75-4133-989f-05595c002873";
+				PROVISIONING_PROFILE = "0c2ad31a-ea69-4f70-8b98-1e6872787f4d";
 			};
 			name = Release;
 		};

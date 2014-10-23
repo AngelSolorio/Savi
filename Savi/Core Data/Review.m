@@ -1,5 +1,6 @@
 #import "Review.h"
 #import "SaviDataModel.h"
+#import "TypeDefs.h"
 
 @interface Review ()
 
@@ -30,10 +31,16 @@
 - (void)updateAttributes:(NSDictionary *)attributes forProduct:(Product *)product {
     self.cofepris = [attributes objectForKey:@"cofepris"];
     self.duration = [attributes objectForKey:@"duracion"];
-    self.date_third = [attributes objectForKey:@"some_tercero"];
+    if (![[attributes objectForKey:@"some_tercero"] isKindOfClass:[NSNull class]]) {
+        self.date_third = [Utility getDateFromString:[attributes objectForKey:@"some_tercero"] withFormat:TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR];
+    }
     self.report = [attributes objectForKey:@"informe"];
-    self.retro_first = [attributes objectForKey:@"retro_ini"];
-    self.retro_last = [attributes objectForKey:@"retro_fin"];
+    if (![[attributes objectForKey:@"retro_ini"] isKindOfClass:[NSNull class]]) {
+        self.date_third = [Utility getDateFromString:[attributes objectForKey:@"retro_ini"] withFormat:TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR];
+    }
+    if (![[attributes objectForKey:@"retro_fin"] isKindOfClass:[NSNull class]]) {
+        self.date_third = [Utility getDateFromString:[attributes objectForKey:@"retro_fin"] withFormat:TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR];
+    }
     self.third = [attributes objectForKey:@"tercero"];
     self.product = product;
 }

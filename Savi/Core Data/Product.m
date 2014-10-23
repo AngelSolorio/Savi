@@ -41,16 +41,16 @@
     self.company = [self fetchCompany:attributes];
     self.detail = [self fetchProductDetails:attributes];
 
-    if ([self.stage isEqualToString:@"REVISION"]) {
-        [[WebService sharedClient] getRevisionDataForProduct:[self.id_product integerValue]
-                                                  completion:^(NSDictionary *results, NSError *error) {
-                                                      if ([results objectForKey:@"success"]) {
-                                                          self.review = [results objectForKey:@"review"];
-                                                      }
-                                                  }];
-    } else if ([self.stage isEqualToString:@"SOMETIMIENTO"]) {
-        //[[WebService sharedClient] getSubmissionDataForProduct:[self.id_product integerValue]];
-    }
+//    if ([self.stage isEqualToString:@"REVISION"]) {
+//        [[WebService sharedClient] getRevisionDataForProduct:[self.id_product integerValue]
+//                                                  completion:^(NSDictionary *results, NSError *error) {
+//                                                      if ([results objectForKey:@"success"]) {
+//                                                          self.review = [results objectForKey:@"review"];
+//                                                      }
+//                                                  }];
+//    } else if ([self.stage isEqualToString:@"SOMETIMIENTO"]) {
+//        //[[WebService sharedClient] getSubmissionDataForProduct:[self.id_product integerValue]];
+//    }
 }
 
 - (Company *)fetchCompany:(NSDictionary *)attributes {
@@ -99,7 +99,7 @@
         }
         key.detail = ([[keyDic objectForKey:@"descripcion"] isKindOfClass:[NSNull class]]) ? nil : [keyDic objectForKey:@"descripcion"];
         key.laboratory = ([[keyDic objectForKey:@"laboratorios"] isKindOfClass:[NSNull class]]) ? nil : [keyDic objectForKey:@"laboratorios"];
-        key.unity = [keyDic objectForKey:@"unidades"];
+        //key.unity = [keyDic objectForKey:@"unidades"];
         key.value = ([[keyDic objectForKey:@"valores"] isKindOfClass:[NSNull class]]) ? nil : [keyDic objectForKey:@"valores"];
 
         [keysSet addObject:key];
