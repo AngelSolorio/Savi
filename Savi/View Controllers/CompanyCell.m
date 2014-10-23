@@ -23,6 +23,14 @@
     UIView *selectedView = [[UIView alloc]init];
     selectedView.backgroundColor = [UIColor colorWithRed:99.0/255 green:100.0/255 blue:102.0/255 alpha:1];
     self.selectedBackgroundView =  selectedView;
+    
+    if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self setLayoutMargins:UIEdgeInsetsZero];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -32,11 +32,18 @@
     footerView.backgroundColor = [UIColor clearColor];
     tableCompanies.tableFooterView = footerView;
     tableProducts.tableFooterView = footerView;
+    
+    if ([tableCompanies respondsToSelector:@selector(setLayoutMargins:)]
+        && [tableProducts respondsToSelector:@selector(setLayoutMargins:)]) {
+        [tableCompanies setLayoutMargins:UIEdgeInsetsZero];
+        [tableProducts setLayoutMargins:UIEdgeInsetsZero];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     segmentFilters.selectedSegmentIndex = self.index;
+    [self valueChangedSegment:nil];
 }
 
 
@@ -44,24 +51,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([tableView isEqual:tableCompanies]) {
-        // Loads the company options
-        NSInteger companyId;
-        
-        if (searchingCompany) {
-            companyId = [[[copyCompanyData objectAtIndex:indexPath.row] id_company] intValue];
-        } else {
-            companyId = [[[companyData objectAtIndex:indexPath.row] id_company] intValue];
-        }
-        
-        productData = [[NSArray alloc] initWithArray:[Product getAllProductsWithCompany:companyId]];
-        [tableProducts reloadData];
+        [self valueChangedSegment:nil];
     } else {
         Product *product;
         
         if (searchingProduct) {
             product = [copyProductData objectAtIndex:indexPath.row];
         } else {
-            product = [productData objectAtIndex:indexPath.row];
+            product = [filterProductData objectAtIndex:indexPath.row];
         }
 
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -70,16 +67,19 @@
         if ([product.stage isEqualToString:@"REVISION"]) {
             ReviewViewController *reviewVC = (ReviewViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"reviewView"];
             reviewVC.title = product.name;
+            reviewVC.product = product;
             navigationController = [[UINavigationController alloc] initWithRootViewController:reviewVC];
             
         } else if ([product.stage isEqualToString:@"SOMETIMIENTO"]) {
             SubmissionViewController *submissionwVC = (SubmissionViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"submissionView"];
             submissionwVC.title = product.name;
+            submissionwVC.product = product;
             navigationController = [[UINavigationController alloc] initWithRootViewController:submissionwVC];
             
         } else {
             DetailViewController *detailVC = (DetailViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"detailView"];
             detailVC.title = product.name;
+            detailVC.productDetails = product.detail;
             navigationController = [[UINavigationController alloc] initWithRootViewController:detailVC];
         }
 
@@ -108,7 +108,7 @@
         if (searchingProduct) {
             return copyProductData.count;
         } else {
-            return productData.count;
+            return filterProductData.count;
         }
     }
 }
@@ -133,12 +133,17 @@
         if (searchingProduct) {
             product = [copyProductData objectAtIndex:indexPath.row];
         } else {
-            product = [productData objectAtIndex:indexPath.row];
+            product = [filterProductData objectAtIndex:indexPath.row];
         }
         
         cell.labelName.text = product.name;
-        NSString *stringDate = [Utility getStringFromDate:product.manufacture_date withFormat:TYPEDEFS_FULLDATEANDTIME];
-        cell.labelDetails.text = [NSString stringWithFormat:@"Fecha estimada de presentación a tercero: %@", stringDate];
+        
+        if (segmentFilters.selectedSegmentIndex == 1) {
+            NSString *stringDate = [Utility getStringFromDate:product.manufacture_date withFormat:TYPEDEFS_FULLDATEANDTIME];
+            cell.labelDetails.text = [NSString stringWithFormat:@"Fecha estimada de presentación a tercero: %@", stringDate];
+        } else {
+            cell.labelDetails.text = @"";
+        }
         
         return cell;
     }
@@ -227,7 +232,7 @@
             }
         }
     } else {
-        searchArray = [[NSMutableArray alloc] initWithArray:productData];
+        searchArray = [[NSMutableArray alloc] initWithArray:filterProductData];
         
         for (int x = 0; x < [searchArray count]; x++) {
             if ([[searchArray objectAtIndex:x] isKindOfClass:[Product class]]) {
@@ -242,6 +247,44 @@
     }
     
     searchArray = nil;
+}
+
+- (IBAction)valueChangedSegment:(id)sender {
+    NSIndexPath *selectedIndexPath = [tableCompanies indexPathForSelectedRow];
+    
+    int companyId;
+    if (searchingCompany) {
+        companyId = [[[copyCompanyData objectAtIndex:selectedIndexPath.row] id_company] intValue];
+    } else {
+        companyId = [[[companyData objectAtIndex:selectedIndexPath.row] id_company] intValue];
+    }
+    
+    NSString *currentStage;
+    
+    switch (segmentFilters.selectedSegmentIndex) {
+        case 1:// Desarrollo
+            currentStage = @"DESARROLLO";
+            break;
+        case 2:// Revision
+            currentStage = @"REVISION";
+            break;
+        case 3:// Sometimiento
+            currentStage = @"SOMETIMIENTO";
+            break;
+        default:
+            break;
+    }
+    
+    NSPredicate *predicate;
+    
+    if (selectedIndexPath != nil) {
+        predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"stage != nil AND stage == %@ AND company.id_company = %d",currentStage, companyId]];
+    } else {
+        predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"stage != nil AND stage == %@",currentStage]];
+    }
+    
+    filterProductData = [[NSArray alloc] initWithArray:[productData filteredArrayUsingPredicate:predicate]];
+    [tableProducts reloadData];
 }
 
 @end

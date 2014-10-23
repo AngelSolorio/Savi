@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "REFrostedViewController.h"
+#import "Submission.h"
+#import "Product.h"
 
 @interface SubmissionViewController : UIViewController
 
+@property (nonatomic, strong) Product *product;
 @property (weak, nonatomic) IBOutlet UILabel *labelSubmissionDate;
 @property (weak, nonatomic) IBOutlet UILabel *labelPreventionDate;
 @property (weak, nonatomic) IBOutlet UILabel *labelRegistrationDate;

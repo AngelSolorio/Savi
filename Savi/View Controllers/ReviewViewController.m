@@ -12,6 +12,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    Review *review = self.product.review;
+    self.labelThird.text = review.third;
+    self.labelStartfeedbackDate.text = [NSString stringWithFormat:@"%@", review.retro_first];
 }
 
 - (IBAction)showMenu {

@@ -16,6 +16,7 @@
     NSArray *productData;
     NSMutableArray *copyCompanyData;
     NSMutableArray *copyProductData;
+    NSArray *filterProductData;
     BOOL searchingCompany;
     BOOL searchingProduct;
 }
@@ -23,5 +24,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBarCompany;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBarProduct;
 @property (nonatomic, assign) NSInteger index;
+
+- (IBAction)valueChangedSegment:(id)sender;
 
 @end
