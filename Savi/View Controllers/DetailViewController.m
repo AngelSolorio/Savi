@@ -10,6 +10,7 @@
 #import "CompanyCell.h"
 #import "Utility.h"
 #import "TypeDefs.h"
+#import "ProductViewController.h"
 
 @implementation DetailViewController
 
@@ -102,7 +103,17 @@
 #pragma mark - UISwipeGestureRecognizer Methods
 
 - (IBAction)handleSwipeGesture:(UISwipeGestureRecognizer *)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    UIViewController *view = [self.navigationController.viewControllers objectAtIndex:0];
+    
+    if ([view isKindOfClass:[DetailViewController class]]) {
+        UINavigationController *nav = self.parentViewController.parentViewController.navigationController;
+        [nav setNavigationBarHidden:FALSE];
+        ProductViewController *viewController = [nav.viewControllers objectAtIndex:1];
+        [viewController setIndex:1];
+        [nav popViewControllerAnimated:YES];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 @end

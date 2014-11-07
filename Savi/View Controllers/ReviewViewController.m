@@ -10,11 +10,15 @@
 #import "Utility.h"
 #import "TypeDefs.h"
 #import "DetailViewController.h"
+#import "ProductViewController.h"
 
 @implementation ReviewViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UISwipeGestureRecognizer *rightSwipe  =  [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
+    [rightSwipe setDirection:(UISwipeGestureRecognizerDirectionRight)];
+    [self.view addGestureRecognizer:rightSwipe];
     
     Review *review = self.product.review;
     self.labelThird.text = review.third;
@@ -39,6 +43,19 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     DetailViewController *detail = [segue destinationViewController];
+    detail.title = self.product.name;
     detail.productDetails = self.product.detail;
 }
+
+
+#pragma mark - UISwipeGestureRecognizer Methods
+
+- (IBAction)handleSwipeGesture:(UISwipeGestureRecognizer *)sender {
+    UINavigationController *nav = self.parentViewController.parentViewController.navigationController;
+    [nav setNavigationBarHidden:FALSE];
+    ProductViewController *viewController = [nav.viewControllers objectAtIndex:1];
+    [viewController setIndex:2];
+    [nav popViewControllerAnimated:YES];
+}
+
 @end
