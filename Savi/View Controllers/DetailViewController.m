@@ -15,6 +15,10 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    UISwipeGestureRecognizer *rightSwipe  =  [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeGesture:)];
+    [rightSwipe setDirection:(UISwipeGestureRecognizerDirectionRight)];
+    [self.view addGestureRecognizer:rightSwipe];
+    
     // Sets the TableViewFooter
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 1.0, 1.0, 1.0)];
     footerView.backgroundColor = [UIColor clearColor];
@@ -92,6 +96,13 @@
     self.labelLab.text = detail.laboratory;
     self.labelUnits.text = [NSString stringWithFormat:@"%d",[detail.unity intValue]];
     self.labelValues.text = detail.value;
+}
+
+
+#pragma mark - UISwipeGestureRecognizer Methods
+
+- (IBAction)handleSwipeGesture:(UISwipeGestureRecognizer *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

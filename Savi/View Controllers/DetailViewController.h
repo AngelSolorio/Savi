@@ -28,10 +28,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelAcSecondary;
 @property (weak, nonatomic) IBOutlet UILabel *labelProdCompleted;
 @property (weak, nonatomic) IBOutlet UILabel *labelKey;
-@property (weak, nonatomic) IBOutlet UILabel *labelKeyDescription;
 @property (weak, nonatomic) IBOutlet UILabel *labelLab;
 @property (weak, nonatomic) IBOutlet UILabel *labelUnits;
 @property (weak, nonatomic) IBOutlet UILabel *labelValues;
+@property (weak, nonatomic) IBOutlet UITextView *labelKeyDescription;
 @property (weak, nonatomic) IBOutlet UITableView *tableKey;
 
 
