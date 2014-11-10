@@ -253,11 +253,13 @@
 - (IBAction)valueChangedSegment:(id)sender {
     NSIndexPath *selectedIndexPath = [tableCompanies indexPathForSelectedRow];
     
-    int companyId;
-    if (searchingCompany) {
-        companyId = [[[copyCompanyData objectAtIndex:selectedIndexPath.row] id_company] intValue];
-    } else {
-        companyId = [[[companyData objectAtIndex:selectedIndexPath.row] id_company] intValue];
+    int companyId = 0;
+    if ([companyData count] > 0) {
+        if (searchingCompany) {
+            companyId = [[[copyCompanyData objectAtIndex:selectedIndexPath.row] id_company] intValue];
+        } else {
+            companyId = [[[companyData objectAtIndex:selectedIndexPath.row] id_company] intValue];
+        }
     }
     
     NSString *currentStage;
