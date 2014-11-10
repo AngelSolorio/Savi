@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="kI5-gJ-h8g">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="kI5-gJ-h8g">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--SAVI-->
@@ -16,7 +17,7 @@
                                 <rect key="frame" x="0.0" y="64" width="353" height="311"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BigMainImage" id="4RK-WK-ZzX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="saviInicio" id="4RK-WK-ZzX">
                                 <rect key="frame" x="353" y="64" width="671" height="704"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -891,7 +892,7 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Detalle del Producto >" id="hhg-t9-upN">
+                        <barButtonItem key="rightBarButtonItem" title="Detalle del Producto &gt;" id="hhg-t9-upN">
                             <connections>
                                 <segue destination="nUX-Af-ofb" kind="push" id="n3Q-yS-eHy"/>
                             </connections>
@@ -1090,7 +1091,7 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Detalle del Producto >" id="B51-g6-4Qx">
+                        <barButtonItem key="rightBarButtonItem" title="Detalle del Producto &gt;" id="B51-g6-4Qx">
                             <connections>
                                 <segue destination="nUX-Af-ofb" kind="push" id="2ir-FP-eXv"/>
                             </connections>
@@ -1151,9 +1152,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BigMainImage" width="671" height="704"/>
         <image name="Logo" width="671" height="704"/>
         <image name="Menu" width="26" height="16"/>
+        <image name="saviInicio" width="671" height="704"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
