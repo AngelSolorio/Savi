@@ -80,7 +80,7 @@
 		4F5E157519F8718A000D1567 /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = "<group>"; };
 		4F5E157619F8718A000D1567 /* Submission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Submission.h; sourceTree = "<group>"; };
 		4F5E157719F8718A000D1567 /* Submission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Submission.m; sourceTree = "<group>"; };
-		4F812B9819F0AC380090B044 /* Savi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Savi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F812B9819F0AC380090B044 /* SAVI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAVI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F812B9C19F0AC380090B044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F812B9D19F0AC380090B044 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4F812B9F19F0AC380090B044 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 		4F812B9919F0AC380090B044 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4F812B9819F0AC380090B044 /* Savi.app */,
+				4F812B9819F0AC380090B044 /* SAVI.app */,
 				4F812BB419F0AC380090B044 /* SaviTests.xctest */,
 			);
 			name = Products;
@@ -360,7 +360,7 @@
 			);
 			name = Savi;
 			productName = Savi;
-			productReference = 4F812B9819F0AC380090B044 /* Savi.app */;
+			productReference = 4F812B9819F0AC380090B044 /* SAVI.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4F812BB319F0AC380090B044 /* SaviTests */ = {
@@ -634,8 +634,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: arturo gutierrez (Z2PUH94JF2)";
 				INFOPLIST_FILE = Savi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PRODUCT_NAME = SAVI;
+				PROVISIONING_PROFILE = "8afe91b1-16ba-4195-8e79-f1c906e62f58";
 			};
 			name = Debug;
 		};
@@ -648,8 +648,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: arturo gutierrez (Z2PUH94JF2)";
 				INFOPLIST_FILE = Savi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PRODUCT_NAME = SAVI;
+				PROVISIONING_PROFILE = "8afe91b1-16ba-4195-8e79-f1c906e62f58";
 			};
 			name = Release;
 		};

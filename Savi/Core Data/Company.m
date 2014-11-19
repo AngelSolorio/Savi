@@ -29,7 +29,7 @@
 
 + (NSArray *)getAllCompanies {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[Company entityName]];
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"id_company" ascending:YES];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     fetchRequest.sortDescriptors = [[NSArray alloc] initWithObjects: descriptor, nil];
     
     NSError *error = nil;

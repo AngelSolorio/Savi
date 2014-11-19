@@ -12,7 +12,9 @@
 #import "Product.h"
 #import "Review.h"
 
+//#define kBASE_URL @"http://172.20.111.69:8880/savi/api.php"
 #define kBASE_URL @"http://187.237.42.162:8880/savi/api.php"
+
 
 @implementation WebService
 

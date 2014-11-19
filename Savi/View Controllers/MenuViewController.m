@@ -9,23 +9,42 @@
 #import "MenuViewController.h"
 #import "ProductViewController.h"
 #import "InitialViewController.h"
+#import "REFrostedViewController.h"
 
 @implementation MenuViewController
 
 #pragma mark UITableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ProductViewController *productViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"productView"];
-    [productViewController setIndex:indexPath.row + 1];
-    [self.navigationController setNavigationBarHidden:FALSE];
+    ProductViewController *productViewController;
+    UINavigationController *navigationController;
     
     if ([self.parentViewController isKindOfClass:[InitialViewController class]]) {
-        [self.navigationController pushViewController:productViewController animated:YES];
+        productViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"productView"];
+        productViewController.index = indexPath.row + 1;
+        [self.navigationController setNavigationBarHidden:FALSE];
+        navigationController = [[UINavigationController alloc] initWithRootViewController:productViewController];
+        
+        REFrostedViewController *root = [[REFrostedViewController alloc]
+                                         initWithContentViewController:navigationController
+                                         menuViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"menuController"]];
+        // Hides the Navigation Bar
+        [self.navigationController setNavigationBarHidden:YES];
+        [self.navigationController pushViewController:root animated:YES];
     } else {
-        UINavigationController *nav = self.parentViewController.parentViewController.navigationController;
-        ProductViewController *viewController = [nav.viewControllers objectAtIndex:1];
-        [viewController setIndex:indexPath.row + 1];
-        [nav popViewControllerAnimated:YES];
+        navigationController = self.parentViewController.parentViewController.navigationController;
+        UIViewController *viewcontroller = [[navigationController viewControllers] objectAtIndex:0];
+        
+        if ([viewcontroller isKindOfClass:[ProductViewController class]]) {
+            [((ProductViewController *)viewcontroller) updateSegmentWithIndex:indexPath.row + 1];
+            [self.navigationController setNavigationBarHidden:FALSE];
+            [navigationController popViewControllerAnimated:YES];
+        } else {
+            REFrostedViewController *view = [navigationController.viewControllers objectAtIndex:1];
+            productViewController = [[ (UINavigationController *)view.contentViewController viewControllers] firstObject];
+            [productViewController updateSegmentWithIndex:indexPath.row + 1];
+            [view hideMenuViewController];
+        }
     }
 }
 

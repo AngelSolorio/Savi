@@ -4,6 +4,7 @@
 #import "WebService.h"
 #import "SaviDataModel.h"
 #import "TypeDefs.h"
+#import "Submission.h"
 
 @interface Product ()
 
@@ -40,6 +41,7 @@
     }
     self.company = [self fetchCompany:attributes];
     self.detail = [self fetchProductDetails:attributes];
+    self.submission = [self fetchProductSubmission:attributes];
 
 //    if ([self.stage isEqualToString:@"REVISION"]) {
 //        [[WebService sharedClient] getRevisionDataForProduct:[self.id_product integerValue]
@@ -51,6 +53,32 @@
 //    } else if ([self.stage isEqualToString:@"SOMETIMIENTO"]) {
 //        //[[WebService sharedClient] getSubmissionDataForProduct:[self.id_product integerValue]];
 //    }
+}
+
+// Custom logic goes here.
+- (Submission *)fetchProductSubmission:(NSDictionary *)attributes {
+    NSManagedObjectContext *context = [[SaviDataModel sharedDataModel] mainContext];
+    Submission *submission = [Submission submissionWithId:(int)self.id_product];
+    if (submission == nil) {
+        submission = [Submission insertInManagedObjectContext:context];
+    }
+    
+    if (![[attributes objectForKey:@"cofepris"] isKindOfClass:[NSNull class]]) {
+        submission.cofepris = [attributes objectForKey:@"cofepris"];
+    }
+    if (![[attributes objectForKey:@"duracion"] isKindOfClass:[NSNull class]]) {
+        submission.duration = [attributes objectForKey:@"duracion"];
+    }
+    
+    if (![[attributes objectForKey:@"prevencion"] isKindOfClass:[NSNull class]]) {
+        submission.prevention_date = [Utility getDateFromString:[attributes objectForKey:@"prevencion"] withFormat:TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR];
+    }
+    
+    if (![[attributes objectForKey:@"registro"] isKindOfClass:[NSNull class]]) {
+        submission.registration = [attributes objectForKey:@"registro"];
+    }
+    
+    return submission;
 }
 
 - (Company *)fetchCompany:(NSDictionary *)attributes {
@@ -72,7 +100,7 @@
     }
     productDetail.acond_pri = ([[attributes objectForKey:@"acond_pri"] isKindOfClass:[NSNull class]]) ? nil : [attributes objectForKey:@"acond_pri"];
     productDetail.acond_sec = ([[attributes objectForKey:@"acond_sec"] isKindOfClass:[NSNull class]]) ? nil : [attributes objectForKey:@"acond_sec"];
-    productDetail.comment = ([[attributes objectForKey:@"comment"] isKindOfClass:[NSNull class]]) ? nil : [attributes objectForKey:@"comment"];
+    productDetail.comment = ([[attributes objectForKey:@"comentario"] isKindOfClass:[NSNull class]]) ? nil : [attributes objectForKey:@"comentario"];
     productDetail.fab_farmaco1 = ([[attributes objectForKey:@"farmaco1"] isKindOfClass:[NSNull class]]) ? nil : [attributes objectForKey:@"farmaco1"];
     productDetail.fab_farmaco2 = ([[attributes objectForKey:@"farmaco2"] isKindOfClass:[NSNull class]]) ? nil : [attributes objectForKey:@"farmaco2"];
     productDetail.fab_medic = ([[attributes objectForKey:@"medicamento"] isKindOfClass:[NSNull class]]) ? nil : [attributes objectForKey:@"medicamento"];
@@ -85,6 +113,7 @@
     productDetail.status = ([[attributes objectForKey:@"ult_status"] isKindOfClass:[NSNull class]]) ? nil : [attributes objectForKey:@"ult_status"];
     productDetail.keys = [self fetchKeys:[attributes objectForKey:@"dclave"]];
 
+    NSLog(@"producto descripcion %@", [productDetail description]);
     return productDetail;
 }
 

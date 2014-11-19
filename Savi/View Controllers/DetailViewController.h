@@ -16,7 +16,7 @@
 }
 
 @property (nonatomic, strong) ProductDetail *productDetails;
-@property (weak, nonatomic) IBOutlet UILabel *labelComment;
+@property (weak, nonatomic) IBOutlet UITextView *labelComment;
 @property (weak, nonatomic) IBOutlet UILabel *labelStatus;
 @property (weak, nonatomic) IBOutlet UILabel *labelStatusUpdate;
 @property (weak, nonatomic) IBOutlet UILabel *labelMedical;

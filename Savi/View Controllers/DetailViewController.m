@@ -11,6 +11,7 @@
 #import "Utility.h"
 #import "TypeDefs.h"
 #import "ProductViewController.h"
+#import "REFrostedViewController.h"
 
 @implementation DetailViewController
 
@@ -30,6 +31,8 @@
     }
     
     self.labelComment.text = self.productDetails.comment;
+    
+    NSLog(@"descrippcion %@", [self.productDetails  description]);
     self.labelStatus.text = self.productDetails.status;
     self.labelStatusUpdate.text = [Utility getStringFromDate:self.productDetails.last_modified_date  withFormat:TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR];
     self.labelMedical.text = self.productDetails.medica;
@@ -108,11 +111,18 @@
     if ([view isKindOfClass:[DetailViewController class]]) {
         UINavigationController *nav = self.parentViewController.parentViewController.navigationController;
         [nav setNavigationBarHidden:FALSE];
-        ProductViewController *viewController = [nav.viewControllers objectAtIndex:1];
-        [viewController setIndex:1];
-        [nav popViewControllerAnimated:YES];
+        REFrostedViewController *menu = [nav.viewControllers objectAtIndex:1];
+        UINavigationController *global = menu.navigationController;
+        UIViewController *productVC = [[global viewControllers] objectAtIndex:0];
+        [((ProductViewController *)productVC) updateSegmentWithIndex:1];
+        [self.navigationController setNavigationBarHidden:FALSE];
+        [global popViewControllerAnimated:YES];
     } else {
-        [self.navigationController popViewControllerAnimated:YES];
+        UINavigationController *navigationController = self.parentViewController.parentViewController.navigationController;
+        REFrostedViewController *menu = [[navigationController viewControllers] objectAtIndex:1];
+        UINavigationController *nav = (UINavigationController *)menu.contentViewController;
+        [nav popToRootViewControllerAnimated:YES];
+        
     }
 }
 

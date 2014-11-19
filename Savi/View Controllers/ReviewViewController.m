@@ -51,11 +51,11 @@
 #pragma mark - UISwipeGestureRecognizer Methods
 
 - (IBAction)handleSwipeGesture:(UISwipeGestureRecognizer *)sender {
-    UINavigationController *nav = self.parentViewController.parentViewController.navigationController;
-    [nav setNavigationBarHidden:FALSE];
-    ProductViewController *viewController = [nav.viewControllers objectAtIndex:1];
-    [viewController setIndex:2];
-    [nav popViewControllerAnimated:YES];
+    UINavigationController *navigationController = self.parentViewController.parentViewController.navigationController;
+    ProductViewController *productVC = [[navigationController viewControllers] objectAtIndex:0];
+    [productVC updateSegmentWithIndex:2];
+    [productVC.navigationController setNavigationBarHidden:FALSE];
+    [navigationController popViewControllerAnimated:YES];
 }
 
 @end

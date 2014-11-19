@@ -21,12 +21,12 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    
     // Loads the company options
     companyData = [[NSArray alloc] initWithArray:[Company getAllCompanies]];
     
     // Loads the all products
     productData = [[NSArray alloc] initWithArray:[Product getAllProducts]];
+    filterProductData = [[NSArray alloc] init];
     
     // Sets the TableViewFooter
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 1.0, 1.0, 1.0)];
@@ -43,15 +43,28 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    // Change the default text of Cancel Button which appears in the UISearchBar
+    id barButtonAppearanceInSearchBar = [UIBarButtonItem appearanceWhenContainedIn:[UISearchBar class], nil];
+    [barButtonAppearanceInSearchBar setTitle:@"Cancelar"];
+    
     segmentFilters.selectedSegmentIndex = self.index;
-    [self valueChangedSegment:nil];
 }
 
+- (void)updateSegmentWithIndex:(int)index {
+    [self clearSearchBar];
+    
+    segmentFilters.selectedSegmentIndex = index;
+    [tableCompanies reloadData];
+    filterProductData = [[NSArray alloc] init];
+    [tableProducts reloadData];
+}
 
 #pragma mark - UITableViewDatasource & UITableViewDelegate Methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([tableView isEqual:tableCompanies]) {
+        // clear product search
+        [self clearSearchBar];
         [self valueChangedSegment:nil];
     } else {
         Product *product;
@@ -61,10 +74,10 @@
         } else {
             product = [filterProductData objectAtIndex:indexPath.row];
         }
-
+        
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UINavigationController *navigationController;
-
+        
         if ([product.stage isEqualToString:@"REVISION"]) {
             ReviewViewController *reviewVC = (ReviewViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"reviewView"];
             reviewVC.title = product.name;
@@ -83,7 +96,7 @@
             detailVC.productDetails = product.detail;
             navigationController = [[UINavigationController alloc] initWithRootViewController:detailVC];
         }
-
+        
         REFrostedViewController *root = [[REFrostedViewController alloc]
                                          initWithContentViewController:navigationController
                                          menuViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"menuController"]];
@@ -174,6 +187,13 @@
         copyCompanyData = [[NSMutableArray alloc] init];
         
         if ([searchText length] > 0) {
+            if ([searchText length] == 1) {
+                [self clearSearchBar];
+                filterProductData = [[NSArray alloc] init];
+                copyProductData = [[NSMutableArray alloc] init];
+                [tableProducts reloadData];
+            }
+            
             searchingCompany = YES;
             [self searchString:theSearchBar];
             [tableCompanies setHidden:NO];
@@ -204,6 +224,9 @@
     
     if ([aSearchBar isEqual:self.searchBarCompany]) {
         searchingCompany = NO;
+        [self clearSearchBar];
+        filterProductData = [[NSArray alloc] init];
+        [tableProducts reloadData];
         [tableCompanies reloadData];
     } else {
         searchingProduct = NO;
@@ -250,50 +273,72 @@
     searchArray = nil;
 }
 
+
+#pragma mark - filtering methods
+
 - (IBAction)valueChangedSegment:(id)sender {
     NSIndexPath *selectedIndexPath = [tableCompanies indexPathForSelectedRow];
     
-    int companyId;
-    if (searchingCompany) {
-        companyId = [[[copyCompanyData objectAtIndex:selectedIndexPath.row] id_company] intValue];
-    } else {
-        companyId = [[[companyData objectAtIndex:selectedIndexPath.row] id_company] intValue];
-    }
-    
-    NSString *currentStage;
-    switch (segmentFilters.selectedSegmentIndex) {
-        case 1:// Desarrollo
-            currentStage = @"DESARROLLO";
-            break;
-        case 2:// Revision
-            currentStage = @"REVISION";
-            break;
-        case 3:// Sometimiento
-            currentStage = @"SOMETIMIENTO";
-            break;
-        default:
-            break;
-    }
-
-    if (currentStage) {
+    if (selectedIndexPath != nil) {
+        int companyId = 0;
+        if (searchingCompany) {
+            companyId = [[[copyCompanyData objectAtIndex:selectedIndexPath.row] id_company] intValue];
+        } else {
+            companyId = [[[companyData objectAtIndex:selectedIndexPath.row] id_company] intValue];
+        }
+        
+        NSString *currentStage;
+        switch (segmentFilters.selectedSegmentIndex) {
+            case 1:// Desarrollo
+                currentStage = @"DESARROLLO";
+                break;
+            case 2:// Revision
+                currentStage = @"REVISION";
+                break;
+            case 3:// Sometimiento
+                currentStage = @"SOMETIMIENTO";
+                break;
+            default:
+                break;
+        }
+        
         NSPredicate *predicate;
-        if (selectedIndexPath != nil) {
+        if (currentStage) {
             predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"stage == '%@' AND company.id_company = %d", currentStage, companyId]];
         } else {
-            predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"stage == '%@'", currentStage]];
+            predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"company.id_company = %d", companyId]];
         }
-
-        filterProductData = [[NSArray alloc] initWithArray:[productData filteredArrayUsingPredicate:predicate]];
-    } else {
-        if (selectedIndexPath != nil) {
-            NSPredicate *predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"company.id_company = %d", companyId]];
-            filterProductData = [[NSArray alloc] initWithArray:[productData filteredArrayUsingPredicate:predicate]];
+        
+        if (searchingProduct) {
+            copyProductData = [[NSMutableArray alloc] initWithArray:[filterProductData filteredArrayUsingPredicate:predicate]];
         } else {
-            filterProductData = productData;
+            filterProductData = [[NSArray alloc] initWithArray:[productData filteredArrayUsingPredicate:predicate]];
         }
+        
+        [tableProducts reloadData];
     }
+}
+
+- (void)clearSearchBar {
+    if (searchingProduct) {
+        searchingProduct = NO;
+        self.searchBarProduct.text = @"";
+        self.searchBarProduct.showsCancelButton = NO;
+    }
+}
+
+
+#pragma mark - other methods
+
+- (IBAction)showMenu {
+    // Dismiss keyboard (optional)
+    //
+    [self.view endEditing:YES];
+    [self.frostedViewController.view endEditing:YES];
     
-    [tableProducts reloadData];
+    // Present the view controller
+    //
+    [self.frostedViewController presentMenuViewController];
 }
 
 @end

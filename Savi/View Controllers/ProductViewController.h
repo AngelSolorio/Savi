@@ -26,5 +26,7 @@
 @property (nonatomic, assign) NSInteger index;
 
 - (IBAction)valueChangedSegment:(id)sender;
+- (IBAction)showMenu;
+- (void)updateSegmentWithIndex:(int)index;
 
 @end
