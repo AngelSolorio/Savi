@@ -5,6 +5,7 @@
 #import "SaviDataModel.h"
 #import "TypeDefs.h"
 #import "Submission.h"
+#import "Review.h"
 
 @interface Product ()
 
@@ -42,6 +43,7 @@
     self.company = [self fetchCompany:attributes];
     self.detail = [self fetchProductDetails:attributes];
     self.submission = [self fetchProductSubmission:attributes];
+    self.review = [self fetchProductReview:attributes];
 
 //    if ([self.stage isEqualToString:@"REVISION"]) {
 //        [[WebService sharedClient] getRevisionDataForProduct:[self.id_product integerValue]
@@ -55,6 +57,40 @@
 //    }
 }
 
+- (Review *)fetchProductReview:(NSDictionary *)attributes {
+    NSManagedObjectContext *context = [[SaviDataModel sharedDataModel] mainContext];
+    Review *review = [Review reviewForProductId:(int)self.id_product];
+    if (review == nil) {
+        review = [Review insertInManagedObjectContext:context];
+    }
+    
+    review.product = self;
+    
+    if (![[attributes objectForKey:@"cofepris"] isKindOfClass:[NSNull class]]) {
+        review.cofepris = [attributes objectForKey:@"cofepris"];
+    }
+    if (![[attributes objectForKey:@"duracion"] isKindOfClass:[NSNull class]]) {
+        review.duration = [attributes objectForKey:@"duracion"];
+    }
+    if (![[attributes objectForKey:@"some_tercero"] isKindOfClass:[NSNull class]]) {
+        review.date_third = [Utility getDateFromString:[attributes objectForKey:@"some_tercero"] withFormat:TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR];
+    }
+    if (![[attributes objectForKey:@"informe"] isKindOfClass:[NSNull class]]) {
+        review.report = [attributes objectForKey:@"informe"];
+    }
+    if (![[attributes objectForKey:@"retro_ini"] isKindOfClass:[NSNull class]]) {
+        review.retro_first = [Utility getDateFromString:[attributes objectForKey:@"retro_ini"] withFormat:TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR];
+    }
+    if (![[attributes objectForKey:@"retro_fin"] isKindOfClass:[NSNull class]]) {
+        review.retro_last = [Utility getDateFromString:[attributes objectForKey:@"retro_fin"] withFormat:TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR];
+    }
+    if (![[attributes objectForKey:@"tercero"] isKindOfClass:[NSNull class]]) {
+        review.third = [attributes objectForKey:@"tercero"];
+    }
+    
+    return review;
+}
+
 // Custom logic goes here.
 - (Submission *)fetchProductSubmission:(NSDictionary *)attributes {
     NSManagedObjectContext *context = [[SaviDataModel sharedDataModel] mainContext];
@@ -62,6 +98,8 @@
     if (submission == nil) {
         submission = [Submission insertInManagedObjectContext:context];
     }
+    
+    submission.product = self;
     
     if (![[attributes objectForKey:@"cofepris"] isKindOfClass:[NSNull class]]) {
         submission.cofepris = [attributes objectForKey:@"cofepris"];
@@ -128,7 +166,7 @@
         }
         key.detail = ([[keyDic objectForKey:@"descripcion"] isKindOfClass:[NSNull class]]) ? nil : [keyDic objectForKey:@"descripcion"];
         key.laboratory = ([[keyDic objectForKey:@"laboratorios"] isKindOfClass:[NSNull class]]) ? nil : [keyDic objectForKey:@"laboratorios"];
-        //key.unity = [keyDic objectForKey:@"unidades"];
+        key.unity = ([[keyDic objectForKey:@"unidades"]isKindOfClass:[NSNull class]]) ? 0 : [NSNumber numberWithInt:[[keyDic objectForKey:@"unidades"] intValue]];
         key.value = ([[keyDic objectForKey:@"valores"] isKindOfClass:[NSNull class]]) ? nil : [keyDic objectForKey:@"valores"];
 
         [keysSet addObject:key];
@@ -140,7 +178,7 @@
 + (void)getAllProducts_completion:(void (^)(NSArray *productsArray, NSError *error))completion {
     [[WebService sharedClient] fetchAllProducts_completion:^(NSDictionary *results, NSError *error) {
         NSArray *products;
-        if (!error && [[results objectForKey:@"products"] count] > 0) {
+        if (!error) {
                 products = [results objectForKey:@"products"];
         } else {
             products = [self getAllProducts];
@@ -229,6 +267,10 @@
     }
     
     return results;
+}
+
+- (ProductID*)objectID {
+    return (ProductID*)[super objectID];
 }
 
 @end

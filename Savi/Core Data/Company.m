@@ -15,7 +15,7 @@
 + (void)getAllCompanies_completion:(void (^)(NSArray *companiesArray, NSError *error))completion {
     [[WebService sharedClient] getAllCompanies_completion:^(NSDictionary *results, NSError *error) {
         NSArray *companies;
-        if (!error &&  [[results objectForKey:@"companies"] count] > 0) {
+        if (!error) {
             companies = [results objectForKey:@"companies"];
         } else {
             companies = [self getAllCompanies];
@@ -74,5 +74,8 @@
     self.name = [attributes objectForKey:@"empresa"];
 }
 
+- (CompanyID*)objectID {
+    return (CompanyID*)[super objectID];
+}
 
 @end

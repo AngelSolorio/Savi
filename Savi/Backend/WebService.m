@@ -230,20 +230,31 @@
     NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
 
     // Gets all the companies
-    if (![[response objectForKey:@"empresas"] isKindOfClass:[NSNull class]]) {
+    if ([[response objectForKey:@"success"] boolValue] == true) {
         NSManagedObjectContext *context = [[SaviDataModel sharedDataModel] mainContext];
         NSMutableArray *companiesArray = [[NSMutableArray alloc] init];
         
-        for (NSDictionary *item in [response objectForKey:@"empresas"]) {
-            NSInteger companyId = [[item objectForKey:@"id_empresa"] intValue];
-            Company *company = [Company companyWithId:companyId];
-            
-            if (company == nil) {
-                company = [Company insertInManagedObjectContext:context];
+        NSArray *totalCompanies = [[NSArray alloc] init];
+        totalCompanies = (![[response objectForKey:@"empresas"] isKindOfClass:[NSNull class]]) ? [response objectForKey:@"empresas"] : nil;
+        
+        if ([totalCompanies count] > 0) {
+            for (NSDictionary *item in [response objectForKey:@"empresas"]) {
+                NSInteger companyId = [[item objectForKey:@"id_empresa"] intValue];
+                Company *company = [Company companyWithId:companyId];
+                
+                if (company == nil) {
+                    company = [Company insertInManagedObjectContext:context];
+                }
+                
+                [company updateAttributes:item];
+                [companiesArray addObject:company];
+            }
+        } else {
+            NSArray *companies = [Company getAllCompanies];
+            for (Company * company in companies) {
+                [context deleteObject:[context objectWithID:company.objectID]];
             }
             
-            [company updateAttributes:item];
-            [companiesArray addObject:company];
         }
         
         NSError *errorFecth = nil;
@@ -269,22 +280,32 @@
     NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
 
     // Gets all the companies
-    if (![[response objectForKey:@"productos"] isKindOfClass:[NSNull class]]) {
+    if ([[response objectForKey:@"success"] boolValue] == true) {
         NSManagedObjectContext *context = [[SaviDataModel sharedDataModel] mainContext];
         NSMutableArray *productsArray = [[NSMutableArray alloc] init];
-
-        for (NSDictionary *productDic in [response objectForKey:@"productos"]) {
-            NSInteger productId = [[productDic objectForKey:@"id_producto"] intValue];
-            Product *product = [Product productWithId:productId];
-
-            if (product == nil) {
-                product = [Product insertInManagedObjectContext:context];
-                product.id_product = [NSNumber numberWithInteger:productId];
-            }
-
-            [product updateAttributes:productDic];
-            [productsArray addObject:product];
-        }
+        
+        NSArray *totalProducts = [[NSArray alloc] init];
+        totalProducts = (![[response objectForKey:@"productos"] isKindOfClass:[NSNull class]]) ? [response objectForKey:@"productos"] : nil;
+        
+         if ([totalProducts count] > 0) {
+             for (NSDictionary *productDic in [response objectForKey:@"productos"]) {
+                 NSInteger productId = [[productDic objectForKey:@"id_producto"] intValue];
+                 Product *product = [Product productWithId:productId];
+                 
+                 if (product == nil) {
+                     product = [Product insertInManagedObjectContext:context];
+                     product.id_product = [NSNumber numberWithInteger:productId];
+                 }
+                 
+                 [product updateAttributes:productDic];
+                 [productsArray addObject:product];
+             }
+         } else {
+             NSArray *products = [Product getAllProducts];
+             for (Product * product in products) {
+                 [context deleteObject:[context objectWithID:product.objectID]];
+             }
+         }
 
         NSError *errorFecth = nil;
         if ([context save:&errorFecth]) {
