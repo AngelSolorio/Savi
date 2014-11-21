@@ -53,6 +53,7 @@
         } else {
             [self checkingSyncStatus:FAIL];
         }
+        [self checkingSyncStatus:SUCCESS];
     }];
 }
 

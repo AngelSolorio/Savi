@@ -4,15 +4,15 @@
 #import <CoreData/CoreData.h>
 
 extern const struct KeyDetailAttributes {
-	__unsafe_unretained NSString *clave;
-	__unsafe_unretained NSString *detail;
-	__unsafe_unretained NSString *laboratory;
-	__unsafe_unretained NSString *unity;
-	__unsafe_unretained NSString *value;
+	 __unsafe_unretained NSString *clave;
+	 __unsafe_unretained NSString *detail;
+	 __unsafe_unretained NSString *laboratory;
+	 __unsafe_unretained NSString *unity;
+	 __unsafe_unretained NSString *value;
 } KeyDetailAttributes;
 
 extern const struct KeyDetailRelationships {
-	__unsafe_unretained NSString *productDetail;
+	 __unsafe_unretained NSString *productDetail;
 } KeyDetailRelationships;
 
 @class ProductDetail;
@@ -26,7 +26,7 @@ extern const struct KeyDetailRelationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) KeyDetailID* objectID;
 
-@property (nonatomic, strong) NSNumber* clave;
+@property (nonatomic, retain) NSNumber* clave;
 
 @property (atomic) int16_t claveValue;
 - (int16_t)claveValue;
@@ -34,27 +34,23 @@ extern const struct KeyDetailRelationships {
 
 //- (BOOL)validateClave:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* detail;
+@property (nonatomic, retain) NSString* detail;
 
 //- (BOOL)validateDetail:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* laboratory;
+@property (nonatomic, retain) NSString* laboratory;
 
 //- (BOOL)validateLaboratory:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSNumber* unity;
-
-@property (atomic) int16_t unityValue;
-- (int16_t)unityValue;
-- (void)setUnityValue:(int16_t)value_;
+@property (nonatomic, retain) NSString* unity;
 
 //- (BOOL)validateUnity:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* value;
+@property (nonatomic, retain) NSString* value;
 
 //- (BOOL)validateValue:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) ProductDetail *productDetail;
+@property (nonatomic, retain) ProductDetail *productDetail;
 
 //- (BOOL)validateProductDetail:(id*)value_ error:(NSError**)error_;
 
@@ -74,11 +70,8 @@ extern const struct KeyDetailRelationships {
 - (NSString*)primitiveLaboratory;
 - (void)setPrimitiveLaboratory:(NSString*)value;
 
-- (NSNumber*)primitiveUnity;
-- (void)setPrimitiveUnity:(NSNumber*)value;
-
-- (int16_t)primitiveUnityValue;
-- (void)setPrimitiveUnityValue:(int16_t)value_;
+- (NSString*)primitiveUnity;
+- (void)setPrimitiveUnity:(NSString*)value;
 
 - (NSString*)primitiveValue;
 - (void)setPrimitiveValue:(NSString*)value;

@@ -4,12 +4,12 @@
 #import <CoreData/CoreData.h>
 
 extern const struct CompanyAttributes {
-	__unsafe_unretained NSString *id_company;
-	__unsafe_unretained NSString *name;
+	 __unsafe_unretained NSString *id_company;
+	 __unsafe_unretained NSString *name;
 } CompanyAttributes;
 
 extern const struct CompanyRelationships {
-	__unsafe_unretained NSString *products;
+	 __unsafe_unretained NSString *products;
 } CompanyRelationships;
 
 @class Product;
@@ -23,7 +23,7 @@ extern const struct CompanyRelationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) CompanyID* objectID;
 
-@property (nonatomic, strong) NSNumber* id_company;
+@property (nonatomic, retain) NSNumber* id_company;
 
 @property (atomic) int16_t id_companyValue;
 - (int16_t)id_companyValue;
@@ -31,11 +31,11 @@ extern const struct CompanyRelationships {
 
 //- (BOOL)validateId_company:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* name;
+@property (nonatomic, retain) NSString* name;
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSSet *products;
+@property (nonatomic, retain) NSSet *products;
 
 - (NSMutableSet*)productsSet;
 

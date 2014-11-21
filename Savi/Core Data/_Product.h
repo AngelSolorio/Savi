@@ -4,17 +4,17 @@
 #import <CoreData/CoreData.h>
 
 extern const struct ProductAttributes {
-	__unsafe_unretained NSString *id_product;
-	__unsafe_unretained NSString *manufacture_date;
-	__unsafe_unretained NSString *name;
-	__unsafe_unretained NSString *stage;
+	 __unsafe_unretained NSString *id_product;
+	 __unsafe_unretained NSString *manufacture_date;
+	 __unsafe_unretained NSString *name;
+	 __unsafe_unretained NSString *stage;
 } ProductAttributes;
 
 extern const struct ProductRelationships {
-	__unsafe_unretained NSString *company;
-	__unsafe_unretained NSString *detail;
-	__unsafe_unretained NSString *review;
-	__unsafe_unretained NSString *submission;
+	 __unsafe_unretained NSString *company;
+	 __unsafe_unretained NSString *detail;
+	 __unsafe_unretained NSString *review;
+	 __unsafe_unretained NSString *submission;
 } ProductRelationships;
 
 @class Company;
@@ -31,7 +31,7 @@ extern const struct ProductRelationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) ProductID* objectID;
 
-@property (nonatomic, strong) NSNumber* id_product;
+@property (nonatomic, retain) NSNumber* id_product;
 
 @property (atomic) int16_t id_productValue;
 - (int16_t)id_productValue;
@@ -39,31 +39,31 @@ extern const struct ProductRelationships {
 
 //- (BOOL)validateId_product:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSDate* manufacture_date;
+@property (nonatomic, retain) NSString* manufacture_date;
 
 //- (BOOL)validateManufacture_date:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* name;
+@property (nonatomic, retain) NSString* name;
 
 //- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* stage;
+@property (nonatomic, retain) NSString* stage;
 
 //- (BOOL)validateStage:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) Company *company;
+@property (nonatomic, retain) Company *company;
 
 //- (BOOL)validateCompany:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) ProductDetail *detail;
+@property (nonatomic, retain) ProductDetail *detail;
 
 //- (BOOL)validateDetail:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) Review *review;
+@property (nonatomic, retain) Review *review;
 
 //- (BOOL)validateReview:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) Submission *submission;
+@property (nonatomic, retain) Submission *submission;
 
 //- (BOOL)validateSubmission:(id*)value_ error:(NSError**)error_;
 
@@ -77,8 +77,8 @@ extern const struct ProductRelationships {
 - (int16_t)primitiveId_productValue;
 - (void)setPrimitiveId_productValue:(int16_t)value_;
 
-- (NSDate*)primitiveManufacture_date;
-- (void)setPrimitiveManufacture_date:(NSDate*)value;
+- (NSString*)primitiveManufacture_date;
+- (void)setPrimitiveManufacture_date:(NSString*)value;
 
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;

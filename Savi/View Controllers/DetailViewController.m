@@ -34,7 +34,7 @@
     
     NSLog(@"descrippcion %@", [self.productDetails  description]);
     self.labelStatus.text = self.productDetails.status;
-    self.labelStatusUpdate.text = [Utility getStringFromDate:self.productDetails.last_modified_date  withFormat:TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR];
+    self.labelStatusUpdate.text = self.productDetails.last_modified_date;
     self.labelMedical.text = self.productDetails.medica;
     self.labelChemical.text = self.productDetails.quimica;
     self.labelLegal.text = self.productDetails.juridica;

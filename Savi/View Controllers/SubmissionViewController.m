@@ -22,7 +22,7 @@
     
     Submission *submission = self.product.submission;
     self.labelSubmissionDate.text = submission.cofepris;
-    self.labelPreventionDate.text = [Utility getStringFromDate:submission.prevention_date withFormat:TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR];
+    self.labelPreventionDate.text = submission.prevention_date;
     self.labelRegistrationDate.text = submission.registration;
     self.labelDuration.text = submission.duration;
 }

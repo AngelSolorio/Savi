@@ -6,6 +6,4 @@
 
 + (Review *)reviewForProductId:(NSInteger)productId;
 
-- (void)updateAttributes:(NSDictionary *)attributes forProduct:(Product *)product;
-
 @end

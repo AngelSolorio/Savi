@@ -22,9 +22,9 @@
     
     Review *review = self.product.review;
     self.labelThird.text = review.third;
-    self.labelSubmissionDate.text = [Utility getStringFromDate:review.date_third  withFormat:TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR];
-    self.labelStartfeedbackDate.text = [Utility getStringFromDate:review.retro_first  withFormat:TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR];
-    self.labelEndFeedbackDate.text = [Utility getStringFromDate:review.retro_last  withFormat:TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR];
+    self.labelSubmissionDate.text = review.date_third;
+    self.labelStartfeedbackDate.text = review.retro_first;
+    self.labelEndFeedbackDate.text = review.retro_last;
     self.labelDeliveryDate.text = review.report;
     self.labelEstimatedDate.text = review.cofepris;
     self.labelDuration.text = review.duration;

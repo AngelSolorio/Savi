@@ -46,11 +46,6 @@ const struct KeyDetailRelationships KeyDetailRelationships = {
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
-	if ([key isEqualToString:@"unityValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"unity"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-		return keyPaths;
-	}
 
 	return keyPaths;
 }
@@ -80,24 +75,6 @@ const struct KeyDetailRelationships KeyDetailRelationships = {
 @dynamic laboratory;
 
 @dynamic unity;
-
-- (int16_t)unityValue {
-	NSNumber *result = [self unity];
-	return [result shortValue];
-}
-
-- (void)setUnityValue:(int16_t)value_ {
-	[self setUnity:[NSNumber numberWithShort:value_]];
-}
-
-- (int16_t)primitiveUnityValue {
-	NSNumber *result = [self primitiveUnity];
-	return [result shortValue];
-}
-
-- (void)setPrimitiveUnityValue:(int16_t)value_ {
-	[self setPrimitiveUnity:[NSNumber numberWithShort:value_]];
-}
 
 @dynamic value;
 

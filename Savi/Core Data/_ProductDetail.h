@@ -4,22 +4,22 @@
 #import <CoreData/CoreData.h>
 
 extern const struct ProductDetailAttributes {
-	__unsafe_unretained NSString *acond_pri;
-	__unsafe_unretained NSString *acond_sec;
-	__unsafe_unretained NSString *comment;
-	__unsafe_unretained NSString *fab_farmaco1;
-	__unsafe_unretained NSString *fab_farmaco2;
-	__unsafe_unretained NSString *fab_medic;
-	__unsafe_unretained NSString *juridica;
-	__unsafe_unretained NSString *last_modified_date;
-	__unsafe_unretained NSString *medica;
-	__unsafe_unretained NSString *quimica;
-	__unsafe_unretained NSString *status;
+	 __unsafe_unretained NSString *acond_pri;
+	 __unsafe_unretained NSString *acond_sec;
+	 __unsafe_unretained NSString *comment;
+	 __unsafe_unretained NSString *fab_farmaco1;
+	 __unsafe_unretained NSString *fab_farmaco2;
+	 __unsafe_unretained NSString *fab_medic;
+	 __unsafe_unretained NSString *juridica;
+	 __unsafe_unretained NSString *last_modified_date;
+	 __unsafe_unretained NSString *medica;
+	 __unsafe_unretained NSString *quimica;
+	 __unsafe_unretained NSString *status;
 } ProductDetailAttributes;
 
 extern const struct ProductDetailRelationships {
-	__unsafe_unretained NSString *keys;
-	__unsafe_unretained NSString *product;
+	 __unsafe_unretained NSString *keys;
+	 __unsafe_unretained NSString *product;
 } ProductDetailRelationships;
 
 @class KeyDetail;
@@ -34,55 +34,55 @@ extern const struct ProductDetailRelationships {
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 @property (nonatomic, readonly, strong) ProductDetailID* objectID;
 
-@property (nonatomic, strong) NSString* acond_pri;
+@property (nonatomic, retain) NSString* acond_pri;
 
 //- (BOOL)validateAcond_pri:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* acond_sec;
+@property (nonatomic, retain) NSString* acond_sec;
 
 //- (BOOL)validateAcond_sec:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* comment;
+@property (nonatomic, retain) NSString* comment;
 
 //- (BOOL)validateComment:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* fab_farmaco1;
+@property (nonatomic, retain) NSString* fab_farmaco1;
 
 //- (BOOL)validateFab_farmaco1:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* fab_farmaco2;
+@property (nonatomic, retain) NSString* fab_farmaco2;
 
 //- (BOOL)validateFab_farmaco2:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* fab_medic;
+@property (nonatomic, retain) NSString* fab_medic;
 
 //- (BOOL)validateFab_medic:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* juridica;
+@property (nonatomic, retain) NSString* juridica;
 
 //- (BOOL)validateJuridica:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSDate* last_modified_date;
+@property (nonatomic, retain) NSString* last_modified_date;
 
 //- (BOOL)validateLast_modified_date:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* medica;
+@property (nonatomic, retain) NSString* medica;
 
 //- (BOOL)validateMedica:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* quimica;
+@property (nonatomic, retain) NSString* quimica;
 
 //- (BOOL)validateQuimica:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* status;
+@property (nonatomic, retain) NSString* status;
 
 //- (BOOL)validateStatus:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSSet *keys;
+@property (nonatomic, retain) NSSet *keys;
 
 - (NSMutableSet*)keysSet;
 
-@property (nonatomic, strong) Product *product;
+@property (nonatomic, retain) Product *product;
 
 //- (BOOL)validateProduct:(id*)value_ error:(NSError**)error_;
 
@@ -119,8 +119,8 @@ extern const struct ProductDetailRelationships {
 - (NSString*)primitiveJuridica;
 - (void)setPrimitiveJuridica:(NSString*)value;
 
-- (NSDate*)primitiveLast_modified_date;
-- (void)setPrimitiveLast_modified_date:(NSDate*)value;
+- (NSString*)primitiveLast_modified_date;
+- (void)setPrimitiveLast_modified_date:(NSString*)value;
 
 - (NSString*)primitiveMedica;
 - (void)setPrimitiveMedica:(NSString*)value;

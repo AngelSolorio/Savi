@@ -10,14 +10,6 @@
 
 + (void)getAllProducts_completion:(void (^)(NSArray *productsArray, NSError *error))completion;
 
-+ (void)getProductsWithCompanyId:(NSInteger)companyId
-                      completion:(void (^)(NSArray *productsArray, NSError *error))completion;
-
-+ (Product *)getProductCompanyId:(NSInteger)companyId
-                    andProductId:(NSInteger)productId;
-
-+ (NSArray *)getAllProductsWithCompany:(NSInteger)companyId;
-
 + (NSArray *)getAllProducts;
 
 @end

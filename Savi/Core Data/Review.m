@@ -28,21 +28,4 @@
     return (results.count > 0) ? results.firstObject : nil;
 }
 
-- (void)updateAttributes:(NSDictionary *)attributes forProduct:(Product *)product {
-    self.cofepris = [attributes objectForKey:@"cofepris"];
-    self.duration = [attributes objectForKey:@"duracion"];
-    if (![[attributes objectForKey:@"some_tercero"] isKindOfClass:[NSNull class]]) {
-        self.date_third = [Utility getDateFromString:[attributes objectForKey:@"some_tercero"] withFormat:TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR];
-    }
-    self.report = [attributes objectForKey:@"informe"];
-    if (![[attributes objectForKey:@"retro_ini"] isKindOfClass:[NSNull class]]) {
-        self.date_third = [Utility getDateFromString:[attributes objectForKey:@"retro_ini"] withFormat:TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR];
-    }
-    if (![[attributes objectForKey:@"retro_fin"] isKindOfClass:[NSNull class]]) {
-        self.date_third = [Utility getDateFromString:[attributes objectForKey:@"retro_fin"] withFormat:TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR];
-    }
-    self.third = [attributes objectForKey:@"tercero"];
-    self.product = product;
-}
-
 @end

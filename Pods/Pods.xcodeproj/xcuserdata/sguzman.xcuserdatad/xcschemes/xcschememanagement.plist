@@ -8,31 +8,56 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>Pods-MRProgress.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Pods-REFrostedViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>Pods-RNFrostedSidebar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>Pods-TTTAttributedLabel.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>02A98906C1ACCE1A12515F0A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0905CB0AEDAA72EFC54B5F3F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>15C23020727513189864C138</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,12 +72,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>515B37826E96A1CCB392DFFF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8EF26CDCBC1ECEF5E611A00A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A2C9E1BF766A0BF0B85A83FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>AC82468E1CC52D54510AE796</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B2442B5DAE2509C2CCFE3712</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E20E5E77CC191C9ACB5F7BFF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

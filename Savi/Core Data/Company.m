@@ -74,8 +74,4 @@
     self.name = [attributes objectForKey:@"empresa"];
 }
 
-- (CompanyID*)objectID {
-    return (CompanyID*)[super objectID];
-}
-
 @end

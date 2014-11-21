@@ -7,7 +7,7 @@
 
 
 #define TYPEDEFS_FORMATDATE_YEAR_MONTH_DAY @"yyyy-MM-dd"
-#define TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR @"dd-MM-yyyy"
+#define TYPEDEFS_FORMATDATE_DAY_MONTH_YEAR @"dd-LLL-yyyy"
 #define TYPEDEFS_FULLDATEANDTIME @"dd-MM-yyyy HH:mm"
 #define TYPEDEFS_NULLDATE @""
 #define kUserLoggedNotification @"UserLoggedNotification"

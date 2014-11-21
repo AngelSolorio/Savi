@@ -137,7 +137,7 @@
         } else {
             company = [companyData objectAtIndex:indexPath.row];
         }
-        cell.labelName.text = [NSString stringWithFormat:@"%@ .  %@", company.id_company, company.name];
+        cell.labelName.text = [NSString stringWithFormat:@"%@", company.name];
         
         return cell;
     } else {
@@ -151,8 +151,7 @@
         
         if (segmentFilters.selectedSegmentIndex == 1) {
             ProductCell *cell = [tableView dequeueReusableCellWithIdentifier:@"productCell"];
-            NSString *stringDate = [Utility getStringFromDate:product.manufacture_date withFormat:TYPEDEFS_FULLDATEANDTIME];
-            cell.labelDetails.text = [NSString stringWithFormat:@"Fecha estimada de presentación a tercero: %@", stringDate];
+            cell.labelDetails.text = [NSString stringWithFormat:@"Fecha estimada de presentación a tercero: %@", product.manufacture_date];
             cell.labelName.text = product.name;
             return cell;
         } else {
